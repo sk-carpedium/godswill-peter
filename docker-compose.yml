@@ -1,0 +1,16 @@
+services:
+    postgres-db:
+        environment:
+            - POSTGRES_PASSWORD=nexus_pass
+            - POSTGRES_USER=nexus
+            - POSTGRES_DB=nexus_social
+            #- PGDATA=/home/ubuntu/postgres_data/pgdata  # Modified path
+        image: postgis/postgis
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+        ports:
+            - '3002:5432'
+        restart: unless-stopped
+
+volumes:
+    postgres_data:
