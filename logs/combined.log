@@ -26,3 +26,23 @@
 {"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T17:55:00.059Z"}
 {"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T17:56:00.047Z"}
 {"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T17:57:00.057Z"}
+{"level":"info","message":"✅ PostgreSQL connected","timestamp":"2026-04-14T18:08:18.698Z"}
+{"level":"info","message":"Crons active: publisher (1 min), reports (1 hr)","timestamp":"2026-04-14T18:08:19.052Z"}
+{"level":"info","message":"🚀 Nexus Social API v2.0.0","timestamp":"2026-04-14T18:08:19.069Z"}
+{"level":"info","message":"   Listening on  http://localhost:4000","timestamp":"2026-04-14T18:08:19.070Z"}
+{"level":"info","message":"   API base URL  http://localhost:4000/v1","timestamp":"2026-04-14T18:08:19.072Z"}
+{"level":"info","message":"   Health check  http://localhost:4000/health","timestamp":"2026-04-14T18:08:19.074Z"}
+{"level":"info","message":"   Environment   development","timestamp":"2026-04-14T18:08:19.076Z"}
+{"level":"info","message":"   Platforms     16 (Instagram, Facebook, Twitter, LinkedIn, TikTok, YouTube, Pinterest, Twitch, Bluesky, Threads, TruthSocial, Rumble, Kick, Spotify, Google Business, Shopify)","timestamp":"2026-04-14T18:08:19.077Z"}
+{"level":"info","message":"Reports: 0 due","timestamp":"2026-04-14T18:08:19.123Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:09:00.087Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:10:00.062Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:11:00.063Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:12:00.060Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:13:00.047Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:14:00.079Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:15:00.049Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:16:00.053Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:17:00.050Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:18:00.046Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:19:00.045Z"}
