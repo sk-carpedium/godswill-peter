@@ -3,40 +3,195 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  // Pre-created DB (e.g. TEMPLATE template0) avoids Alpine/template1 collation bugs on Docker Desktop
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 // ─── ENUMS ────────────────────────────────────────────────────────────────────
 
-enum Role           { admin member viewer client }
-enum PostStatus     { draft scheduled publishing published failed archived pending_approval }
-enum ScheduleType   { once recurring }
-enum Recurrence     { daily weekly biweekly monthly }
-enum AcctStatus     { active inactive disconnected }
-enum AcctHealth     { healthy error disconnected pending }
-enum Sentiment      { positive neutral negative }
-enum MentionStatus  { new reviewed escalated resolved ignored dismissed }
-enum Priority       { low medium high urgent }
-enum TrendType      { hashtag topic event news viral_content }
-enum Momentum       { rising peaked declining }
-enum ReportFreq     { weekly monthly quarterly }
-enum ReportStatus   { draft scheduled sent failed }
-enum IntegType      { mailchimp sendgrid salesforce hubspot zapier slack shopify google_analytics }
-enum SyncStatus     { healthy error pending never_synced }
-enum CampaignStatus { draft active paused completed archived }
-enum TaskStatus     { todo in_progress done blocked }
-enum SubPlan        { free starter growth professional enterprise agency }
-enum SubStatus      { active cancelled past_due trialing }
-enum ApprovalStatus { pending_review approved rejected changes_requested withdrawn }
-enum NotifType      { post_published post_failed mention crisis report_ready
-                      approval_requested approval_approved approval_rejected
-                      new_follower follower_milestone ecommerce_sale system }
+enum Role {
+  admin
+  member
+  viewer
+  client
+}
+
+enum PostStatus {
+  draft
+  scheduled
+  publishing
+  published
+  failed
+  archived
+  pending_approval
+}
+
+enum ScheduleType {
+  once
+  recurring
+}
+
+enum Recurrence {
+  daily
+  weekly
+  biweekly
+  monthly
+}
+
+enum AcctStatus {
+  active
+  inactive
+  disconnected
+}
+
+enum AcctHealth {
+  healthy
+  error
+  disconnected
+  pending
+}
+
+enum Sentiment {
+  positive
+  neutral
+  negative
+}
+
+enum MentionStatus {
+  new
+  reviewed
+  escalated
+  resolved
+  ignored
+  dismissed
+}
+
+enum Priority {
+  low
+  medium
+  high
+  urgent
+}
+
+enum TrendType {
+  hashtag
+  topic
+  event
+  news
+  viral_content
+}
+
+enum Momentum {
+  rising
+  peaked
+  declining
+}
+
+enum ReportFreq {
+  weekly
+  monthly
+  quarterly
+}
+
+enum ReportStatus {
+  draft
+  scheduled
+  sent
+  failed
+}
+
+enum IntegType {
+  mailchimp
+  sendgrid
+  salesforce
+  hubspot
+  zapier
+  slack
+  shopify
+  google_analytics
+}
+
+enum SyncStatus {
+  healthy
+  error
+  pending
+  never_synced
+}
+
+enum CampaignStatus {
+  draft
+  active
+  paused
+  completed
+  archived
+}
+
+enum TaskStatus {
+  todo
+  in_progress
+  done
+  blocked
+}
+
+enum SubPlan {
+  free
+  starter
+  growth
+  professional
+  enterprise
+  agency
+}
+
+enum SubStatus {
+  active
+  cancelled
+  past_due
+  trialing
+}
+
+enum ApprovalStatus {
+  pending_review
+  approved
+  rejected
+  changes_requested
+  withdrawn
+}
+
+enum NotifType {
+  post_published
+  post_failed
+  mention
+  crisis
+  report_ready
+  approval_requested
+  approval_approved
+  approval_rejected
+  new_follower
+  follower_milestone
+  ecommerce_sale
+  system
+}
 
 // ALL 16 platforms — original 8 + 8 new from pages.config.js
 enum Platform {
-  instagram facebook twitter linkedin tiktok youtube pinterest twitch
-  bluesky threads truthsocial rumble kick spotify google_business shopify
+  instagram
+  facebook
+  twitter
+  linkedin
+  tiktok
+  youtube
+  pinterest
+  twitch
+  bluesky
+  threads
+  truthsocial
+  rumble
+  kick
+  spotify
+  google_business
+  shopify
 }
 
 // ─── USERS & AUTH ─────────────────────────────────────────────────────────────
@@ -147,7 +302,7 @@ model WorkspaceMember {
   is_active      Boolean     @default(true)
   permissions    Json?       // custom permissions object (RoleManagement.jsx)
   workspace      Workspace   @relation(fields: [workspace_id], references: [id], onDelete: Cascade)
-  user           User        @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  user           User?       @relation(fields: [user_id], references: [id], onDelete: Cascade)
   custom_role    CustomRole? @relation(fields: [custom_role_id], references: [id])
   @@unique([workspace_id, user_id])
   @@unique([workspace_id, user_email])
@@ -722,7 +877,7 @@ model ClientReport {
   // AutomatedReportDelivery.jsx: performance|engagement|growth|comprehensive
   report_type          String?      @default("comprehensive")
   frequency            ReportFreq   @default(monthly)
-  status               ReportStatus @default(active)
+  status               ReportStatus @default(draft)
   date_range           Json?
   client_email         String?
   // AutomatedReportDelivery.jsx: personalized message at top of report
@@ -1078,6 +1233,8 @@ model UserInvitation {
   expires_at    DateTime
   accepted_at   DateTime?
   created_at    DateTime  @default(now())
+
+  workspace     Workspace @relation(fields: [workspace_id], references: [id], onDelete: Cascade)
 
   @@index([email, status])
   @@index([workspace_id, status])

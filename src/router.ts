@@ -17,6 +17,7 @@ import liveNotifRoutes     from './modules/live-notifications/live-notifications
 import { authenticate, requireAdmin } from './middleware/auth';
 import { AuthRequest }    from './types';
 import db                 from './config/database';
+import { logger }         from './config/logger';
 import { ok, created, fail, notFound, paginated, parsePage, encrypt } from './utils';
 import { syncPlatform, PLATFORM_META } from './platform-integrations';
 import { syncQueue, analyticsQueue, publishQueue, reportQueue } from './jobs';
@@ -685,7 +686,8 @@ router.use('/subscriptions', subs);
 
 // ─── ADMIN ───────────────────────────────────────────────────────────────────
 
-// CrisisDetector.jsx: integrations.Core.SendEmail({ to, subject, body })
+const admin = Router();
+// CrisisDetector.jsx: integrations.Core.SendEmail({ to, subject, body }) — auth only, not requireAdmin
 admin.post('/email/send', authenticate, async (req: any, res) => {
   const { to, subject, body, html } = req.body as { to: string; subject: string; body?: string; html?: string };
   if (!to || !subject) { fail(res, 'to and subject required'); return; }
@@ -698,7 +700,6 @@ admin.post('/email/send', authenticate, async (req: any, res) => {
     fail(res, (e as Error).message, 500);
   }
 });
-const admin = Router();
 admin.use(authenticate, requireAdmin);
 admin.get('/health', async (_req, res) => { const [users, workspaces, posts, accounts] = await Promise.all([db.user.count(), db.workspace.count(), db.post.count(), db.socialAccount.count()]); const qStats = await Promise.all([publishQueue.getJobCounts(), syncQueue.getJobCounts(), analyticsQueue.getJobCounts()]); res.json({ success: true, data: { database: { users, workspaces, posts, accounts }, queues: { publish: qStats[0], sync: qStats[1], analytics: qStats[2] }, server: { uptime: Math.round(process.uptime()), memory: process.memoryUsage(), node: process.version, env: process.env.NODE_ENV } } }); });
 admin.post('/run/publisher', async (_req, res) => { const job = await publishQueue.add({ manual: true }); ok(res, { queued: true, job_id: job.id }); });

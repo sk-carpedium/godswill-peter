@@ -1,0 +1,28 @@
+{"level":"info","message":"✅ PostgreSQL connected","timestamp":"2026-04-14T17:40:11.111Z"}
+{"level":"info","message":"Crons active: publisher (1 min), reports (1 hr)","timestamp":"2026-04-14T17:40:11.586Z"}
+{"level":"info","message":"🚀 Nexus Social API v2.0.0","timestamp":"2026-04-14T17:40:11.597Z"}
+{"level":"info","message":"   Listening on  http://localhost:4000","timestamp":"2026-04-14T17:40:11.598Z"}
+{"level":"info","message":"   API base URL  http://localhost:4000/v1","timestamp":"2026-04-14T17:40:11.600Z"}
+{"level":"info","message":"   Health check  http://localhost:4000/health","timestamp":"2026-04-14T17:40:11.603Z"}
+{"level":"info","message":"   Environment   development","timestamp":"2026-04-14T17:40:11.605Z"}
+{"level":"info","message":"   Platforms     16 (Instagram, Facebook, Twitter, LinkedIn, TikTok, YouTube, Pinterest, Twitch, Bluesky, Threads, TruthSocial, Rumble, Kick, Spotify, Google Business, Shopify)","timestamp":"2026-04-14T17:40:11.606Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T17:41:00.255Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T17:42:00.071Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T17:43:00.055Z"}
+{"level":"http","message":"\u001b[0mGET / \u001b[33m404\u001b[0m 5.111 ms - 43\u001b[0m","timestamp":"2026-04-14T17:43:48.993Z"}
+{"level":"http","message":"\u001b[0mGET /favicon.ico \u001b[33m404\u001b[0m 1.487 ms - 43\u001b[0m","timestamp":"2026-04-14T17:43:49.566Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T17:44:00.062Z"}
+{"level":"http","message":"\u001b[0mGET /v1 \u001b[33m404\u001b[0m 7.720 ms - 43\u001b[0m","timestamp":"2026-04-14T17:44:03.516Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T17:45:00.066Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T17:46:00.105Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T17:47:00.098Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T17:48:00.063Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T17:49:00.057Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T17:50:00.069Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T17:51:00.059Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T17:52:00.106Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T17:53:00.057Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T17:54:00.053Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T17:55:00.059Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T17:56:00.047Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T17:57:00.057Z"}

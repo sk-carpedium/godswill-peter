@@ -69,13 +69,17 @@ router.post('/invite', async (req: AuthRequest, res: Response): Promise<void> =>
     update: { role: role as any, status: 'invited' },
   });
 
+  const workspace = await db.workspace.findUnique({
+    where: { id: workspace_id },
+    select: { name: true },
+  });
+  const workspaceName = workspace?.name ?? 'Workspace';
+
   // Send invite email via SMTP
   const { sendEmail, buildInviteEmail } = await import('../../config/email');
-  const inviteUrl = `${process.env.FRONTEND_URL || 'http://localhost:3000'}/accept-invite?token=${invitation.token}`;
+  const inviteUrl = `${env.FRONTEND_URL}/accept-invite?token=${invitation.token}`;
   const inviterName = req.user?.display_name || 'A team member';
-  await sendEmail(buildInviteEmail(workspace.name, inviterName, inviteUrl, email)).catch(e => logger.warn('Invite email failed', { error: e }));
-  // For now log the invite URL for dev purposes
-  const inviteUrl = `${env.FRONTEND_URL}/accept-invite?token=${token}`;
+  await sendEmail(buildInviteEmail(workspaceName, inviterName, inviteUrl, email)).catch(e => logger.warn('Invite email failed', { error: e }));
   logger.info(`Invite generated: ${email} → ${inviteUrl}`);
 
   created(res, {
