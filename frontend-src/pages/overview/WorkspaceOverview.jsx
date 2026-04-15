@@ -10,10 +10,10 @@ import {
   RefreshCw, Globe, Zap, Activity
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import OverviewMetricCard from '@/components/overview/OverviewMetricCard';
-import TrendChart from '@/components/overview/TrendChart';
-import PlatformShareChart from '@/components/overview/PlatformShareChart';
-import PlatformEngagementRow from '@/components/overview/PlatformEngagementRow';
+import OverviewMetricCard from '@/components/OverviewMetricCard';
+import TrendChart from '@/components/TrendChart';
+import PlatformShareChart from '@/components/PlatformShareChart';
+import PlatformEngagementRow from '@/components/PlatformEngagementRow';
 
 const ACCENT = '#d4af37';
 

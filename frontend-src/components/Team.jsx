@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Users, UserPlus, Shield, CheckCircle, Clock, MessageSquare, Settings as SettingsIcon } from 'lucide-react';
-import ApprovalFlow from '@/components/workflow/ApprovalFlow';
+import ApprovalFlow from '@/components/ApprovalFlow';
 import TaskAssignment from '@/components/collaboration/TaskAssignment';
 import TeamNotifications from '@/components/collaboration/TeamNotifications';
 import PermissionsManager from '@/components/collaboration/PermissionsManager';
@@ -112,7 +112,9 @@ export default function Team() {
           </Button>
         </div>
         <ApprovalFlow />
-      </div>);
+      </div>
+    </>
+  );
 
   }
 

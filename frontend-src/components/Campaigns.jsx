@@ -44,7 +44,7 @@ import {
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import CampaignPerformanceDashboard from '@/components/campaigns/CampaignPerformanceDashboard';
+import CampaignPerformanceDashboard from '@/components/CampaignPerformanceDashboard';
 
 const statusConfig = {
   draft: { label: 'Draft', color: 'bg-slate-100 text-slate-700' },

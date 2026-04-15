@@ -19,11 +19,11 @@ import {
   ChevronRight,
   Zap
 } from 'lucide-react';
-import ContentCalendar from '@/components/content/ContentCalendar';
-import PostComposer from '@/components/content/PostComposer';
-import ContentGenerator from '@/components/ai/ContentGenerator';
-import ApprovalFlow from '@/components/workflow/ApprovalFlow';
-import BulkActions from '@/components/content/BulkActions';
+import ContentCalendar from '@/components/ContentCalendar';
+import PostComposer from '@/components/PostComposer';
+import ContentGenerator from '@/components/ContentGenerator';
+import ApprovalFlow from '@/components/ApprovalFlow';
+import BulkActions from '@/components/BulkActions';
 import { Checkbox } from '@/components/ui/checkbox';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';

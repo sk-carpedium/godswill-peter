@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useAppearance } from '@/lib/AppearanceContext';
 import { Link, useNavigate } from 'react-router-dom';
-import { createPageUrl } from './utils';
+import { createPageUrl } from '@/utils';
 import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
 import { cn } from '@/lib/utils';
@@ -34,7 +34,7 @@ import {
   Headphones,
   Crown
 } from 'lucide-react';
-import InteractiveTour from '@/components/onboarding/InteractiveTour';
+import InteractiveTour from '@/components/InteractiveTour';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
@@ -459,7 +459,7 @@ export default function Layout({ children, currentPageName }) {
     );
   }
 
-  const fullWidthPages = ['Onboarding', 'ConnectAccounts'];
+  const fullWidthPages = ['Onboarding', 'ConnectAccounts', 'Landing'];
   if (fullWidthPages.includes(currentPageName)) return <div className="min-h-screen">{children}</div>;
 
   const mobileBottomNav = [

@@ -23,9 +23,9 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { createPageUrl } from '@/utils';
-import ClientDashboardBuilder from '@/components/portal/ClientDashboardBuilder';
-import ClientFeedback from '@/components/portal/ClientFeedback';
-import SecureDocuments from '@/components/portal/SecureDocuments';
+import ClientDashboardBuilder from '@/components/ClientDashboardBuilder';
+import ClientFeedback from '@/components/ClientFeedback';
+import SecureDocuments from '@/components/SecureDocuments';
 import ClientReportGenerator from '@/components/reports/ClientReportGenerator';
 import moment from 'moment';
 import { toast } from 'sonner';
@@ -67,7 +67,7 @@ export default function ClientPortal() {
     }
   };
 
-  const { data: workspace, isLoading} = useQuery({
+  const { data: workspace } = useQuery({
     queryKey: ['workspace'],
     queryFn: async () => {
       const urlParams = new URLSearchParams(window.location.search);
@@ -83,7 +83,7 @@ export default function ClientPortal() {
     }
   });
 
-  const { data: customKPIs = [], isLoading} = useQuery({
+  const { data: customKPIs = [] } = useQuery({
     queryKey: ['custom-kpis', workspace?.id],
     queryFn: async () => {
       return workspace?.settings?.custom_kpis || [];
@@ -91,7 +91,7 @@ export default function ClientPortal() {
     enabled: !!workspace
   });
 
-  const { data: dashboardLayout = [], isLoading} = useQuery({
+  const { data: dashboardLayout = [] } = useQuery({
     queryKey: ['dashboard-layout', workspace?.id],
     queryFn: async () => {
       return workspace?.settings?.custom_dashboard_layout || [];
@@ -99,7 +99,7 @@ export default function ClientPortal() {
     enabled: !!workspace
   });
 
-  const { data: analytics = [], isLoading} = useQuery({
+  const { data: analytics = [] } = useQuery({
     queryKey: ['client-analytics', workspace?.id],
     queryFn: () => base44.entities.Analytics.filter({ workspace_id: workspace.id }),
     enabled: !!workspace

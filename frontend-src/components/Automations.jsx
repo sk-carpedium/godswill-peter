@@ -32,7 +32,7 @@ import {
 import AutomationBuilder from '@/components/automation/AutomationBuilder';
 import ApprovalRulesConfig from '@/components/automation/ApprovalRulesConfig';
 import ProjectManagementIntegrations from '@/components/automation/ProjectManagementIntegrations';
-import AIWorkloadBalancer from '@/components/collaboration/AIWorkloadBalancer';
+import AIWorkloadBalancer from '@/components/ai/AIWorkloadBalancer';
 import { cn } from '@/lib/utils';
 import moment from 'moment';
 import { toast } from 'sonner';

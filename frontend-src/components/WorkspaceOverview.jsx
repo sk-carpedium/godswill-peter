@@ -10,10 +10,10 @@ import {
   RefreshCw, Globe, Zap, Activity
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import OverviewMetricCard from '@/components/overview/OverviewMetricCard';
-import TrendChart from '@/components/overview/TrendChart';
-import PlatformShareChart from '@/components/overview/PlatformShareChart';
-import PlatformEngagementRow from '@/components/overview/PlatformEngagementRow';
+import OverviewMetricCard from '@/components/OverviewMetricCard';
+import TrendChart from '@/components/TrendChart';
+import PlatformShareChart from '@/components/PlatformShareChart';
+import PlatformEngagementRow from '@/components/PlatformEngagementRow';
 
 const ACCENT = '#d4af37';
 
@@ -21,7 +21,7 @@ export default function WorkspaceOverview() {
   const [dateRange, setDateRange] = useState('30d');
 
   // Load workspace
-  const { data: workspace, isLoading} = useQuery({
+  const { data: workspace } = useQuery({
     queryKey: ['workspace'],
     queryFn: async () => {
       const list = await base44.entities.Workspace.filter({ status: 'active' });
@@ -31,13 +31,13 @@ export default function WorkspaceOverview() {
 
   const workspaceId = workspace?.id;
 
-  const { data: socialAccounts = [], isLoading} = useQuery({
+  const { data: socialAccounts = [] } = useQuery({
     queryKey: ['social-accounts-overview', workspaceId],
     queryFn: () => base44.entities.SocialAccount.filter({ workspace_id: workspaceId, status: 'active' }),
     enabled: !!workspaceId
   });
 
-  const { data: analytics = [], refetch, isFetching, isLoading} = useQuery({
+  const { data: analytics = [], refetch, isFetching } = useQuery({
     queryKey: ['analytics-overview', workspaceId, dateRange],
     queryFn: async () => {
       const records = await base44.entities.Analytics.filter({ workspace_id: workspaceId });
@@ -46,7 +46,7 @@ export default function WorkspaceOverview() {
     enabled: !!workspaceId
   });
 
-  const { data: posts = [], isLoading} = useQuery({
+  const { data: posts = [] } = useQuery({
     queryKey: ['posts-overview', workspaceId],
     queryFn: () => base44.entities.Post.filter({ workspace_id: workspaceId }),
     enabled: !!workspaceId

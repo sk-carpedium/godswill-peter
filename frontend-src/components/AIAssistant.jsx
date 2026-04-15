@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Textarea } from '@/components/ui/textarea';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { FeatureTooltip } from '@/components/onboarding/FeatureTooltip';
+import { FeatureTooltip } from '@/components/FeatureTooltip';
 import {
   Sparkles,
   Send,
@@ -35,15 +35,15 @@ import { cn } from '@/lib/utils';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import RevenueOptimizer from '@/components/ai/RevenueOptimizer';
-import ProactiveInsights from '@/components/ai/ProactiveInsights';
-import IntelligentInbox from '@/components/ai/IntelligentInbox';
-import AIWorkloadBalancer from '@/components/collaboration/AIWorkloadBalancer';
-import CrisisDetector from '@/components/ai/CrisisDetector';
-import TrendResponder from '@/components/ai/TrendResponder';
+import RevenueOptimizer from '@/components/RevenueOptimizer';
+import ProactiveInsights from '@/components/ProactiveInsights';
+import IntelligentInbox from '@/components/IntelligentInbox';
+import AIWorkloadBalancer from '@/components/ai/AIWorkloadBalancer';
+import CrisisDetector from '@/components/CrisisDetector';
+import TrendResponder from '@/components/TrendResponder';
 import MessageBubble from '@/components/MessageBubble';
-import StrategicInsights from '@/components/ai/StrategicInsights';
-import CampaignStrategyBuilder from '@/components/ai/CampaignStrategyBuilder';
+import StrategicInsights from '@/components/StrategicInsights';
+import CampaignStrategyBuilder from '@/components/CampaignStrategyBuilder';
 
 const suggestedPrompts = [
 { icon: TrendingUp, text: "What actually drives revenue or leads?", category: "Analytics" },

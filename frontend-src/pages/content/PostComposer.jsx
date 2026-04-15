@@ -45,7 +45,7 @@ import moment from 'moment';
 import ProfitabilityCard from '@/components/monetization/ProfitabilityCard';
 import ComplianceChecker from '@/components/monetization/ComplianceChecker';
 import PlatformFeatures from '@/components/content/PlatformFeatures';
-import MediaLibraryPicker from '@/components/media/MediaLibraryPicker';
+import MediaLibraryPicker from '@/components/MediaLibraryPicker';
 import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
 

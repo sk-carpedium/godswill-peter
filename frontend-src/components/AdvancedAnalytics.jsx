@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import { TrendingUp, TrendingDown, DollarSign, Target, Users, Eye, Download } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import AISuggestions from '@/components/analytics/AISuggestions';
+import AISuggestions from '@/components/AISuggestions';
 import AnomalyDetector from '@/components/ai/AnomalyDetector';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';

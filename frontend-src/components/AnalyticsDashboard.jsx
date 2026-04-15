@@ -24,10 +24,10 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import moment from 'moment';
-import MetricCard from '@/components/analytics/MetricCard';
-import EngagementChart from '@/components/analytics/EngagementChart';
-import PlatformBreakdown from '@/components/analytics/PlatformBreakdown';
-import TopPosts from '@/components/analytics/TopPosts';
+import MetricCard from '@/components/MetricCard';
+import EngagementChart from '@/components/EngagementChart';
+import PlatformBreakdown from '@/components/PlatformBreakdown';
+import TopPosts from '@/components/TopPosts';
 
 const dateRanges = [
 { id: '7d', label: 'Last 7 days' },
@@ -53,7 +53,7 @@ export default function AnalyticsDashboard() {
     }
   };
 
-  const { data: analytics = [], refetch: refetchAnalytics, isLoading} = useQuery({
+  const { data: analytics = [], refetch: refetchAnalytics } = useQuery({
     queryKey: ['analytics', dateRange, workspaceId],
     queryFn: async () => {
       if (!workspaceId) return [];
@@ -63,7 +63,7 @@ export default function AnalyticsDashboard() {
     enabled: !!workspaceId
   });
 
-  const { data: socialAccounts = [], isLoading} = useQuery({
+  const { data: socialAccounts = [] } = useQuery({
     queryKey: ['social-accounts', workspaceId],
     queryFn: async () => {
       if (!workspaceId) return [];
@@ -72,7 +72,7 @@ export default function AnalyticsDashboard() {
     enabled: !!workspaceId
   });
 
-  const { data: posts = [], isLoading} = useQuery({
+  const { data: posts = [] } = useQuery({
     queryKey: ['posts', workspaceId],
     queryFn: async () => {
       if (!workspaceId) return [];

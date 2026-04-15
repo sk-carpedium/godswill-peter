@@ -17,8 +17,8 @@ import {
   Mail,
   Hash
 } from 'lucide-react';
-import ConversationList from '@/components/inbox/ConversationList';
-import ConversationView from '@/components/inbox/ConversationView';
+import ConversationList from '@/components/ConversationList';
+import ConversationView from '@/components/ConversationView';
 import { cn } from '@/lib/utils';
 
 const inboxTabs = [

@@ -23,13 +23,13 @@ import {
 import { cn } from '@/lib/utils';
 import moment from 'moment';
 import { toast } from 'sonner';
-import {
 import { base44 } from '@/api/base44Client';
+import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger } from
-'@/components/ui/dropdown-menu';
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 const PLATFORM_CONFIG = {
   instagram: { color: '#E1306C', label: 'Instagram' },

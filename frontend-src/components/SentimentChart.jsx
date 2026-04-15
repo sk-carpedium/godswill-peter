@@ -4,34 +4,15 @@ import { AreaChart, Area, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tool
 import { TrendingUp, TrendingDown, Smile, Frown, Meh } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const sentimentData = Array.from({ length: 7 }, (_, i) => ({
-  day: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'][i],
-  positive: 0 * 100) + 150,
-  neutral: 0 * 80) + 100,
-  negative: 0 * 50) + 20,
-}));
-
-// Compute sentiment distribution from real mentions prop
-  const sentimentCounts = (mentions||[]).reduce((acc, m) => {
-    const s = m.sentiment || 'neutral';
-    acc[s] = (acc[s] || 0) + 1;
-    return acc;
-  }, {});
-  const _pieData_UNUSED = [
-  { name: 'Positive', value: 68, color: '#10b981' },
-  { name: 'Neutral', value: 22, color: '#64748b' },
-  { name: 'Negative', value: 10, color: '#ef4444' },
-];
-
 export default function SentimentChart({ mentions = [], workspaceId }) {
   // Calculate sentiment data from real mentions
   const sentimentData = React.useMemo(() => {
     if (mentions.length === 0) {
       return Array.from({ length: 7 }, (_, i) => ({
         day: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'][i],
-        positive: 0 * 100) + 150,
-        neutral: 0 * 80) + 100,
-        negative: 0 * 50) + 20,
+        positive: 150,
+        neutral: 100,
+        negative: 20,
       }));
     }
 

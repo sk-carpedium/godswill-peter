@@ -8,8 +8,8 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { PermissionGuard, usePermissions } from '@/components/auth/PermissionGuard';
-import { ROLES, PERMISSIONS, getRoleInfo, getRolePermissions } from '@/components/utils/permissions';
+import { PermissionGuard, usePermissions } from '@/components/PermissionGuard';
+import { ROLES, ROLE_ORDER, PERMISSIONS, PERMISSION_KEYS, getRoleInfo, getRolePermissions } from '@/components/utils/permissions';
 import { Users, Shield, UserPlus, Search, AlertCircle, Check, X } from 'lucide-react';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
@@ -109,7 +109,7 @@ function RoleManagementContent() {
                   </CardTitle>
                   <CardDescription>Manage roles and permissions for your team</CardDescription>
                 </div>
-                {can(PERMISSIONS.INVITE_MEMBERS) && (
+                {can(PERMISSION_KEYS.INVITE_MEMBERS) && (
                   <InviteMemberDialog
                     isOpen={isInviteOpen}
                     setIsOpen={setIsInviteOpen}
@@ -165,7 +165,7 @@ function RoleManagementContent() {
                               </div>
                             </TableCell>
                             <TableCell>
-                              {can(PERMISSIONS.MANAGE_ROLES) && member.role !== 'owner' ? (
+                              {can(PERMISSION_KEYS.MANAGE_ROLES) && member.role !== 'owner' ? (
                                 <Select
                                   value={member.role}
                                   onValueChange={(value) => handleRoleChange(member.id, value)}
@@ -174,7 +174,7 @@ function RoleManagementContent() {
                                     <SelectValue />
                                   </SelectTrigger>
                                   <SelectContent>
-                                    {Object.values(ROLES).filter(r => r !== 'owner').map(role => (
+                                    {ROLE_ORDER.filter(r => r !== 'owner').map(role => (
                                       <SelectItem key={role} value={role}>
                                         {getRoleInfo(role).name}
                                       </SelectItem>
@@ -207,7 +207,7 @@ function RoleManagementContent() {
                                 >
                                   View Permissions
                                 </Button>
-                                {can(PERMISSIONS.REMOVE_MEMBERS) && member.role !== 'owner' && (
+                                {can(PERMISSION_KEYS.REMOVE_MEMBERS) && member.role !== 'owner' && (
                                   <Button
                                     variant="ghost"
                                     size="sm"
@@ -240,7 +240,7 @@ function RoleManagementContent() {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              {Object.values(ROLES).map(role => {
+              {ROLE_ORDER.map(role => {
                 const info = getRoleInfo(role);
                 return (
                   <div key={role} className="p-3 border rounded-lg hover:border-[#d4af37] transition-colors cursor-pointer">
@@ -375,7 +375,7 @@ function InviteMemberDialog({ isOpen, setIsOpen, workspaceId, onSuccess }) {
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                {Object.values(ROLES).filter(r => r !== 'owner').map(r => {
+                {ROLE_ORDER.filter(r => r !== 'owner').map(r => {
                   const info = getRoleInfo(r);
                   return (
                     <SelectItem key={r} value={r}>
@@ -424,7 +424,7 @@ function PermissionDetailsDialog({ isOpen, setIsOpen, member }) {
         </DialogHeader>
         <div className="py-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            {Object.values(PERMISSIONS).map(permission => {
+            {Object.keys(PERMISSIONS).map(permission => {
               const hasAccess = permissions.includes(permission);
               return (
                 <div

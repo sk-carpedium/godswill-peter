@@ -20,10 +20,10 @@ import {
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import CustomKPIBuilder from '@/components/portal/CustomKPIBuilder';
-import BespokeDashboardEditor from '@/components/portal/BespokeDashboardEditor';
-import AutomatedReportDelivery from '@/components/portal/AutomatedReportDelivery';
-import WhiteLabelSettings from '@/components/settings/WhiteLabelSettings';
+import CustomKPIBuilder from '@/components/CustomKPIBuilder';
+import BespokeDashboardEditor from '@/components/BespokeDashboardEditor';
+import AutomatedReportDelivery from '@/components/AutomatedReportDelivery';
+import WhiteLabelSettings from '@/components/WhiteLabelSettings';
 import { toast } from 'sonner';
 import { createPageUrl } from '@/utils';
 

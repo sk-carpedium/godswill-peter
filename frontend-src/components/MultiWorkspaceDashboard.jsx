@@ -32,7 +32,6 @@ export default function MultiWorkspaceDashboard() {
       return await base44.entities.Workspace.filter({ status: 'active' });
     },
     enabled: base44.auth.isAuthenticated(),
-    }
   });
 
   const { data: allSubscriptions = [] } = useQuery({

@@ -62,6 +62,52 @@ const FEATURE_ACCESS = {
   advanced_analytics:  ['manager','admin','owner','agency'],
 };
 
+/** Unique role ids for selects (avoids duplicate values from ROLES aliases) */
+export const ROLE_ORDER = ['client_viewer', 'member', 'manager', 'admin', 'owner', 'agency'];
+
+export const ROLES = {
+  CLIENT_VIEWER: 'client_viewer',
+  MEMBER: 'member',
+  EDITOR: 'member',
+  MANAGER: 'manager',
+  ADMIN: 'admin',
+  OWNER: 'owner',
+  AGENCY: 'agency',
+};
+
+/** Use with hasPermission / usePermissions().can() */
+export const PERMISSION_KEYS = {
+  INVITE_MEMBERS: 'invite_members',
+  MANAGE_ROLES: 'manage_roles',
+  REMOVE_MEMBERS: 'remove_members',
+};
+
+const ROLE_INFO = {
+  client_viewer: { name: 'Client Viewer', icon: '👁', description: 'View-only access to analytics and reports.', color: 'bg-slate-100 text-slate-800' },
+  member: { name: 'Member', icon: '✏️', description: 'Create and schedule posts.', color: 'bg-blue-100 text-blue-800' },
+  manager: { name: 'Manager', icon: '📋', description: 'Manage approvals and team workflows.', color: 'bg-amber-100 text-amber-800' },
+  admin: { name: 'Admin', icon: '⚙️', description: 'Workspace settings and member management.', color: 'bg-purple-100 text-purple-800' },
+  owner: { name: 'Owner', icon: '👑', description: 'Full workspace control including billing.', color: 'bg-yellow-100 text-yellow-900' },
+  agency: { name: 'Agency', icon: '🏢', description: 'Agency-level access.', color: 'bg-indigo-100 text-indigo-800' },
+};
+
+export function getRoleInfo(role) {
+  return ROLE_INFO[role] || {
+    name: role || 'Unknown',
+    icon: '•',
+    description: '',
+    color: 'bg-slate-100 text-slate-800',
+  };
+}
+
+export function getRolePermissions(role) {
+  return getPermissions(role);
+}
+
+export function serializePermissions(role) {
+  return getPermissions(role);
+}
+
 /**
  * Check if a role has a specific permission
  */

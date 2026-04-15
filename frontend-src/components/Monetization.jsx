@@ -20,16 +20,16 @@ import {
   BarChart3
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import StatsCard from '@/components/dashboard/StatsCard';
-import EarningsChart from '@/components/monetization/EarningsChart';
-import ActiveDeals from '@/components/monetization/ActiveDeals';
-import RevenueByPost from '@/components/monetization/RevenueByPost';
-import RevenueInsights from '@/components/monetization/RevenueInsights';
-import MonetizationStats from '@/components/monetization/MonetizationStats';
-import AffiliateDashboard from '@/components/monetization/AffiliateDashboard';
-import ROICalculator from '@/components/monetization/ROICalculator';
-import ExportableEarnings from '@/components/monetization/ExportableEarnings';
-import UnifiedEngagementHub from '@/components/monetization/UnifiedEngagementHub';
+import StatsCard from '@/components/StatsCard';
+import EarningsChart from '@/components/EarningsChart';
+import ActiveDeals from '@/components/ActiveDeals';
+import RevenueByPost from '@/components/RevenueByPost';
+import RevenueInsights from '@/components/RevenueInsights';
+import MonetizationStats from '@/components/MonetizationStats';
+import AffiliateDashboard from '@/components/AffiliateDashboard';
+import ROICalculator from '@/components/ROICalculator';
+import ExportableEarnings from '@/components/ExportableEarnings';
+import UnifiedEngagementHub from '@/components/UnifiedEngagementHub';
 
 export default function Monetization() {
   const [dateRange, setDateRange] = useState('30d');

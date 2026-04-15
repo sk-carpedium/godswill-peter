@@ -21,8 +21,8 @@ import {
 import { cn } from '@/lib/utils';
 import { Link, useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
-import MultiWorkspaceDashboard from '@/components/agency/MultiWorkspaceDashboard';
-import ClientOnboardingWizard from '@/components/agency/ClientOnboardingWizard';
+import MultiWorkspaceDashboard from '@/components/MultiWorkspaceDashboard';
+import ClientOnboardingWizard from '@/components/ClientOnboardingWizard';
 
 export default function AgencyDashboard() {
   const [activeTab, setActiveTab] = useState('overview');

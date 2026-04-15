@@ -19,7 +19,7 @@ import { base44 } from '@/api/base44Client';
 import { toast } from 'sonner';
 import moment from 'moment';
 import ReportBuilder from '@/components/reports/ReportBuilder';
-import ClientAnalyticsDashboard from '@/components/reports/ClientAnalyticsDashboard';
+import ClientAnalyticsDashboard from '@/components/ClientAnalyticsDashboard';
 import {
   DropdownMenu,
   DropdownMenuContent,

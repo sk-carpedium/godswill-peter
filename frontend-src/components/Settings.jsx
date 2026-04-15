@@ -51,12 +51,10 @@ import {
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
 import { useAppearance } from '@/lib/AppearanceContext';
-import SyncStatusCard from '@/components/social/SyncStatusCard';
-import SidebarCustomizer from '@/components/settings/SidebarCustomizer';
-import WhiteLabelSettings from '@/components/settings/WhiteLabelSettings';
+import SyncStatusCard from '@/components/SyncStatusCard';
+import SidebarCustomizer from '@/components/SidebarCustomizer';
+import WhiteLabelSettings from '@/components/WhiteLabelSettings';
 import ClientReportGenerator from '@/components/reports/ClientReportGenerator';
-import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
 import { useWorkspace } from '@/hooks';
 
 

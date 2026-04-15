@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
-import CommentsManager from '@/components/social/CommentsManager';
-import DirectMessages from '@/components/social/DirectMessages';
-import PlatformAnalytics from '@/components/social/PlatformAnalytics';
-import AudienceEngagement from '@/components/social/AudienceEngagement';
+import CommentsManager from '@/components/CommentsManager';
+import DirectMessages from '@/components/DirectMessages';
+import PlatformAnalytics from '@/components/PlatformAnalytics';
+import AudienceEngagement from '@/components/AudienceEngagement';
 import { MessageSquare, Send, BarChart3, Users } from 'lucide-react';
 
 export default function Pinterest() {

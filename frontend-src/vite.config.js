@@ -2,7 +2,7 @@
  * vite.config.js — Nexus Social frontend build config
  *
  * Key settings:
- *   @/ alias → src/
+ *   @/ alias → frontend-src root (components/, hooks/, src/, etc.)
  *   API proxy → dev server proxies /api to backend (optional)
  *   Build output → dist/
  *
@@ -19,14 +19,15 @@ export default defineConfig(({ mode }) => ({
   plugins: [react()],
 
   resolve: {
-    alias: {
-      // @/ → src/ — used by all component imports
-      '@': path.resolve(__dirname, './src'),
-    },
+    alias: [
+      // @/lib/* → src/lib/* (shared lib copied from frontend-lib)
+      { find: /^@\/lib\//, replacement: `${path.resolve(__dirname, 'src/lib')}/` },
+      { find: '@', replacement: path.resolve(__dirname, '.') },
+    ],
   },
 
   server: {
-    port: 3000,
+    port: 5173,
     // Optional: proxy API calls so CORS isn't needed during dev
     // Remove if you're using VITE_API_URL directly
     proxy: {

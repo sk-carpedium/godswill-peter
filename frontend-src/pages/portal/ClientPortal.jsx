@@ -23,9 +23,9 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { createPageUrl } from '@/utils';
-import ClientDashboardBuilder from '@/components/portal/ClientDashboardBuilder';
-import ClientFeedback from '@/components/portal/ClientFeedback';
-import SecureDocuments from '@/components/portal/SecureDocuments';
+import ClientDashboardBuilder from '@/components/ClientDashboardBuilder';
+import ClientFeedback from '@/components/ClientFeedback';
+import SecureDocuments from '@/components/SecureDocuments';
 import ClientReportGenerator from '@/components/reports/ClientReportGenerator';
 import moment from 'moment';
 import { toast } from 'sonner';

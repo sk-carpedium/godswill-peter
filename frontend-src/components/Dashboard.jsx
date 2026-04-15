@@ -16,15 +16,15 @@ import {
   Calendar,
   ArrowUpRight } from
 'lucide-react';
-import StatsCard from '@/components/dashboard/StatsCard';
-import PerformanceChart from '@/components/dashboard/PerformanceChart';
-import RecentPosts from '@/components/dashboard/RecentPosts';
-import UpcomingPosts from '@/components/dashboard/UpcomingPosts';
-import QuickActions from '@/components/dashboard/QuickActions';
-import ConnectedAccounts from '@/components/dashboard/ConnectedAccounts';
-import SyncStatusCard from '@/components/social/SyncStatusCard';
-import { WelcomeChecklist } from '@/components/onboarding/WelcomeChecklist';
-import DailySummary from '@/components/ai/DailySummary';
+import StatsCard from '@/components/StatsCard';
+import PerformanceChart from '@/components/PerformanceChart';
+import RecentPosts from '@/components/RecentPosts';
+import UpcomingPosts from '@/components/UpcomingPosts';
+import QuickActions from '@/components/QuickActions';
+import ConnectedAccounts from '@/components/ConnectedAccounts';
+import SyncStatusCard from '@/components/SyncStatusCard';
+import { WelcomeChecklist } from '@/components/WelcomeChecklist';
+import DailySummary from '@/components/DailySummary';
 
 export default function Dashboard() {
   const [user, setUser] = useState(null);

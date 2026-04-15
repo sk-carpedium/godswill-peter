@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
-import { LayoutKanban, Clock, CheckCircle2, Circle } from 'lucide-react';
+import { Kanban, Clock, CheckCircle2, Circle } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 import { useWorkspace } from '@/hooks';
@@ -24,7 +24,7 @@ export default function TaskBoard() {
 
   return (
     <Card>
-      <CardHeader><CardTitle className="flex items-center gap-2 text-base"><LayoutKanban className="w-4 h-4 text-[#d4af37]" />Content Board</CardTitle></CardHeader>
+      <CardHeader><CardTitle className="flex items-center gap-2 text-base"><Kanban className="w-4 h-4 text-[#d4af37]" />Content Board</CardTitle></CardHeader>
       <CardContent>
         {isLoading ? <Skeleton className="h-48 w-full" /> : (
           <div className="grid grid-cols-3 gap-4">

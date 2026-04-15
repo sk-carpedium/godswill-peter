@@ -20,7 +20,6 @@ const PLATFORM_COLORS = {
   tiktok:     '#010101',
   threads:    '#000000',
   pinterest:  '#E60023',
-  tiktok:     '#010101',
 };
 
 const STATUS_DOT = {
