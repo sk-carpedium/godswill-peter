@@ -46,3 +46,75 @@
 {"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:17:00.050Z"}
 {"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:18:00.046Z"}
 {"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:19:00.045Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:20:00.076Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:21:00.042Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:22:00.040Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:23:00.036Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:24:00.046Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:25:00.034Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:26:00.064Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:27:00.034Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:28:00.041Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:29:00.036Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:30:00.030Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:31:00.044Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:32:00.073Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:33:00.041Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:34:00.030Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:35:00.030Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:36:00.034Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:37:00.041Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:38:00.069Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:39:00.037Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:40:00.034Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:41:00.041Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:42:00.033Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:43:00.038Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:44:00.067Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:45:00.036Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:46:00.038Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:47:00.031Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:48:00.041Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:49:00.040Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:50:00.066Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:51:00.038Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:52:00.043Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:53:00.035Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:54:00.032Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:55:00.037Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:56:00.066Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:57:00.043Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:58:00.032Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T18:59:00.028Z"}
+{"level":"info","message":"Reports: 0 due","timestamp":"2026-04-14T19:00:00.046Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T19:00:00.070Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T19:01:00.033Z"}
+{"level":"info","message":"Reports: 0 due","timestamp":"2026-04-14T21:16:20.023Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T21:16:20.071Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T21:17:00.043Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T21:18:00.037Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T21:19:00.060Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-14T21:20:00.036Z"}
+{"error":{"clientVersion":"5.22.0","errorCode":"P1001","name":"PrismaClientInitializationError"},"level":"error","message":"❌ Database connection failed","timestamp":"2026-04-15T06:59:38.133Z"}
+{"level":"info","message":"✅ PostgreSQL connected","timestamp":"2026-04-15T07:01:48.392Z"}
+{"level":"info","message":"Crons active: publisher (1 min), reports (1 hr)","timestamp":"2026-04-15T07:01:48.719Z"}
+{"level":"info","message":"🚀 Nexus Social API v2.0.0","timestamp":"2026-04-15T07:01:48.728Z"}
+{"level":"info","message":"   Listening on  http://localhost:4000","timestamp":"2026-04-15T07:01:48.729Z"}
+{"level":"info","message":"   API base URL  http://localhost:4000/v1","timestamp":"2026-04-15T07:01:48.730Z"}
+{"level":"info","message":"   Health check  http://localhost:4000/health","timestamp":"2026-04-15T07:01:48.732Z"}
+{"level":"info","message":"   Environment   development","timestamp":"2026-04-15T07:01:48.733Z"}
+{"level":"info","message":"   Platforms     16 (Instagram, Facebook, Twitter, LinkedIn, TikTok, YouTube, Pinterest, Twitch, Bluesky, Threads, TruthSocial, Rumble, Kick, Spotify, Google Business, Shopify)","timestamp":"2026-04-15T07:01:48.734Z"}
+{"level":"info","message":"Reports: 0 due","timestamp":"2026-04-15T07:01:48.809Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T07:02:00.058Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T07:03:00.046Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T07:04:00.042Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T07:05:00.042Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T07:06:00.039Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T07:07:00.077Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T07:08:00.038Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T07:09:00.040Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T07:10:00.052Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T07:11:00.046Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T07:12:00.043Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T07:13:00.079Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T07:14:00.039Z"}
