@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import { ArrowRight, Check, Sparkles, Zap, BarChart3, Calendar, Users, Shield, TrendingUp } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { createPageUrl } from '@/utils';
+import { Link, useSearchParams } from 'react-router-dom';
+import { sanitizeReturnPath } from '@/utils';
 
 export default function Landing() {
+  const [searchParams] = useSearchParams();
+  const afterLogin = useMemo(
+    () => sanitizeReturnPath(searchParams.get('return')),
+    [searchParams],
+  );
+  const loginUrl = useMemo(
+    () => `/login?return=${encodeURIComponent(afterLogin)}`,
+    [afterLogin],
+  );
   const features = [
   {
     icon: Calendar,
@@ -177,10 +186,10 @@ export default function Landing() {
             <span className="text-xl font-bold text-white">Nexus Social</span>
           </div>
           <div className="flex items-center gap-4">
-            <Link to={createPageUrl('Dashboard')}>
+            <Link to={loginUrl}>
               <Button variant="ghost" className="text-white hover:text-[#d4af37] hover:bg-white/10">Sign In</Button>
             </Link>
-            <Link to={createPageUrl('Dashboard')}>
+            <Link to={loginUrl}>
               <Button className="bg-[#d4af37] hover:bg-[#c9a961] text-[#1a1a1a] font-semibold">
                 Get Started
               </Button>
@@ -208,7 +217,7 @@ export default function Landing() {
           `}</style>
 
           <div className="flex items-center justify-center gap-4 mb-20">
-            <Link to={createPageUrl('Dashboard')}>
+            <Link to={loginUrl}>
               <Button size="lg" className="bg-[#d4af37] hover:bg-[#c9a961] text-[#1a1a1a] font-semibold text-base px-8 h-12 rounded-lg">
                 Get Started Free
               </Button>
@@ -430,7 +439,7 @@ export default function Landing() {
           <p className="text-xl text-gray-400 mb-10">Join thousands of creators and teams using Nexus Social
 
           </p>
-          <Link to={createPageUrl('Dashboard')}>
+          <Link to={loginUrl}>
             <Button size="lg" className="bg-[#d4af37] hover:bg-[#c9a961] text-[#1a1a1a] text-base px-8 h-12 rounded-lg font-semibold">
               Get Started Free
             </Button>

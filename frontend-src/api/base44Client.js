@@ -19,8 +19,21 @@ export function getAccessToken() {
 function clearTokens() {
   if (typeof localStorage === 'undefined') return;
   localStorage.removeItem('nexus_access_token');
+  localStorage.removeItem('nexus_refresh_token');
   localStorage.removeItem('base44_access_token');
   localStorage.removeItem('token');
+  localStorage.removeItem('workspace_id');
+}
+
+/** Persist session after POST /auth/login or /auth/register. */
+function persistAuthSession(d) {
+  if (typeof localStorage === 'undefined' || !d || typeof d !== 'object') return;
+  if (d.access_token) {
+    localStorage.setItem('nexus_access_token', d.access_token);
+    localStorage.setItem('base44_access_token', d.access_token);
+  }
+  if (d.refresh_token) localStorage.setItem('nexus_refresh_token', d.refresh_token);
+  if (d.workspace?.id) localStorage.setItem('workspace_id', d.workspace.id);
 }
 
 async function req(method, path, body) {
@@ -72,7 +85,11 @@ export const base44 = {
 
     me: () => req('GET', '/auth/me'),
 
-    login: (data) => req('POST', '/auth/login', data),
+    login: async (data) => {
+      const d = await req('POST', '/auth/login', data);
+      persistAuthSession(d);
+      return d;
+    },
 
     logout: (shouldRedirect) => {
       clearTokens();
@@ -83,9 +100,21 @@ export const base44 = {
 
     redirectToLogin: (returnUrl) => {
       if (typeof window === 'undefined') return;
-      const q = returnUrl
-        ? `?return=${encodeURIComponent(returnUrl)}`
-        : '';
+      let path = `${window.location.pathname}${window.location.search}`;
+      if (returnUrl) {
+        try {
+          const u = new URL(String(returnUrl), window.location.origin);
+          if (u.origin === window.location.origin) path = `${u.pathname}${u.search}`;
+        } catch {
+          /* keep path from window */
+        }
+      }
+      const pathOnly = path.split('?')[0];
+      // Avoid /login ↔ /Landing loops: never use public shell as post-login target
+      if (/^\/login$/i.test(pathOnly) || /^\/Landing$/i.test(pathOnly)) {
+        path = '/';
+      }
+      const q = path && path !== '/' ? `?return=${encodeURIComponent(path)}` : '';
       window.location.assign(`/login${q}`);
     },
 

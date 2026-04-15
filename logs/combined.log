@@ -690,3 +690,155 @@
 {"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:13:00.034Z"}
 {"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:14:00.029Z"}
 {"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:15:00.027Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:16:00.033Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:17:00.045Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:18:00.080Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:19:00.034Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:20:00.033Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:21:00.031Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:22:00.028Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:23:00.030Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:24:00.062Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:25:00.039Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:26:00.031Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:27:00.029Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 1.161 ms - 366\u001b[0m","timestamp":"2026-04-15T11:27:18.112Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.763 ms - 366\u001b[0m","timestamp":"2026-04-15T11:27:18.118Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 1.206 ms - 366\u001b[0m","timestamp":"2026-04-15T11:27:20.087Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.584 ms - 366\u001b[0m","timestamp":"2026-04-15T11:27:20.093Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.974 ms - 366\u001b[0m","timestamp":"2026-04-15T11:27:22.139Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.740 ms - 366\u001b[0m","timestamp":"2026-04-15T11:27:22.146Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.931 ms - 366\u001b[0m","timestamp":"2026-04-15T11:27:24.092Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.900 ms - 366\u001b[0m","timestamp":"2026-04-15T11:27:24.100Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.694 ms - 366\u001b[0m","timestamp":"2026-04-15T11:27:26.352Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.624 ms - 366\u001b[0m","timestamp":"2026-04-15T11:27:26.362Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 1.032 ms - 366\u001b[0m","timestamp":"2026-04-15T11:27:28.295Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 1.088 ms - 366\u001b[0m","timestamp":"2026-04-15T11:27:28.302Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 1.002 ms - 366\u001b[0m","timestamp":"2026-04-15T11:27:30.358Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.712 ms - 366\u001b[0m","timestamp":"2026-04-15T11:27:30.363Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.639 ms - 366\u001b[0m","timestamp":"2026-04-15T11:27:32.397Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.667 ms - 366\u001b[0m","timestamp":"2026-04-15T11:27:32.404Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.922 ms - 366\u001b[0m","timestamp":"2026-04-15T11:27:34.436Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.989 ms - 366\u001b[0m","timestamp":"2026-04-15T11:27:34.446Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.809 ms - 366\u001b[0m","timestamp":"2026-04-15T11:27:36.586Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 1.050 ms - 366\u001b[0m","timestamp":"2026-04-15T11:27:36.593Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:28:00.051Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:29:00.041Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:30:00.086Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:31:00.038Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:32:00.029Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:33:00.045Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:34:00.041Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:35:00.037Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:36:00.068Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:37:00.044Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:38:00.029Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:39:00.030Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 2.643 ms - 366\u001b[0m","timestamp":"2026-04-15T11:39:16.053Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.830 ms - 366\u001b[0m","timestamp":"2026-04-15T11:39:16.060Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.709 ms - 366\u001b[0m","timestamp":"2026-04-15T11:39:18.252Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 1.970 ms - 366\u001b[0m","timestamp":"2026-04-15T11:39:18.264Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.865 ms - 366\u001b[0m","timestamp":"2026-04-15T11:39:20.544Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.548 ms - 366\u001b[0m","timestamp":"2026-04-15T11:39:20.554Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.703 ms - 366\u001b[0m","timestamp":"2026-04-15T11:39:22.771Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 2.202 ms - 366\u001b[0m","timestamp":"2026-04-15T11:39:22.777Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 2.530 ms - 366\u001b[0m","timestamp":"2026-04-15T11:39:25.003Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 1.416 ms - 366\u001b[0m","timestamp":"2026-04-15T11:39:25.017Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.864 ms - 366\u001b[0m","timestamp":"2026-04-15T11:39:27.087Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 1.929 ms - 366\u001b[0m","timestamp":"2026-04-15T11:39:27.106Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.804 ms - 366\u001b[0m","timestamp":"2026-04-15T11:39:29.413Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.784 ms - 366\u001b[0m","timestamp":"2026-04-15T11:39:29.423Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 1.219 ms - 366\u001b[0m","timestamp":"2026-04-15T11:39:31.942Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 4.680 ms - 366\u001b[0m","timestamp":"2026-04-15T11:39:31.975Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.564 ms - 366\u001b[0m","timestamp":"2026-04-15T11:39:34.053Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.536 ms - 366\u001b[0m","timestamp":"2026-04-15T11:39:34.060Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:40:00.038Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.983 ms - 366\u001b[0m","timestamp":"2026-04-15T11:40:51.215Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.660 ms - 366\u001b[0m","timestamp":"2026-04-15T11:40:51.223Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.733 ms - 366\u001b[0m","timestamp":"2026-04-15T11:40:53.129Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 1.852 ms - 366\u001b[0m","timestamp":"2026-04-15T11:40:53.141Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:41:00.043Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:42:00.078Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.467 ms - 366\u001b[0m","timestamp":"2026-04-15T11:42:40.997Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.511 ms - 366\u001b[0m","timestamp":"2026-04-15T11:42:41.026Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.851 ms - 366\u001b[0m","timestamp":"2026-04-15T11:42:44.323Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.637 ms - 366\u001b[0m","timestamp":"2026-04-15T11:42:44.329Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.556 ms - 366\u001b[0m","timestamp":"2026-04-15T11:42:56.232Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:43:00.044Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:44:00.034Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:45:00.035Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:46:00.031Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:47:00.031Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:48:00.075Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.677 ms - -\u001b[0m","timestamp":"2026-04-15T11:48:40.276Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 1.119 ms - -\u001b[0m","timestamp":"2026-04-15T11:48:40.283Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:49:00.036Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:50:00.039Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:51:00.036Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:52:00.036Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:53:00.034Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:54:00.080Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:55:00.030Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:56:00.034Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.725 ms - -\u001b[0m","timestamp":"2026-04-15T11:56:32.180Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.441 ms - -\u001b[0m","timestamp":"2026-04-15T11:56:35.168Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.874 ms - -\u001b[0m","timestamp":"2026-04-15T11:56:35.173Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.503 ms - -\u001b[0m","timestamp":"2026-04-15T11:56:38.215Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.461 ms - -\u001b[0m","timestamp":"2026-04-15T11:56:38.233Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:57:00.048Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:58:00.043Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T11:59:00.040Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:00:00.078Z"}
+{"level":"info","message":"Reports: 0 due","timestamp":"2026-04-15T12:00:00.091Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:01:00.058Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:02:00.029Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:03:00.026Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:04:00.039Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:05:00.039Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:06:00.066Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:07:00.036Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:08:00.031Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:09:00.031Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:10:00.030Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:11:00.028Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.494 ms - -\u001b[0m","timestamp":"2026-04-15T12:11:53.460Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 1.120 ms - -\u001b[0m","timestamp":"2026-04-15T12:11:53.465Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 1.076 ms - -\u001b[0m","timestamp":"2026-04-15T12:11:59.216Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.934 ms - -\u001b[0m","timestamp":"2026-04-15T12:11:59.220Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:12:00.062Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/auth/login \u001b[33m401\u001b[0m 31.105 ms - 47\u001b[0m","timestamp":"2026-04-15T12:12:06.003Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/auth/login \u001b[33m401\u001b[0m 8.602 ms - 47\u001b[0m","timestamp":"2026-04-15T12:12:29.650Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:13:00.040Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:14:00.045Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:15:00.041Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:16:00.037Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:17:00.031Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:18:00.062Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:19:00.028Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 3.283 ms - -\u001b[0m","timestamp":"2026-04-15T12:19:26.844Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.764 ms - -\u001b[0m","timestamp":"2026-04-15T12:19:26.848Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.649 ms - -\u001b[0m","timestamp":"2026-04-15T12:19:31.197Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.876 ms - -\u001b[0m","timestamp":"2026-04-15T12:19:31.202Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:20:00.045Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:21:00.038Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:22:00.037Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:23:00.033Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 1.054 ms - -\u001b[0m","timestamp":"2026-04-15T12:23:48.797Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.735 ms - -\u001b[0m","timestamp":"2026-04-15T12:23:48.802Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:24:00.065Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 2.901 ms - -\u001b[0m","timestamp":"2026-04-15T12:24:48.802Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.553 ms - -\u001b[0m","timestamp":"2026-04-15T12:24:48.812Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.442 ms - 366\u001b[0m","timestamp":"2026-04-15T12:24:49.538Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.630 ms - -\u001b[0m","timestamp":"2026-04-15T12:24:49.544Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.624 ms - -\u001b[0m","timestamp":"2026-04-15T12:24:50.271Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.792 ms - -\u001b[0m","timestamp":"2026-04-15T12:24:50.277Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:25:00.047Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:26:00.038Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.379 ms - -\u001b[0m","timestamp":"2026-04-15T12:26:07.820Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.849 ms - -\u001b[0m","timestamp":"2026-04-15T12:26:07.825Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:27:00.031Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:28:00.044Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.720 ms - -\u001b[0m","timestamp":"2026-04-15T12:28:10.645Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.604 ms - -\u001b[0m","timestamp":"2026-04-15T12:28:10.649Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.825 ms - -\u001b[0m","timestamp":"2026-04-15T12:28:26.944Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.586 ms - -\u001b[0m","timestamp":"2026-04-15T12:28:26.947Z"}

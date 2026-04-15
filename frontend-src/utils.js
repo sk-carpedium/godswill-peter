@@ -21,6 +21,21 @@ export function createPageUrl(pageName) {
   return `/${pageName}`;
 }
 
+/** Safe in-app path from ?return= (blocks open redirects). */
+export function sanitizeReturnPath(raw) {
+  if (raw == null || typeof raw !== 'string') return '/';
+  try {
+    const decoded = decodeURIComponent(raw.trim());
+    if (decoded.startsWith('/') && !decoded.startsWith('//') && !decoded.includes('://')) {
+      const p = decoded || '/';
+      const seg = p.split('?')[0];
+      if (/^\/login$/i.test(seg) || /^\/Landing$/i.test(seg)) return '/';
+      return p;
+    }
+  } catch (_) {}
+  return '/';
+}
+
 /**
  * Format a number for display (1234 → 1.2K, 1234567 → 1.2M)
  */

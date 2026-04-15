@@ -397,7 +397,7 @@ export default function Layout({ children, currentPageName }) {
       }
       return list;
     },
-    enabled: !isAuthenticating
+    enabled: !isAuthenticating && !!user
   });
 
   useEffect(() => {
@@ -406,7 +406,7 @@ export default function Layout({ children, currentPageName }) {
 
   useEffect(() => {
     checkAuthAndLoadData();
-  }, []);
+  }, [currentPageName]);
 
   useEffect(() => {
     if (user && !user.onboarding_completed && currentPageName !== 'Onboarding') {
@@ -433,12 +433,23 @@ export default function Layout({ children, currentPageName }) {
   const checkAuthAndLoadData = async () => {
     try {
       const isAuthenticated = await base44.auth.isAuthenticated();
-      if (!isAuthenticated) { base44.auth.redirectToLogin(); return; }
+      if (!isAuthenticated) {
+        if (currentPageName === 'Landing') {
+          setIsAuthenticating(false);
+          return;
+        }
+        base44.auth.redirectToLogin();
+        return;
+      }
       const userData = await base44.auth.me();
       setUser(userData);
       setIsAuthenticating(false);
     } catch (error) {
       console.error('Authentication error:', error);
+      if (currentPageName === 'Landing') {
+        setIsAuthenticating(false);
+        return;
+      }
       base44.auth.redirectToLogin();
     }
   };
