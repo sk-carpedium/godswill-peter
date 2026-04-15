@@ -11,6 +11,7 @@ nexus-v8/
 │   ├── router.ts                 ← 239 HTTP routes
 │   └── jobs/index.ts             ← Background jobs (publishing, sync, etc.)
 ├── prisma/schema.prisma          ← 45 database models
+├── prisma/seed.ts                ← Full DB seed (`npm run db:seed`)
 ├── frontend-lib/                 ← Drop into frontend src/lib/
 │   ├── AuthContext.jsx
 │   ├── AppearanceContext.jsx
@@ -82,7 +83,34 @@ npm run db:generate
 npm run dev
 # → http://localhost:4000/v1
 # → http://localhost:4000/v1/app/public-settings (verify it works)
+
+# 5. (Optional) Load demo data — see “Database seed” below
+npm run db:seed
 ```
+
+---
+
+## Database seed
+
+The repo includes `prisma/seed.ts`, wired in `package.json` as `prisma.seed`. It fills **all app tables** (users, workspaces, brands, posts, analytics, integrations, etc.) with realistic sample rows. `RefreshToken` is not seeded (tokens are created at login).
+
+| Command | Description |
+|---|---|
+| `npm run db:seed` | Truncates all public tables, then inserts seed data (destructive). |
+| `SEED_SKIP_TRUNCATE=1 npm run db:seed` | Inserts without truncating first (may fail if unique constraints collide). |
+| `npx prisma migrate reset` | Drops DB, reapplies migrations, then runs the seed (when `prisma.seed` is set). |
+
+**Requirements:** `DATABASE_URL` must be set and migrations must already be applied (`npm run db:migrate`).
+
+**Default test users** (password for all: `NexusSeed123!`):
+
+| Email | Role |
+|---|---|
+| `admin@nexus-seed.local` | admin |
+| `member@nexus-seed.local` | member |
+| `viewer@nexus-seed.local` | viewer |
+
+Use these to sign in at the frontend login page (`/login`) while the API is running. Do **not** use seed credentials in production; run seed only on local or staging databases.
 
 ---
 
@@ -127,8 +155,14 @@ cp .env.example .env
 
 # Start
 npm run dev
-# → http://localhost:3000
+# → http://localhost:5173 (Vite default; see vite.config.js if changed)
 ```
+
+### Styling (Tailwind)
+
+The app expects **Tailwind CSS** to be processed by PostCSS. In this package, `frontend-src/postcss.config.js` enables `tailwindcss` and `autoprefixer`. Without it, `@tailwind` directives in `src/index.css` are not expanded and the UI will look unstyled.
+
+`frontend-src/tailwind.config.js` must **scan** your JSX: `content` includes `./src/**`, `./components/**`, and `./pages/**`. If you move folders, update `content` or utility classes will be missing from the build.
 
 ---
 
@@ -176,6 +210,7 @@ External APIs:
 |---|---|---|
 | `base44.auth.login(email, password)` | `POST /auth/login` | Returns JWT tokens |
 | `base44.auth.me()` | `GET /auth/me` | Current user + role |
+| `/login` (frontend route) | — | Email/password sign-in page (`LoginPage.jsx`) |
 | `GET /app/public-settings` | Public, no auth | App boot, branding |
 | `base44.entities.Post.create(...)` | `POST /posts` | Create post |
 | `base44.integrations.Core.InvokeLLM(...)` | `POST /ai/invoke-llm` | GPT-4o JSON mode |
@@ -189,7 +224,9 @@ External APIs:
 
 - [ ] Backend `.env` filled with real credentials
 - [ ] `npm run db:migrate` completed successfully
+- [ ] (Optional) `npm run db:seed` run on non-production DB for demo users and data
 - [ ] `GET /v1/app/public-settings` returns 200
+- [ ] `POST /v1/auth/login` works with a real or seeded user; frontend `/login` loads with styles (Tailwind + PostCSS)
 - [ ] `POST /v1/auth/register` creates a user
 - [ ] Frontend `VITE_API_URL` points to backend
 - [ ] At least one social platform OAuth configured
@@ -222,4 +259,6 @@ Deploy the `dist/` folder.
 ### Database
 Use a managed PostgreSQL (Supabase, Railway, RDS, Neon).
 Run `npx prisma migrate deploy` on first deploy.
+
+Do **not** run `npm run db:seed` against production unless you intend to wipe and replace data (seed truncates tables). For production, create users via `/auth/register` or your admin process.
 

@@ -842,3 +842,40 @@
 {"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.604 ms - -\u001b[0m","timestamp":"2026-04-15T12:28:10.649Z"}
 {"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.825 ms - -\u001b[0m","timestamp":"2026-04-15T12:28:26.944Z"}
 {"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.586 ms - -\u001b[0m","timestamp":"2026-04-15T12:28:26.947Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:29:00.035Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.419 ms - 366\u001b[0m","timestamp":"2026-04-15T12:29:59.485Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.594 ms - 366\u001b[0m","timestamp":"2026-04-15T12:29:59.492Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:30:00.076Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 1.106 ms - -\u001b[0m","timestamp":"2026-04-15T12:30:38.909Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.694 ms - -\u001b[0m","timestamp":"2026-04-15T12:30:38.915Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:31:00.039Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:32:00.041Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:33:00.036Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:34:00.035Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:35:00.027Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:36:00.069Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:37:00.037Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:38:00.035Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:39:00.045Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:40:00.026Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:41:00.034Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:42:00.062Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:43:00.039Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:44:00.033Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:45:00.034Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:46:00.038Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:47:00.040Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:48:00.071Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:49:00.035Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:50:00.035Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:51:00.036Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:52:00.042Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:53:00.043Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:54:00.075Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:55:00.035Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:56:00.034Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/auth/login \u001b[33m401\u001b[0m 577.823 ms - 47\u001b[0m","timestamp":"2026-04-15T12:56:43.091Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:57:00.037Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/auth/login \u001b[33m401\u001b[0m 506.709 ms - 47\u001b[0m","timestamp":"2026-04-15T12:57:33.163Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:58:00.040Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/auth/login \u001b[33m401\u001b[0m 477.088 ms - 47\u001b[0m","timestamp":"2026-04-15T12:58:23.961Z"}
