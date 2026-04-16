@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useAuth } from '@/lib/AuthContext';
 import { sanitizeReturnPath } from '@/utils';
 import { Button } from '@/components/ui/button';
@@ -31,7 +31,7 @@ export default function LoginPage() {
     setError(null);
     setSubmitting(true);
     try {
-      await base44.auth.login({ email: email.trim(), password });
+      await api.auth.login({ email: email.trim(), password });
       await checkUserAuth();
       navigate(returnTo, { replace: true });
     } catch (err) {

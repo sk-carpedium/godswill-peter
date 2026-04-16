@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -58,7 +58,7 @@ export default function Content() {
   const queryClient = useQueryClient();
 
   useEffect(() => {
-    base44.entities.Workspace.filter({ status: 'active' }).then((ws) => {
+    api.entities.Workspace.filter({ status: 'active' }).then((ws) => {
       if (ws.length > 0) setCurrentWorkspace(ws[0]);
     });
   }, []);
@@ -69,15 +69,15 @@ export default function Content() {
       if (!currentWorkspace?.id) return [];
       const filter = { workspace_id: currentWorkspace.id };
       if (statusFilter !== 'all') filter.status = statusFilter;
-      return base44.entities.Post.filter(filter, '-created_date', 100);
+      return api.entities.Post.filter(filter, '-created_date', 100);
     },
     enabled: !!currentWorkspace,
   });
 
   const createPostMutation = useMutation({
     mutationFn: async (postData) => {
-      const user = await base44.auth.me();
-      const subscriptions = await base44.entities.Subscription.filter({
+      const user = await api.auth.me();
+      const subscriptions = await api.entities.Subscription.filter({
         user_email: user.email,
         workspace_id: currentWorkspace?.id,
       });
@@ -87,9 +87,9 @@ export default function Content() {
       if (currentUsage >= monthlyLimit) {
         throw new Error(`Monthly post limit reached (${monthlyLimit}). Upgrade your plan for more posts.`);
       }
-      const post = await base44.entities.Post.create({ ...postData, workspace_id: currentWorkspace?.id });
+      const post = await api.entities.Post.create({ ...postData, workspace_id: currentWorkspace?.id });
       if (subscription) {
-        await base44.entities.Subscription.update(subscription.id, {
+        await api.entities.Subscription.update(subscription.id, {
           current_usage: { ...subscription.current_usage, posts_this_month: currentUsage + 1 },
         });
       }

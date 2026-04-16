@@ -25,7 +25,7 @@ import {
 import { cn } from '@/lib/utils';
 import moment from 'moment';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 
 
@@ -105,7 +105,7 @@ export default function PredictiveMonetization() {
   const { data: _apiData = {}, isLoading } = useQuery({
     queryKey: ['predictive-monetization', workspaceId],
     queryFn: async () => { 
-      const result = await base44.functions.invoke('predictiveMonetization', { workspace_id: workspaceId }).catch(() => ({}));
+      const result = await api.functions.invoke('predictiveMonetization', { workspace_id: workspaceId }).catch(() => ({}));
       return result;
       },
     enabled: !!workspaceId,
@@ -120,7 +120,7 @@ export default function PredictiveMonetization() {
   const analyzeDraft = () => {
     setAnalyzing(true);
     // Real predictive analysis via backend AI
-    base44.functions.invoke('predictiveMonetization', { workspace_id: workspaceId })
+    api.functions.invoke('predictiveMonetization', { workspace_id: workspaceId })
       .then(result => {
         if (result && Object.keys(result).length > 0) {
           setPredictionData(result);

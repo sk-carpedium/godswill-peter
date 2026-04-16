@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useQuery } from '@tanstack/react-query';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -24,7 +24,7 @@ export default function WorkspaceOverview() {
   const { data: workspace } = useQuery({
     queryKey: ['workspace'],
     queryFn: async () => {
-      const list = await base44.entities.Workspace.filter({ status: 'active' });
+      const list = await api.entities.Workspace.filter({ status: 'active' });
       return list[0] || null;
     }
   });
@@ -33,14 +33,14 @@ export default function WorkspaceOverview() {
 
   const { data: socialAccounts = [] } = useQuery({
     queryKey: ['social-accounts-overview', workspaceId],
-    queryFn: () => base44.entities.SocialAccount.filter({ workspace_id: workspaceId, status: 'active' }),
+    queryFn: () => api.entities.SocialAccount.filter({ workspace_id: workspaceId, status: 'active' }),
     enabled: !!workspaceId
   });
 
   const { data: analytics = [], refetch, isFetching } = useQuery({
     queryKey: ['analytics-overview', workspaceId, dateRange],
     queryFn: async () => {
-      const records = await base44.entities.Analytics.filter({ workspace_id: workspaceId });
+      const records = await api.entities.Analytics.filter({ workspace_id: workspaceId });
       return records.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 200);
     },
     enabled: !!workspaceId
@@ -48,7 +48,7 @@ export default function WorkspaceOverview() {
 
   const { data: posts = [] } = useQuery({
     queryKey: ['posts-overview', workspaceId],
-    queryFn: () => base44.entities.Post.filter({ workspace_id: workspaceId }),
+    queryFn: () => api.entities.Post.filter({ workspace_id: workspaceId }),
     enabled: !!workspaceId
   });
 

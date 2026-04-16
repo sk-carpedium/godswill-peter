@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { FileText, Download, Loader2 } from 'lucide-react';
 import { useQuery, useMutation } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 import { toast } from 'sonner';
 import moment from 'moment';
@@ -17,12 +17,12 @@ export default function ClientReportGenerator({ workspace, isClientView = false 
 
   const { data: reports = [], isLoading } = useQuery({
     queryKey: ['client-reports', wid],
-    queryFn: () => base44.entities.ClientReport.filter({ workspace_id: wid, sort: '-created_at', limit: 10 }),
+    queryFn: () => api.entities.ClientReport.filter({ workspace_id: wid, sort: '-created_at', limit: 10 }),
     enabled: !!wid,
   });
 
   const generate = useMutation({
-    mutationFn: () => base44.entities.ClientReport.generateAdhoc({ workspace_id: wid, period, include_analytics: true, include_posts: true }),
+    mutationFn: () => api.entities.ClientReport.generateAdhoc({ workspace_id: wid, period, include_analytics: true, include_posts: true }),
     onSuccess: () => { toast.success('Report generated!'); },
     onError: e => toast.error(e.message),
   });

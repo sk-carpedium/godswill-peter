@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -39,8 +39,8 @@ function RoleManagementContent() {
   const loadData = async () => {
     try {
       const [workspacesData, membersData] = await Promise.all([
-        base44.entities.Workspace.filter({ status: 'active' }),
-        base44.entities.WorkspaceMember.list()
+        api.entities.Workspace.filter({ status: 'active' }),
+        api.entities.WorkspaceMember.list()
       ]);
 
       setWorkspaces(workspacesData);
@@ -63,7 +63,7 @@ function RoleManagementContent() {
       const { serializePermissions } = await import('@/components/utils/permissions');
       const newPermissions = serializePermissions(newRole);
       
-      await base44.entities.WorkspaceMember.update(memberId, { 
+      await api.entities.WorkspaceMember.update(memberId, { 
         role: newRole,
         permissions: newPermissions
       });
@@ -79,7 +79,7 @@ function RoleManagementContent() {
     if (!window.confirm('Are you sure you want to remove this member?')) return;
 
     try {
-      await base44.entities.WorkspaceMember.delete(memberId);
+      await api.entities.WorkspaceMember.delete(memberId);
       toast.success('Member removed successfully');
       loadData();
     } catch (error) {
@@ -297,13 +297,13 @@ function InviteMemberDialog({ isOpen, setIsOpen, workspaceId, onSuccess }) {
     setLoading(true);
     try {
       // Check team member limit
-      const existingMembers = await base44.entities.WorkspaceMember.filter({ 
+      const existingMembers = await api.entities.WorkspaceMember.filter({ 
         workspace_id: workspaceId,
         status: 'active'
       });
       
-      const user = await base44.auth.me();
-      const subscriptions = await base44.entities.Subscription.filter({
+      const user = await api.auth.me();
+      const subscriptions = await api.entities.Subscription.filter({
         user_email: user.email,
         workspace_id: workspaceId
       });
@@ -317,11 +317,11 @@ function InviteMemberDialog({ isOpen, setIsOpen, workspaceId, onSuccess }) {
         return;
       }
       
-      await base44.users.inviteUser(email, 'user');
+      await api.users.inviteUser(email, 'user');
 
       const { serializePermissions } = await import('@/components/utils/permissions');
       
-      await base44.entities.WorkspaceMember.create({
+      await api.entities.WorkspaceMember.create({
         workspace_id: workspaceId,
         user_email: email,
         role: role,

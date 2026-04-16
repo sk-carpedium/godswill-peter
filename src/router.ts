@@ -40,71 +40,75 @@ router.use('/auth',         authRoutes);
 //   { id, name, logo_url, favicon_url, primary_color, white_label:{},
 //     features:{}, plan, public_signup_enabled }
 //
-// Error responses trigger authError in AuthContext.jsx:
-//   403 + extra_data.reason = 'auth_required'       → redirect to login
-//   403 + extra_data.reason = 'user_not_registered' → show UserNotRegisteredError
-//   403 + extra_data.reason = 'token_expired'       → refresh token flow
+// Optional Bearer token: when valid, return workspace branding. When missing, invalid, expired,
+// or user/workspace missing — still return 200 with generic branding so AuthContext can boot
+// the app shell (avoids redirect loops from stale localStorage tokens).
 router.get('/app/public-settings', async (req, res) => {
   const token = req.headers.authorization?.replace('Bearer ', '');
 
-  // If a token is provided, validate it and check user registration
   if (token) {
     try {
       const { verifyToken } = await import('./middleware/auth');
       const decoded = verifyToken(token);
-      const user    = await db.user.findUnique({ where: { id: decoded.userId }, select: { id: true, email: true, role: true, workspace_members: { select: { workspace_id: true } } } });
-
-      if (!user) {
-        res.status(403).json({ success: false, error: 'User not found', extra_data: { reason: 'user_not_registered' } });
-        return;
-      }
-
-      // Get the user's primary workspace
-      const workspaceId = user.workspace_members[0]?.workspace_id;
-      if (workspaceId) {
-        const workspace = await db.workspace.findUnique({
-          where:   { id: workspaceId },
-          include: { appearance_settings: true, subscription: { select: { plan: true, plan_id: true } } },
-        });
-
-        const settings = (workspace?.settings as any) || {};
-        const appearance = workspace?.appearance_settings as any;
-        const wl = settings.white_label || {};
-
-        res.json({ success: true, data: {
-          id:                   workspaceId,
-          name:                 wl.brand_name  || workspace?.name || 'Nexus Social',
-          logo_url:             wl.logo_url    || appearance?.logo_url || null,
-          favicon_url:          wl.favicon_url || null,
-          primary_color:        wl.primary_color || appearance?.primary_color || '#d4af37',
-          secondary_color:      wl.secondary_color || '#f4cf47',
-          accent_color:         wl.accent_color || '#0ea5e9',
-          hide_powered_by:      wl.hide_powered_by || false,
-          custom_footer_text:   wl.custom_footer_text || null,
-          client_portal_enabled:wl.client_portal_enabled || false,
-          white_label:          wl,
-          plan:                 workspace?.subscription?.plan_id || 'free',
-          features: {
-            ai_assistant:       true,
-            social_listening:   true,
-            multi_workspace:    (workspace?.subscription?.plan_id || 'free') !== 'free',
-            white_label:        ['agency'].includes(workspace?.subscription?.plan_id || ''),
+      const user    = await db.user.findUnique({
+        where: { id: decoded.userId },
+        select: {
+          id: true,
+          workspace_members: {
+            where: { is_active: true },
+            orderBy: { joined_at: 'asc' },
+            take: 1,
+            select: { workspace_id: true },
           },
-          public_signup_enabled: true,
-        }});
-        return;
+        },
+      });
+
+      if (user) {
+        const workspaceId = user.workspace_members[0]?.workspace_id;
+        if (workspaceId) {
+          const workspace = await db.workspace.findUnique({
+            where:   { id: workspaceId },
+            include: { appearance_settings: true, subscription: { select: { plan: true, plan_id: true } } },
+          });
+
+          const settings = (workspace?.settings as Record<string, unknown>) || {};
+          const appearance = workspace?.appearance_settings as Record<string, unknown> | null;
+          const wl = (settings.white_label as Record<string, unknown>) || {};
+
+          res.json({ success: true, data: {
+            id:                   workspaceId,
+            name:                 (wl.brand_name as string)  || workspace?.name || 'Nexus Social',
+            logo_url:             (wl.logo_url as string)    || (appearance?.logo_url as string) || null,
+            favicon_url:          (wl.favicon_url as string) || null,
+            primary_color:        (wl.primary_color as string) || (appearance?.primary_color as string) || '#d4af37',
+            secondary_color:      (wl.secondary_color as string) || '#f4cf47',
+            accent_color:         (wl.accent_color as string) || '#0ea5e9',
+            hide_powered_by:      (wl.hide_powered_by as boolean) || false,
+            custom_footer_text:   (wl.custom_footer_text as string) || null,
+            client_portal_enabled:(wl.client_portal_enabled as boolean) || false,
+            white_label:          wl,
+            plan:                 workspace?.subscription?.plan_id || 'free',
+            features: {
+              ai_assistant:       true,
+              social_listening:   true,
+              multi_workspace:    (workspace?.subscription?.plan_id || 'free') !== 'free',
+              white_label:        ['agency'].includes(workspace?.subscription?.plan_id || ''),
+            },
+            public_signup_enabled: true,
+          }});
+          return;
+        }
       }
+      // User missing from DB or has no workspace — fall through to generic (still 200).
     } catch (e) {
-      const msg = (e as Error).message || '';
-      // Token issues → tell client auth_required so it redirects to login
-      if (msg.includes('expired') || msg.includes('invalid')) {
-        res.status(403).json({ success: false, error: 'Token expired', extra_data: { reason: 'auth_required' } });
-        return;
-      }
+      logger.debug(
+        'GET /app/public-settings: optional JWT not used; returning generic branding',
+        { err: (e as Error).message },
+      );
     }
   }
 
-  // No token or unauthenticated — return generic public settings
+  // No token, invalid/expired token, or anonymous — generic public settings (always 200)
   res.json({ success: true, data: {
     id:                   'nexus-social',
     name:                 'Nexus Social',
@@ -178,13 +182,16 @@ analytics.get('/', async (req: any, res) => {
           period, date_from, date_to, group_by, account_id } = req.query as Record<string,string>;
   if (!workspace_id) { fail(res, 'workspace_id required'); return; }
   const { page, limit, skip } = parsePage(req.query);
-  const dateFilter: any = {};
-  if (period === '24h')  dateFilter.gte = new Date(Date.now() - 86_400_000);
-  if (period === '7d')   dateFilter.gte = new Date(Date.now() - 7  * 86_400_000);
-  if (period === '30d')  dateFilter.gte = new Date(Date.now() - 30 * 86_400_000);
-  if (period === '90d')  dateFilter.gte = new Date(Date.now() - 90 * 86_400_000);
-  if (date_from)         dateFilter.gte = new Date(date_from);
-  if (date_to)           dateFilter.lte = new Date(date_to);
+  // Analytics.date is Prisma String (YYYY-MM-DD), not DateTime — compare with date keys, not Date objects.
+  const ymd = (d: Date) => d.toISOString().split('T')[0];
+  const qYmd = (s: string) => (typeof s === 'string' ? s.slice(0, 10) : s);
+  const dateFilter: Record<string, string> = {};
+  if (period === '24h')  dateFilter.gte = ymd(new Date(Date.now() - 86_400_000));
+  if (period === '7d')   dateFilter.gte = ymd(new Date(Date.now() - 7  * 86_400_000));
+  if (period === '30d')  dateFilter.gte = ymd(new Date(Date.now() - 30 * 86_400_000));
+  if (period === '90d')  dateFilter.gte = ymd(new Date(Date.now() - 90 * 86_400_000));
+  if (date_from)         dateFilter.gte = qYmd(date_from);
+  if (date_to)           dateFilter.lte = qYmd(date_to);
   const where: any = {
     workspace_id,
     ...(platform               && { platform: platform as any }),

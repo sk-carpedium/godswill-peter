@@ -10,7 +10,7 @@ import { ShoppingCart, DollarSign, TrendingUp, Package, ExternalLink, Tag, Plus,
 import { cn } from '@/lib/utils';
 import moment from 'moment';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 
 
@@ -74,8 +74,8 @@ export default function EcommerceTracking() {
     queryKey: ['ecommerce-tracking', workspaceId],
     queryFn: async () => { 
       const [revenues, posts] = await Promise.all([
-        base44.entities.Revenue.filter({ workspace_id: workspaceId, period: '30d' }),
-        base44.entities.Post.filter({ workspace_id: workspaceId, status: 'published', sort: '-created_at', limit: 20 }),
+        api.entities.Revenue.filter({ workspace_id: workspaceId, period: '30d' }),
+        api.entities.Post.filter({ workspace_id: workspaceId, status: 'published', sort: '-created_at', limit: 20 }),
       ]);
       const byDate = {};
       revenues.forEach(r => {

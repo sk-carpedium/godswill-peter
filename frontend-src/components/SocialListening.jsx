@@ -13,7 +13,7 @@ import SentimentAlerts from '@/components/SentimentAlerts';
 import RealTimeDashboard from '@/components/RealTimeDashboard';
 import { ContextualHelp, FeatureTooltip } from '@/components/FeatureTooltip';
 import { Radio, MessageSquare, TrendingUp, Hash, Users, AlertTriangle, RefreshCw, BarChart3 } from 'lucide-react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useQuery } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
@@ -28,7 +28,7 @@ export default function SocialListening() {
 
   const loadWorkspace = async () => {
     try {
-      const workspaces = await base44.entities.Workspace.filter({ status: 'active' });
+      const workspaces = await api.entities.Workspace.filter({ status: 'active' });
       if (workspaces.length > 0) {
         setWorkspaceId(workspaces[0].id);
       }
@@ -41,7 +41,7 @@ export default function SocialListening() {
     queryKey: ['mentions', workspaceId],
     queryFn: async () => {
       if (!workspaceId) return [];
-      return await base44.entities.Mention.filter({ workspace_id: workspaceId });
+      return await api.entities.Mention.filter({ workspace_id: workspaceId });
     },
     enabled: !!workspaceId
   });
@@ -50,7 +50,7 @@ export default function SocialListening() {
     queryKey: ['keywords', workspaceId],
     queryFn: async () => {
       if (!workspaceId) return [];
-      return await base44.entities.KeywordTrack.filter({ workspace_id: workspaceId });
+      return await api.entities.KeywordTrack.filter({ workspace_id: workspaceId });
     },
     enabled: !!workspaceId
   });
@@ -83,7 +83,7 @@ export default function SocialListening() {
 
     try {
       // Get tracked keywords
-      const keywords = await base44.entities.KeywordTrack.filter({
+      const keywords = await api.entities.KeywordTrack.filter({
         workspace_id: workspaceId,
         status: 'active'
       });
@@ -95,27 +95,27 @@ export default function SocialListening() {
       }
 
       // Monitor mentions with AI
-      await base44.functions.invoke('aiSocialListening', {
+      await api.functions.invoke('aiSocialListening', {
         action: 'monitor_mentions',
         workspace_id: workspaceId,
         keywords
       });
 
       // AI Sentiment Analysis
-      await base44.functions.invoke('aiSocialListening', {
+      await api.functions.invoke('aiSocialListening', {
         action: 'analyze_sentiment',
         workspace_id: workspaceId
       });
 
       // AI Crisis Detection
-      await base44.functions.invoke('aiSocialListening', {
+      await api.functions.invoke('aiSocialListening', {
         action: 'detect_crisis',
         workspace_id: workspaceId
       });
 
       // Detect trends
       const brandKeywords = keywords.filter((k) => k.category === 'brand').map((k) => k.keyword);
-      await base44.functions.invoke('socialListening', {
+      await api.functions.invoke('socialListening', {
         action: 'detect_trends',
         workspace_id: workspaceId,
         industry: 'social media management',
@@ -123,14 +123,14 @@ export default function SocialListening() {
       });
 
       // Track competitors
-      const competitors = await base44.entities.CompetitorTrack.filter({
+      const competitors = await api.entities.CompetitorTrack.filter({
         workspace_id: workspaceId,
         status: 'active'
       });
 
       if (competitors.length > 0) {
         for (const competitor of competitors) {
-          await base44.functions.invoke('aiSocialListening', {
+          await api.functions.invoke('aiSocialListening', {
             action: 'track_competitor',
             workspace_id: workspaceId,
             competitor_id: competitor.id

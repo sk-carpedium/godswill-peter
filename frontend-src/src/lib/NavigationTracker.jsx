@@ -2,7 +2,7 @@
  * NavigationTracker.jsx  — Page Navigation Logger
  *
  * Tracks every page navigation for analytics.
- * Logs to POST /app-logs via base44.appLogs.logUserInApp()
+ * Logs to POST /app-logs via api.appLogs.logUserInApp()
  *
  * Fix applied: the original passed pageName (string) directly.
  * Our SDK's logUserInApp expects { page, action, metadata }.
@@ -13,7 +13,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useAuth } from './AuthContext';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { pagesConfig } from '@/pages.config';
 
 export default function NavigationTracker() {
@@ -37,7 +37,7 @@ export default function NavigationTracker() {
 
     if (isAuthenticated && pageName) {
       // Fix: SDK expects { page, action, metadata }, not a bare string
-      base44.appLogs.logUserInApp({
+      api.appLogs.logUserInApp({
         page:     pageName,
         action:   'navigate',
         metadata: { path: pathname, timestamp: new Date().toISOString() },

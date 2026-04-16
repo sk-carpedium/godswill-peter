@@ -3,16 +3,16 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
-// sampleData removed — real data passed via props
-const _sampleData_REMOVED = [
-{ date: 'Mon', engagement: 2400, reach: 4000, impressions: 6000 },
-{ date: 'Tue', engagement: 1398, reach: 3000, impressions: 4800 },
-{ date: 'Wed', engagement: 9800, reach: 12000, impressions: 15000 },
-{ date: 'Thu', engagement: 3908, reach: 5000, impressions: 7200 },
-{ date: 'Fri', engagement: 4800, reach: 6200, impressions: 8500 },
-{ date: 'Sat', engagement: 3800, reach: 4800, impressions: 6100 },
-{ date: 'Sun', engagement: 4300, reach: 5500, impressions: 7800 }];
-
+/** Fallback when the parent does not pass `data` (e.g. loading or empty API). */
+const sampleData = [
+  { date: 'Mon', engagement: 2400, reach: 4000, impressions: 6000 },
+  { date: 'Tue', engagement: 1398, reach: 3000, impressions: 4800 },
+  { date: 'Wed', engagement: 9800, reach: 12000, impressions: 15000 },
+  { date: 'Thu', engagement: 3908, reach: 5000, impressions: 7200 },
+  { date: 'Fri', engagement: 4800, reach: 6200, impressions: 8500 },
+  { date: 'Sat', engagement: 3800, reach: 4800, impressions: 6100 },
+  { date: 'Sun', engagement: 4300, reach: 5500, impressions: 7800 },
+];
 
 export default function PerformanceChart({ data = sampleData, title = "Performance Overview" }) {
   const [metric, setMetric] = React.useState('engagement');

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -154,7 +154,7 @@ export default function BespokeDashboardEditor({ clientWorkspaceId, initialLayou
 
   const saveDashboard = async () => {
     try {
-      await base44.entities.Workspace.update(clientWorkspaceId, {
+      await api.entities.Workspace.update(clientWorkspaceId, {
         settings: {
           custom_dashboard_layout: layout
         }

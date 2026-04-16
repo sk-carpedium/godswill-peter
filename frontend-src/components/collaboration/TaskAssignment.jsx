@@ -4,19 +4,19 @@ import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Users } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 
 export default function TaskAssignment() {
   const { workspaceId } = useWorkspace();
   const { data: members = [], isLoading } = useQuery({
     queryKey: ['workspace-members', workspaceId],
-    queryFn: () => base44.entities.WorkspaceMember.list({ workspace_id: workspaceId }),
+    queryFn: () => api.entities.WorkspaceMember.list({ workspace_id: workspaceId }),
     enabled: !!workspaceId,
   });
   const { data: posts = [] } = useQuery({
     queryKey: ['pending-posts', workspaceId],
-    queryFn: () => base44.entities.Post.filter({ workspace_id: workspaceId, status: 'pending_approval', sort: '-created_at', limit: 10 }),
+    queryFn: () => api.entities.Post.filter({ workspace_id: workspaceId, status: 'pending_approval', sort: '-created_at', limit: 10 }),
     enabled: !!workspaceId,
   });
 

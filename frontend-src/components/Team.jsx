@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useQuery } from '@tanstack/react-query';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -42,7 +42,7 @@ export default function Team() {
   }, []);
 
   const loadWorkspace = async () => {
-    const workspaces = await base44.entities.Workspace.filter({ status: 'active' });
+    const workspaces = await api.entities.Workspace.filter({ status: 'active' });
     if (workspaces.length > 0) {
       setCurrentWorkspace(workspaces[0]);
     }
@@ -50,7 +50,7 @@ export default function Team() {
 
   const { data: members = [], isLoading} = useQuery({
     queryKey: ['workspace-members', currentWorkspace?.id],
-    queryFn: () => base44.entities.WorkspaceMember.filter({ workspace_id: currentWorkspace.id }),
+    queryFn: () => api.entities.WorkspaceMember.filter({ workspace_id: currentWorkspace.id }),
     enabled: !!currentWorkspace
   });
 
@@ -62,13 +62,13 @@ export default function Team() {
     
     try {
       // Check team member limit
-      const existingMembers = await base44.entities.WorkspaceMember.filter({ 
+      const existingMembers = await api.entities.WorkspaceMember.filter({ 
         workspace_id: currentWorkspace.id,
         status: 'active'
       });
       
-      const user = await base44.auth.me();
-      const subscriptions = await base44.entities.Subscription.filter({
+      const user = await api.auth.me();
+      const subscriptions = await api.entities.Subscription.filter({
         user_email: user.email,
         workspace_id: currentWorkspace.id
       });
@@ -81,9 +81,9 @@ export default function Team() {
         return;
       }
       
-      await base44.users.inviteUser(email, role === 'admin' ? 'admin' : 'user');
+      await api.users.inviteUser(email, role === 'admin' ? 'admin' : 'user');
       
-      await base44.entities.WorkspaceMember.create({
+      await api.entities.WorkspaceMember.create({
         workspace_id: currentWorkspace.id,
         user_email: email,
         role: role,

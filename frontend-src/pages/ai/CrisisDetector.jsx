@@ -23,7 +23,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from 'recharts';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 // import { useMutation, useQuery } from '@tanstack/react-query';
 import { toast } from 'sonner';
 import { useQuery } from '@tanstack/react-query';
@@ -120,8 +120,8 @@ export default function CrisisDetector() {
   const { data: _apiData = {}, isLoading } = useQuery({
     queryKey: ['crisis-alerts', workspaceId],
     queryFn: async () => { 
-      const alerts = await base44.functions.invoke('socialListening', { action: 'check_alerts', workspace_id: workspaceId }).catch(() => ({ alerts: [] }));
-      const mentions = await base44.entities.Mention.filter({ workspace_id: workspaceId, is_crisis: true, sort: '-mentioned_at', limit: 10 });
+      const alerts = await api.functions.invoke('socialListening', { action: 'check_alerts', workspace_id: workspaceId }).catch(() => ({ alerts: [] }));
+      const mentions = await api.entities.Mention.filter({ workspace_id: workspaceId, is_crisis: true, sort: '-mentioned_at', limit: 10 });
       return { alerts: alerts.alerts || [], mentions };
       },
     enabled: !!workspaceId,
@@ -146,7 +146,7 @@ export default function CrisisDetector() {
     
     try {
       // Execute pre-approved automated responses
-      await base44.functions.invoke('aiSocialListening', {
+      await api.functions.invoke('aiSocialListening', {
         action: 'execute_crisis_response',
         alert_id: alert.id,
         responses: alert.preApprovedResponses.filter(r => r.autoSend)
@@ -154,7 +154,7 @@ export default function CrisisDetector() {
 
       // Send escalation alerts
       if (alert.autoEscalate) {
-        await base44.integrations.Core.SendEmail({
+        await api.integrations.Core.SendEmail({
           to: 'team@company.com',
           subject: `🚨 Crisis Alert: ${alert.title}`,
           body: `Critical situation detected. Escalation Level: ${alert.escalationLevel}. Predicted peak in ${alert.prediction.peakMentionsIn}. View dashboard for details.`

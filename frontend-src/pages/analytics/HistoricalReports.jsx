@@ -11,7 +11,7 @@ import { Download, Calendar, TrendingUp, Users, Eye, Heart, DollarSign, Filter, 
 import { cn } from '@/lib/utils';
 import moment from 'moment';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 
 
@@ -55,7 +55,7 @@ export default function HistoricalReports() {
   const { data: _apiData = {}, isLoading } = useQuery({
     queryKey: ['historical-reports', workspaceId],
     queryFn: async () => { 
-      const analytics = await base44.entities.Analytics.filter({ workspace_id: workspaceId, period: '90d', sort: 'date' });
+      const analytics = await api.entities.Analytics.filter({ workspace_id: workspaceId, period: '90d', sort: 'date' });
       const byMonth = {};
       analytics.forEach(r => {
         const m = new Date(r.date).toLocaleDateString('en', {month:'short',year:'numeric'});

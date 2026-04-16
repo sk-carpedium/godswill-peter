@@ -30,7 +30,7 @@ import {
   Share2,
   Settings
 } from 'lucide-react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
@@ -77,7 +77,7 @@ export default function AutomatedReportDelivery({ clientWorkspaceId }) {
     queryKey: ['clientReports', clientWorkspaceId],
     queryFn: async () => {
       if (!clientWorkspaceId) return [];
-      return await base44.entities.ClientReport.filter({
+      return await api.entities.ClientReport.filter({
         client_workspace_id: clientWorkspaceId,
         status: 'active'
       });
@@ -87,7 +87,7 @@ export default function AutomatedReportDelivery({ clientWorkspaceId }) {
 
   const createReportMutation = useMutation({
     mutationFn: async (reportData) => {
-      return await base44.entities.ClientReport.create(reportData);
+      return await api.entities.ClientReport.create(reportData);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['clientReports'] });
@@ -111,7 +111,7 @@ export default function AutomatedReportDelivery({ clientWorkspaceId }) {
 
   const toggleScheduleMutation = useMutation({
     mutationFn: async ({ id, enabled }) => {
-      return await base44.entities.ClientReport.update(id, {
+      return await api.entities.ClientReport.update(id, {
         auto_send_enabled: enabled
       });
     },

@@ -40,7 +40,7 @@ import {
   DialogTrigger,
   DialogFooter
 } from '@/components/ui/dialog';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { toast } from 'sonner';
 
 const widgetLibrary = [
@@ -228,7 +228,7 @@ export default function ClientDashboardBuilder({ clientWorkspaceId, initialLayou
     }
 
     try {
-      await base44.entities.Workspace.update(clientWorkspaceId, {
+      await api.entities.Workspace.update(clientWorkspaceId, {
         settings: {
           custom_dashboard_layout: layout
         }

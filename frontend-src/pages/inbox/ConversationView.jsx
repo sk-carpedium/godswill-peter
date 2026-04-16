@@ -24,7 +24,7 @@ import { cn } from '@/lib/utils';
 import moment from 'moment';
 import { toast } from 'sonner';
 import {
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
@@ -73,7 +73,7 @@ export default function ConversationView({ conversation, onSendMessage, onUpdate
   const handleAIGenerate = async () => {
     setIsGeneratingAI(true);
     // Real AI reply via POST /ai/invoke-llm
-    base44.integrations.Core.InvokeLLM({
+    api.integrations.Core.InvokeLLM({
       prompt: `Generate a helpful, professional reply to this customer message: "${message}"`,
       response_json_schema: { type: 'object', properties: { reply: { type: 'string' } } }
     }).then(result => {

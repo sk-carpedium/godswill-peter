@@ -15,7 +15,7 @@ import {
   Eye
 } from 'lucide-react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { toast } from 'sonner';
 import moment from 'moment';
 import ReportBuilder from '@/components/reports/ReportBuilder';
@@ -36,16 +36,16 @@ export default function ClientReports() {
   const { data: reports = [], isLoading } = useQuery({
     queryKey: ['client-reports'],
     queryFn: async () => {
-      const workspaces = await base44.entities.Workspace.filter({ status: 'active' });
+      const workspaces = await api.entities.Workspace.filter({ status: 'active' });
       if (workspaces.length === 0) return [];
-      return base44.entities.ClientReport.filter({ workspace_id: workspaces[0].id });
+      return api.entities.ClientReport.filter({ workspace_id: workspaces[0].id });
     }
   });
 
   const createReportMutation = useMutation({
     mutationFn: async (reportData) => {
-      const workspaces = await base44.entities.Workspace.filter({ status: 'active' });
-      return base44.entities.ClientReport.create({
+      const workspaces = await api.entities.Workspace.filter({ status: 'active' });
+      return api.entities.ClientReport.create({
         ...reportData,
         workspace_id: workspaces[0].id
       });
@@ -59,7 +59,7 @@ export default function ClientReports() {
 
   const generateReportMutation = useMutation({
     mutationFn: async (report) => {
-      const response = await base44.functions.invoke('generateClientReport', {
+      const response = await api.functions.invoke('generateClientReport', {
         reportData: report
       });
       return response.data;

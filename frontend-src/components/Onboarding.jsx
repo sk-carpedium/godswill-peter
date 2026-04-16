@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -350,7 +350,7 @@ export default function Onboarding() {
 
   const loadUser = async () => {
     try {
-      const userData = await base44.auth.me();
+      const userData = await api.auth.me();
       setUser(userData);
     } catch (error) {
       console.error('Error loading user:', error);
@@ -359,7 +359,7 @@ export default function Onboarding() {
 
   const handleComplete = async () => {
     try {
-      await base44.auth.updateMe({ onboarding_completed: true });
+      await api.auth.updateMe({ onboarding_completed: true });
       navigate('/Dashboard');
     } catch (error) {
       console.error('Error completing onboarding:', error);

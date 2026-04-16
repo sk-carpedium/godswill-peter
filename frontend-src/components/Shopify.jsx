@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ShoppingBag, TrendingUp, Package, Users, DollarSign, BarChart3, ExternalLink, RefreshCw } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 
 
@@ -28,8 +28,8 @@ export default function Shopify() {
     queryKey: ['shopify-data', workspaceId],
     queryFn: async () => { 
       const [integration, revenue] = await Promise.all([
-        base44.entities.Integration.filter({ workspace_id: workspaceId, integration_type: 'shopify' }).then(r => r[0] || null),
-        base44.entities.Revenue.filter({ workspace_id: workspaceId, source: 'shopify', period: '30d' }),
+        api.entities.Integration.filter({ workspace_id: workspaceId, integration_type: 'shopify' }).then(r => r[0] || null),
+        api.entities.Revenue.filter({ workspace_id: workspaceId, source: 'shopify', period: '30d' }),
       ]);
       const totalRevenue = revenue.reduce((s,r) => s+(r.amount||0), 0);
       const orders = revenue.length;
@@ -52,7 +52,7 @@ export default function Shopify() {
   const { data: _apiData = {}, isLoading } = useQuery({
     queryKey: ['shopify-integration', workspaceId],
     queryFn: async () => { 
-      const integration = await base44.entities.Integration.filter({ workspace_id: workspaceId, integration_type: 'shopify' }).then(r => r[0] || null);
+      const integration = await api.entities.Integration.filter({ workspace_id: workspaceId, integration_type: 'shopify' }).then(r => r[0] || null);
       return integration;
       },
     enabled: !!workspaceId,
@@ -63,8 +63,8 @@ export default function Shopify() {
 
   const handleSync = () => {
     setSyncing(true);
-    base44.entities.Integration.filter({ workspace_id: localStorage.getItem('workspace_id')||'', integration_type: 'shopify' })
-      .then(ints => base44.entities.Integration.sync(ints[0]?.id, 'shopify'))
+    api.entities.Integration.filter({ workspace_id: localStorage.getItem('workspace_id')||'', integration_type: 'shopify' })
+      .then(ints => api.entities.Integration.sync(ints[0]?.id, 'shopify'))
       .catch(() => null)
       .finally(() => setSyncing(false));
   };

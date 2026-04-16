@@ -15,7 +15,7 @@ import {
   Activity
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { toast } from 'sonner';
 import moment from 'moment';
 
@@ -64,7 +64,7 @@ export default function AlertsPanel({ workspaceId }) {
   const loadAlerts = async () => {
     try {
       setLoading(true);
-      const response = await base44.functions.invoke('socialListening', {
+      const response = await api.functions.invoke('socialListening', {
         action: 'check_alerts',
         workspace_id: workspaceId
       });

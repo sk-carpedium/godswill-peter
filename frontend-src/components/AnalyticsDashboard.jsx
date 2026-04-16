@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useQuery } from '@tanstack/react-query';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -47,7 +47,7 @@ export default function AnalyticsDashboard() {
   }, []);
 
   const loadWorkspace = async () => {
-    const workspaces = await base44.entities.Workspace.filter({ status: 'active' });
+    const workspaces = await api.entities.Workspace.filter({ status: 'active' });
     if (workspaces.length > 0) {
       setWorkspaceId(workspaces[0].id);
     }
@@ -57,7 +57,7 @@ export default function AnalyticsDashboard() {
     queryKey: ['analytics', dateRange, workspaceId],
     queryFn: async () => {
       if (!workspaceId) return [];
-      const records = await base44.entities.Analytics.filter({ workspace_id: workspaceId });
+      const records = await api.entities.Analytics.filter({ workspace_id: workspaceId });
       return records.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 100);
     },
     enabled: !!workspaceId
@@ -67,7 +67,7 @@ export default function AnalyticsDashboard() {
     queryKey: ['social-accounts', workspaceId],
     queryFn: async () => {
       if (!workspaceId) return [];
-      return await base44.entities.SocialAccount.filter({ workspace_id: workspaceId, status: 'active' });
+      return await api.entities.SocialAccount.filter({ workspace_id: workspaceId, status: 'active' });
     },
     enabled: !!workspaceId
   });
@@ -76,7 +76,7 @@ export default function AnalyticsDashboard() {
     queryKey: ['posts', workspaceId],
     queryFn: async () => {
       if (!workspaceId) return [];
-      return await base44.entities.Post.filter({ workspace_id: workspaceId });
+      return await api.entities.Post.filter({ workspace_id: workspaceId });
     },
     enabled: !!workspaceId
   });
@@ -88,7 +88,7 @@ export default function AnalyticsDashboard() {
     try {
       await Promise.all(
         socialAccounts.map(account =>
-          base44.functions.invoke('syncSocialAnalytics', {
+          api.functions.invoke('syncSocialAnalytics', {
             workspace_id: workspaceId,
             platform: account.platform,
             account_id: account.id

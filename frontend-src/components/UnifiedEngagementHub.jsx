@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { base44 } from '@/api/base44Client';
+// import { api } from '@/api/client';
 // import { useQuery } from '@tanstack/react-query';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -28,7 +28,7 @@ import {
 } from 'lucide-react';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 
 
@@ -41,19 +41,19 @@ export default function UnifiedEngagementHub() {
   const { data: posts = [] } = useQuery({
     queryKey: ['posts-with-revenue'],
     queryFn: async () => {
-      const allPosts = await base44.entities.Post.list('-created_date', 50);
+      const allPosts = await api.entities.Post.list('-created_date', 50);
       return allPosts;
     }
   });
 
   const { data: revenues = [] } = useQuery({
     queryKey: ['revenues'],
-    queryFn: () => base44.entities.Revenue.list('-transaction_date', 100)
+    queryFn: () => api.entities.Revenue.list('-transaction_date', 100)
   });
 
   const { data: analytics = [] } = useQuery({
     queryKey: ['analytics'],
-    queryFn: () => base44.entities.Analytics.list('-date', 100)
+    queryFn: () => api.entities.Analytics.list('-date', 100)
   });
 
   // Mock CRM & E-commerce data (in production, this would come from integrated systems)

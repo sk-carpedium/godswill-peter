@@ -3,7 +3,7 @@ import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { GripVertical, RotateCcw } from 'lucide-react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
 
@@ -17,7 +17,7 @@ export default function SidebarCustomizer({ navigationItems, onOrderChange }) {
 
     const loadSavedOrder = async () => {
         try {
-            const user = await base44.auth.me();
+            const user = await api.auth.me();
             const savedOrder = user.sidebar_order;
             
             if (savedOrder && Array.isArray(savedOrder)) {
@@ -55,7 +55,7 @@ export default function SidebarCustomizer({ navigationItems, onOrderChange }) {
     const handleSave = async () => {
         try {
             const order = items.map(item => item.name);
-            await base44.auth.updateMe({ sidebar_order: order });
+            await api.auth.updateMe({ sidebar_order: order });
             
             if (onOrderChange) {
                 onOrderChange(order);
@@ -71,7 +71,7 @@ export default function SidebarCustomizer({ navigationItems, onOrderChange }) {
 
     const handleReset = async () => {
         try {
-            await base44.auth.updateMe({ sidebar_order: null });
+            await api.auth.updateMe({ sidebar_order: null });
             setItems(navigationItems);
             setHasChanges(false);
             

@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Music, Headphones, TrendingUp, Users, Play, ExternalLink, RefreshCw, Mic } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 
 
@@ -28,8 +28,8 @@ export default function Spotify() {
     queryKey: ['spotify-data', workspaceId],
     queryFn: async () => { 
       const [integration, analytics] = await Promise.all([
-        base44.entities.Integration.filter({ workspace_id: workspaceId, integration_type: 'spotify' }).then(r => r[0] || null),
-        base44.entities.Analytics.filter({ workspace_id: workspaceId, platform: 'spotify', period: '30d' }),
+        api.entities.Integration.filter({ workspace_id: workspaceId, integration_type: 'spotify' }).then(r => r[0] || null),
+        api.entities.Analytics.filter({ workspace_id: workspaceId, platform: 'spotify', period: '30d' }),
       ]);
       const totalStreams   = analytics.reduce((s,r) => s+(r.streams||r.reach||0), 0);
       const totalListeners = analytics.reduce((s,r) => s+(r.unique_listeners||0), 0);
@@ -52,7 +52,7 @@ export default function Spotify() {
   const { data: _apiData = {}, isLoading } = useQuery({
     queryKey: ['spotify-integration', workspaceId],
     queryFn: async () => { 
-      const integration = await base44.entities.Integration.filter({ workspace_id: workspaceId, integration_type: 'spotify' }).then(r => r[0] || null);
+      const integration = await api.entities.Integration.filter({ workspace_id: workspaceId, integration_type: 'spotify' }).then(r => r[0] || null);
       return integration;
       },
     enabled: !!workspaceId,
@@ -63,7 +63,7 @@ export default function Spotify() {
 
   const handleSync = () => {
     setSyncing(true);
-    base44.entities.Analytics.sync({ platform: 'spotify' })
+    api.entities.Analytics.sync({ platform: 'spotify' })
       .catch(() => null)
       .finally(() => setSyncing(false));
   };

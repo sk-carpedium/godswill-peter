@@ -9,7 +9,7 @@ import { Download, Link2, Loader2, CheckCircle2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 
 
@@ -18,7 +18,7 @@ export default function VideoDownloader({ platform, platformName, platformColor 
   const { data: _apiData = {}, isLoading } = useQuery({
     queryKey: ['videos', workspaceId],
     queryFn: async () => { 
-      const videos = await base44.entities.Video.filter({ workspace_id: workspaceId, sort: '-created_at', limit: 20 });
+      const videos = await api.entities.Video.filter({ workspace_id: workspaceId, sort: '-created_at', limit: 20 });
       return videos;
       },
     enabled: !!workspaceId,
@@ -45,7 +45,7 @@ export default function VideoDownloader({ platform, platformName, platformColor 
       return;
     }
     // Real video fetch — POST /videos/fetch-info
-    base44.entities.Video.filter({ workspace_id: localStorage.getItem('workspace_id')||'' })
+    api.entities.Video.filter({ workspace_id: localStorage.getItem('workspace_id')||'' })
       .then(videos => {
         const match = videos.find(v => v.url === url || v.source_url === url);
         if (match) {

@@ -26,7 +26,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 
 export default function BulkActions({ selectedPosts = [], onComplete }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,7 +58,7 @@ export default function BulkActions({ selectedPosts = [], onComplete }) {
       switch (action) {
         case 'publish':
           for (const post of selectedPosts) {
-            await base44.entities.Post.update(post.id, { status: 'published' });
+            await api.entities.Post.update(post.id, { status: 'published' });
           }
           toast.success(`${selectedPosts.length} posts published!`);
           break;
@@ -70,7 +70,7 @@ export default function BulkActions({ selectedPosts = [], onComplete }) {
             return;
           }
           for (const post of selectedPosts) {
-            await base44.entities.Post.update(post.id, {
+            await api.entities.Post.update(post.id, {
               status: 'scheduled',
               schedule: {
                 ...post.schedule,
@@ -89,7 +89,7 @@ export default function BulkActions({ selectedPosts = [], onComplete }) {
             return;
           }
           for (const post of selectedPosts) {
-            await base44.entities.Post.update(post.id, { status: newStatus });
+            await api.entities.Post.update(post.id, { status: newStatus });
           }
           toast.success(`${selectedPosts.length} posts updated!`);
           break;
@@ -102,7 +102,7 @@ export default function BulkActions({ selectedPosts = [], onComplete }) {
           }
           for (const post of selectedPosts) {
             const existingLabels = post.labels || [];
-            await base44.entities.Post.update(post.id, {
+            await api.entities.Post.update(post.id, {
               labels: [...existingLabels, label]
             });
           }
@@ -112,7 +112,7 @@ export default function BulkActions({ selectedPosts = [], onComplete }) {
         case 'duplicate':
           for (const post of selectedPosts) {
             const { id, created_date, updated_date, created_by, ...postData } = post;
-            await base44.entities.Post.create({
+            await api.entities.Post.create({
               ...postData,
               title: `${post.title} (Copy)`,
               status: 'draft'
@@ -123,7 +123,7 @@ export default function BulkActions({ selectedPosts = [], onComplete }) {
           
         case 'archive':
           for (const post of selectedPosts) {
-            await base44.entities.Post.update(post.id, { status: 'archived' });
+            await api.entities.Post.update(post.id, { status: 'archived' });
           }
           toast.success(`${selectedPosts.length} posts archived!`);
           break;
@@ -134,7 +134,7 @@ export default function BulkActions({ selectedPosts = [], onComplete }) {
             return;
           }
           for (const post of selectedPosts) {
-            await base44.entities.Post.delete(post.id);
+            await api.entities.Post.delete(post.id);
           }
           toast.success(`${selectedPosts.length} posts deleted!`);
           break;

@@ -23,7 +23,7 @@ import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
 import moment from 'moment';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 import {
   Dialog,
@@ -63,7 +63,7 @@ export default function ClientFeedback({ primaryColor }) {
   const { data: _apiData = {}, isLoading } = useQuery({
     queryKey: ['client-feedback', workspaceId],
     queryFn: async () => { 
-      const posts = await base44.entities.Post.filter({ workspace_id: workspaceId, status: 'pending_approval', sort: '-created_at' });
+      const posts = await api.entities.Post.filter({ workspace_id: workspaceId, status: 'pending_approval', sort: '-created_at' });
       return posts;
       },
     enabled: !!workspaceId,

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { X, ArrowRight, ArrowLeft, Sparkles, Calendar, BarChart3, Users, Check } from 'lucide-react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 
@@ -111,7 +111,7 @@ export default function OnboardingTour({ onComplete }) {
   const handleComplete = async () => {
     setIsVisible(false);
     try {
-      await base44.auth.updateMe({ onboarding_completed: true });
+      await api.auth.updateMe({ onboarding_completed: true });
       if (onComplete) onComplete();
     } catch (error) {
       console.error('Error updating onboarding status:', error);

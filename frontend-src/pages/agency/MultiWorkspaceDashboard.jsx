@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -29,28 +29,28 @@ export default function MultiWorkspaceDashboard() {
   const { data: workspaces = [], isLoading } = useQuery({
     queryKey: ['all-workspaces'],
     queryFn: async () => {
-      return await base44.entities.Workspace.filter({ status: 'active' });
+      return await api.entities.Workspace.filter({ status: 'active' });
     }
   });
 
   const { data: allSubscriptions = [] } = useQuery({
     queryKey: ['all-subscriptions'],
     queryFn: async () => {
-      return await base44.entities.Subscription.list();
+      return await api.entities.Subscription.list();
     }
   });
 
   const { data: allRevenue = [] } = useQuery({
     queryKey: ['all-revenue'],
     queryFn: async () => {
-      return await base44.entities.Revenue.list();
+      return await api.entities.Revenue.list();
     }
   });
 
   const { data: allPosts = [] } = useQuery({
     queryKey: ['all-posts'],
     queryFn: async () => {
-      return await base44.entities.Post.list();
+      return await api.entities.Post.list();
     }
   });
 

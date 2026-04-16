@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { RefreshCw, CheckCircle2, AlertCircle, Clock, Loader2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
@@ -16,7 +16,7 @@ export default function SyncStatusCard({ accounts }) {
     setSyncingId(account.id);
     
     try {
-      await base44.functions.invoke('syncSocialData', {
+      await api.functions.invoke('syncSocialData', {
         platform: account.platform,
         account_id: account.id
       });
@@ -35,7 +35,7 @@ export default function SyncStatusCard({ accounts }) {
     setSyncing(true);
     
     try {
-      const result = await base44.functions.invoke('syncAllAccounts', {});
+      const result = await api.functions.invoke('syncAllAccounts', {});
       toast.success(`Synced ${result.data.summary.synced} of ${result.data.summary.total} accounts`);
       window.location.reload();
     } catch (error) {

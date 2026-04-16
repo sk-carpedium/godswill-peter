@@ -6,7 +6,7 @@ import { Calendar, Sparkles, TrendingUp, Clock, Zap, ChevronLeft, ChevronRight, 
 import { cn } from '@/lib/utils';
 import moment from 'moment';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 
 
@@ -26,8 +26,8 @@ export default function AIContentCalendar() {
   const { data: _apiData = {}, isLoading } = useQuery({
     queryKey: ['ai-calendar', workspaceId],
     queryFn: async () => { 
-      const posts = await base44.entities.Post.filter({ workspace_id: workspaceId, sort: 'scheduled_at', limit: 50 });
-      const suggestions = await base44.integrations.Core.InvokeLLM({
+      const posts = await api.entities.Post.filter({ workspace_id: workspaceId, sort: 'scheduled_at', limit: 50 });
+      const suggestions = await api.integrations.Core.InvokeLLM({
         prompt: 'Generate 5 content ideas for the next week based on trending topics. Return JSON array of {date, platform, type, topic, caption, hashtags}.',
         response_json_schema: { type:'object', properties:{ suggestions: { type:'array' } } }
       }).catch(() => ({ suggestions: [] }));

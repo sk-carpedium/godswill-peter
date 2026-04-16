@@ -14,7 +14,7 @@ import {
   AlertCircle,
   RefreshCw
 } from 'lucide-react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
 
@@ -41,7 +41,7 @@ export default function ComplianceChecker({ content, brandId, onAnalysisComplete
       let complianceRules = null;
       
       if (brandId) {
-        const brand = await base44.entities.Brand.filter({ id: brandId });
+        const brand = await api.entities.Brand.filter({ id: brandId });
         if (brand.length > 0) {
           brandVoice = brand[0].brand_voice;
           complianceRules = brand[0].compliance_rules;
@@ -74,7 +74,7 @@ Provide a comprehensive analysis with:
 
 Return as JSON only.`;
 
-      const result = await base44.integrations.Core.InvokeLLM({
+      const result = await api.integrations.Core.InvokeLLM({
         prompt,
         response_json_schema: {
           type: "object",

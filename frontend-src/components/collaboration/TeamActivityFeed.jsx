@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Activity } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 import moment from 'moment';
 
@@ -12,7 +12,7 @@ export default function TeamActivityFeed() {
   const { workspaceId } = useWorkspace();
   const { data: posts = [], isLoading } = useQuery({
     queryKey: ['team-activity', workspaceId],
-    queryFn: () => base44.entities.Post.filter({ workspace_id: workspaceId, sort: '-created_at', limit: 20 }),
+    queryFn: () => api.entities.Post.filter({ workspace_id: workspaceId, sort: '-created_at', limit: 20 }),
     enabled: !!workspaceId, staleTime: 30000,
   });
 

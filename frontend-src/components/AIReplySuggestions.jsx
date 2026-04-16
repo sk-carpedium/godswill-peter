@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Sparkles, Copy, ThumbsUp, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { cn } from '@/lib/utils';
 
 export default function AIReplySuggestions({ comment, onUseReply, limitedMode = false }) {
@@ -17,7 +17,7 @@ export default function AIReplySuggestions({ comment, onUseReply, limitedMode = 
     setIsGenerating(true);
     try {
       const numSuggestions = limitedMode ? 2 : 3;
-      const response = await base44.integrations.Core.InvokeLLM({
+      const response = await api.integrations.Core.InvokeLLM({
         prompt: `Generate ${numSuggestions} professional, engaging reply suggestions for this social media comment:
 
 Comment: "${comment}"

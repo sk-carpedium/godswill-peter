@@ -1,24 +1,13 @@
 /**
- * AuthContext.jsx  — Nexus Social Authentication Provider
+ * AuthContext — Nexus Social session (JWT access + refresh via `@/api/client`).
  *
- * REPLACES the original AuthContext that used:
- *   createAxiosClient from '@base44/sdk/dist/utils/axios-client'
- *   appClient.get('/prod/public-settings/by-id/${appId}')  ← Base44 platform
+ * Boot: GET /app/public-settings (optional Bearer) → GET /auth/me when a token exists.
  *
- * Now uses:
- *   GET /app/public-settings  → our Express backend (public, no auth)
- *   GET /auth/me              → our Express backend (authenticated)
- *
- * State machine:
- *   isLoadingPublicSettings → fetching GET /app/public-settings
- *   isLoadingAuth           → fetching GET /auth/me
- *   authError.type === 'auth_required'      → redirect to /login
- *   authError.type === 'user_not_registered'→ show UserNotRegisteredError
- *
- * Place at: src/lib/AuthContext.jsx
+ * authError.type === 'auth_required'       → redirect to /login
+ * authError.type === 'user_not_registered' → UserNotRegisteredError
  */
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import { base44 } from '@/api/base44Client';
+import { api, getAccessToken } from '@/api/client';
 
 const AuthContext = createContext(null);
 
@@ -32,11 +21,6 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => { checkAppState(); }, []);
 
-  /**
-   * Step 1 — Fetch public app settings (no auth required).
-   * Called by App.jsx via AuthProvider on mount.
-   * Replaces the Base44 /prod/public-settings/by-id/:appId call.
-   */
   const checkAppState = async () => {
     try {
       setIsLoadingPublicSettings(true);
@@ -51,9 +35,7 @@ export const AuthProvider = ({ children }) => {
         return 'http://localhost:4000/v1';
       })();
 
-      const token = typeof localStorage !== 'undefined'
-        ? (localStorage.getItem('nexus_access_token') || localStorage.getItem('base44_access_token'))
-        : null;
+      const token = typeof localStorage !== 'undefined' ? getAccessToken() : null;
 
       const res = await fetch(`${apiUrl}/app/public-settings`, {
         headers: { ...(token ? { Authorization: `Bearer ${token}` } : {}) },
@@ -103,13 +85,19 @@ export const AuthProvider = ({ children }) => {
     try {
       setIsLoadingAuth(true);
       // GET /auth/me — returns user if token is valid, throws on 401/403
-      const currentUser = await base44.auth.me();
+      const currentUser = await api.auth.me();
       setUser(currentUser);
       setIsAuthenticated(true);
     } catch (err) {
       console.error('[AuthContext] checkUserAuth error:', err);
       setIsAuthenticated(false);
       if (err.status === 401 || err.status === 403) {
+        try {
+          localStorage.removeItem('nexus_access_token');
+          localStorage.removeItem('nexus_refresh_token');
+          localStorage.removeItem('base44_access_token');
+          localStorage.removeItem('token');
+        } catch (_) { /* ignore */ }
         const reason = err.extra_data?.reason || 'auth_required';
         setAuthError({ type: reason, message: err.message || 'Authentication required' });
       }
@@ -127,15 +115,15 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
     setIsAuthenticated(false);
     if (shouldRedirect) {
-      base44.auth.logout(window.location.href);
+      api.auth.logout(window.location.href);
     } else {
-      base44.auth.logout();
+      api.auth.logout();
     }
   };
 
   /** Redirect to /login, preserving current URL for post-login return */
   const navigateToLogin = () => {
-    base44.auth.redirectToLogin(window.location.href);
+    api.auth.redirectToLogin(window.location.href);
   };
 
   return (

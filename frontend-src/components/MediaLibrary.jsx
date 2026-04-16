@@ -24,7 +24,7 @@ import {
   X
 } from 'lucide-react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
 import {
@@ -50,24 +50,24 @@ export default function MediaLibrary() {
   const { data: assets = [], isLoading } = useQuery({
     queryKey: ['media-assets'],
     queryFn: async () => {
-      const workspaces = await base44.entities.Workspace.filter({ status: 'active' });
+      const workspaces = await api.entities.Workspace.filter({ status: 'active' });
       if (workspaces.length === 0) return [];
-      return base44.entities.MediaAsset.filter({ workspace_id: workspaces[0].id });
+      return api.entities.MediaAsset.filter({ workspace_id: workspaces[0].id });
     }
   });
 
   const { data: templates = [] } = useQuery({
     queryKey: ['content-templates'],
     queryFn: async () => {
-      const workspaces = await base44.entities.Workspace.filter({ status: 'active' });
+      const workspaces = await api.entities.Workspace.filter({ status: 'active' });
       if (workspaces.length === 0) return [];
-      return base44.entities.ContentTemplate.filter({ workspace_id: workspaces[0].id });
+      return api.entities.ContentTemplate.filter({ workspace_id: workspaces[0].id });
     }
   });
 
   const deleteMutation = useMutation({
     mutationFn: async (id) => {
-      await base44.entities.MediaAsset.delete(id);
+      await api.entities.MediaAsset.delete(id);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['media-assets'] });
@@ -77,7 +77,7 @@ export default function MediaLibrary() {
 
   const deleteTemplateMutation = useMutation({
     mutationFn: async (id) => {
-      await base44.entities.ContentTemplate.delete(id);
+      await api.entities.ContentTemplate.delete(id);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['content-templates'] });
@@ -87,13 +87,13 @@ export default function MediaLibrary() {
 
   const uploadMutation = useMutation({
     mutationFn: async (files) => {
-      const workspaces = await base44.entities.Workspace.filter({ status: 'active' });
+      const workspaces = await api.entities.Workspace.filter({ status: 'active' });
       const uploaded = [];
 
       for (const file of files) {
-        const { file_url } = await base44.integrations.Core.UploadFile({ file });
+        const { file_url } = await api.integrations.Core.UploadFile({ file });
         
-        const asset = await base44.entities.MediaAsset.create({
+        const asset = await api.entities.MediaAsset.create({
           workspace_id: workspaces[0].id,
           name: file.name,
           type: file.type.startsWith('image/') ? 'image' : file.type.startsWith('video/') ? 'video' : 'document',

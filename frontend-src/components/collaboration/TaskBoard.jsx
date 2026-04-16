@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Kanban, Clock, CheckCircle2, Circle } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 
 const COLS = [
@@ -18,7 +18,7 @@ export default function TaskBoard() {
   const { workspaceId } = useWorkspace();
   const { data: posts = [], isLoading } = useQuery({
     queryKey: ['task-board', workspaceId],
-    queryFn: () => base44.entities.Post.filter({ workspace_id: workspaceId, sort: '-created_at', limit: 30 }),
+    queryFn: () => api.entities.Post.filter({ workspace_id: workspaceId, sort: '-created_at', limit: 30 }),
     enabled: !!workspaceId, staleTime: 30000,
   });
 

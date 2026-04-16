@@ -4,7 +4,7 @@ import { AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, R
 import { TrendingUp, TrendingDown, Users, Eye, Heart, MessageSquare } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 
 
@@ -21,8 +21,8 @@ export default function PlatformAnalytics({ platformName, platformColor = 'viole
     queryKey: ['platform-analytics', workspaceId],
     queryFn: async () => { 
       const [accounts, analytics] = await Promise.all([
-        base44.entities.SocialAccount.filter({ workspace_id: workspaceId, status: 'active' }),
-        base44.entities.Analytics.filter({ workspace_id: workspaceId, period: '7d', sort: '-date' }),
+        api.entities.SocialAccount.filter({ workspace_id: workspaceId, status: 'active' }),
+        api.entities.Analytics.filter({ workspace_id: workspaceId, period: '7d', sort: '-date' }),
       ]);
       return { accounts, analytics };
       },

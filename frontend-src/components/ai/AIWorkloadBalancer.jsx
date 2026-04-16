@@ -5,7 +5,7 @@ import { Progress } from '@/components/ui/progress';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Bot, Zap } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 
 export default function AIWorkloadBalancer() {
@@ -14,8 +14,8 @@ export default function AIWorkloadBalancer() {
     queryKey: ['ai-workload', workspaceId],
     queryFn: async () => {
       const [automations, pending] = await Promise.all([
-        base44.entities.Automation.filter({ workspace_id: workspaceId, status: 'active' }),
-        base44.entities.Post.filter({ workspace_id: workspaceId, status: 'pending_approval', limit: 50 }),
+        api.entities.Automation.filter({ workspace_id: workspaceId, status: 'active' }),
+        api.entities.Post.filter({ workspace_id: workspaceId, status: 'pending_approval', limit: 50 }),
       ]);
       return { automations, pendingCount: pending.length, aiLoad: Math.min(100, (automations.length * 15) + (pending.length * 5)) };
     },

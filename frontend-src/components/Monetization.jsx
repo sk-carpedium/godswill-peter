@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useQuery } from '@tanstack/react-query';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -36,17 +36,17 @@ export default function Monetization() {
 
   const { data: deals = [] } = useQuery({
     queryKey: ['brand-deals'],
-    queryFn: () => base44.entities.BrandDeal.list('-created_date')
+    queryFn: () => api.entities.BrandDeal.list('-created_date')
   });
 
   const { data: revenues = [] } = useQuery({
     queryKey: ['revenues', dateRange],
-    queryFn: () => base44.entities.Revenue.list('-transaction_date', 100)
+    queryFn: () => api.entities.Revenue.list('-transaction_date', 100)
   });
 
   const { data: posts = [] } = useQuery({
     queryKey: ['monetized-posts'],
-    queryFn: () => base44.entities.Post.filter({ 'monetization.is_sponsored': true }, '-created_date', 20)
+    queryFn: () => api.entities.Post.filter({ 'monetization.is_sponsored': true }, '-created_date', 20)
   });
 
   // Calculate metrics

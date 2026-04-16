@@ -9,7 +9,7 @@ import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, R
 import { TrendingUp, TrendingDown, Users, Eye, Heart, Target, Award, ArrowUpRight, ArrowDownRight, Plus, Search } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 
 
@@ -50,8 +50,8 @@ export default function Benchmarking() {
     queryKey: ['benchmarks', workspaceId],
     queryFn: async () => { 
       const [analytics, competitors] = await Promise.all([
-        base44.entities.Analytics.filter({ workspace_id: workspaceId, period: '30d' }),
-        base44.entities.CompetitorTrack.filter({ workspace_id: workspaceId }),
+        api.entities.Analytics.filter({ workspace_id: workspaceId, period: '30d' }),
+        api.entities.CompetitorTrack.filter({ workspace_id: workspaceId }),
       ]);
       return { analytics, competitors };
       },

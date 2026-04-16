@@ -5,7 +5,7 @@
  * All hooks use React Query for caching, loading states, and background refresh.
  */
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from './useWorkspace';
 
 /** 7-day engagement data for EngagementChart.jsx */
@@ -14,7 +14,7 @@ export function useEngagementData(period = '7d') {
   return useQuery({
     queryKey: ['analytics-engagement', workspaceId, period],
     queryFn: async () => {
-      const rows = await base44.entities.Analytics.filter({
+      const rows = await api.entities.Analytics.filter({
         workspace_id: workspaceId,
         period,
         sort: 'date',
@@ -38,7 +38,7 @@ export function useHourlyEngagement() {
   const { workspaceId } = useWorkspace();
   return useQuery({
     queryKey: ['analytics-hourly', workspaceId],
-    queryFn:  () => base44.entities.Analytics.filter({
+    queryFn:  () => api.entities.Analytics.filter({
       workspace_id: workspaceId,
       period:       '30d',
       group_by:     'hour',
@@ -55,8 +55,8 @@ export function useDashboardMetrics(period = '30d') {
     queryKey: ['analytics-metrics', workspaceId, period],
     queryFn: async () => {
       const [analytics, prevAnalytics] = await Promise.all([
-        base44.entities.Analytics.filter({ workspace_id: workspaceId, period }),
-        base44.entities.Analytics.filter({ workspace_id: workspaceId, period: '60d', sort: 'date' }),
+        api.entities.Analytics.filter({ workspace_id: workspaceId, period }),
+        api.entities.Analytics.filter({ workspace_id: workspaceId, period: '60d', sort: 'date' }),
       ]);
 
       const sum = (arr, key) => arr.reduce((s, r) => s + (r[key] || 0), 0);
@@ -90,7 +90,7 @@ export function useHistoricalAnalytics(period = '90d') {
   const { workspaceId } = useWorkspace();
   return useQuery({
     queryKey: ['analytics-historical', workspaceId, period],
-    queryFn:  () => base44.entities.Analytics.filter({
+    queryFn:  () => api.entities.Analytics.filter({
       workspace_id: workspaceId,
       period,
       sort: 'date',
@@ -106,7 +106,7 @@ export function usePlatformAnalytics() {
   return useQuery({
     queryKey: ['social-accounts-analytics', workspaceId],
     queryFn: async () => {
-      const accounts = await base44.entities.SocialAccount.filter({
+      const accounts = await api.entities.SocialAccount.filter({
         workspace_id: workspaceId,
         status: 'active',
       });

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useMutation } from '@tanstack/react-query';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -111,8 +111,8 @@ export default function Pricing() {
 
   const subscribeMutation = useMutation({
     mutationFn: async ({ planId, price }) => {
-      const user = await base44.auth.me();
-      const workspaces = await base44.entities.Workspace.filter({ status: 'active' });
+      const user = await api.auth.me();
+      const workspaces = await api.entities.Workspace.filter({ status: 'active' });
       
       const trialEnd = new Date();
       trialEnd.setDate(trialEnd.getDate() + 14);
@@ -126,7 +126,7 @@ export default function Pricing() {
 
       const usageLimits = getUsageLimits(planId);
 
-      return await base44.entities.Subscription.create({
+      return await api.entities.Subscription.create({
         user_email: user.email,
         workspace_id: workspaces[0]?.id,
         plan_id: planId,
@@ -171,16 +171,16 @@ export default function Pricing() {
     if (plan.name === 'Free') {
       // Ensure free tier users get a subscription record
       try {
-        const user = await base44.auth.me();
-        const workspaces = await base44.entities.Workspace.filter({ status: 'active' });
+        const user = await api.auth.me();
+        const workspaces = await api.entities.Workspace.filter({ status: 'active' });
         
-        const existingSubscription = await base44.entities.Subscription.filter({
+        const existingSubscription = await api.entities.Subscription.filter({
           user_email: user.email,
           workspace_id: workspaces[0]?.id
         });
 
         if (existingSubscription.length === 0 && workspaces[0]) {
-          await base44.entities.Subscription.create({
+          await api.entities.Subscription.create({
             user_email: user.email,
             workspace_id: workspaces[0].id,
             plan_id: 'free',

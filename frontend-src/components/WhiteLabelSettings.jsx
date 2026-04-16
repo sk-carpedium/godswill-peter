@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
 import { Badge } from '@/components/ui/badge';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import {
   Upload,
@@ -43,7 +43,7 @@ export default function WhiteLabelSettings({ workspace }) {
 
   const updateMutation = useMutation({
     mutationFn: async (updates) => {
-      await base44.entities.Workspace.update(workspace.id, {
+      await api.entities.Workspace.update(workspace.id, {
         settings: {
           ...workspace.settings,
           white_label: {
@@ -68,7 +68,7 @@ export default function WhiteLabelSettings({ workspace }) {
 
     setUploading(true);
     try {
-      const { file_url } = await base44.integrations.Core.UploadFile({ file });
+      const { file_url } = await api.integrations.Core.UploadFile({ file });
       setSettings({ ...settings, logo_url: file_url });
       toast.success('Logo uploaded!');
     } catch (error) {
@@ -84,7 +84,7 @@ export default function WhiteLabelSettings({ workspace }) {
 
     setUploading(true);
     try {
-      const { file_url } = await base44.integrations.Core.UploadFile({ file });
+      const { file_url } = await api.integrations.Core.UploadFile({ file });
       setSettings({ ...settings, favicon_url: file_url });
       toast.success('Favicon uploaded!');
     } catch (error) {

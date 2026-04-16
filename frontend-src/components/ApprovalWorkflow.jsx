@@ -21,7 +21,7 @@ import {
 import { cn } from '@/lib/utils';
 import moment from 'moment';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 
 
@@ -105,7 +105,7 @@ export default function ApprovalWorkflow() {
   const { data: _apiData = {}, isLoading } = useQuery({
     queryKey: ['approval-workflow', workspaceId],
     queryFn: async () => { 
-      const posts = await base44.entities.Post.filter({ workspace_id: workspaceId, status: 'pending_approval' });
+      const posts = await api.entities.Post.filter({ workspace_id: workspaceId, status: 'pending_approval' });
       return posts;
       },
     enabled: !!workspaceId,

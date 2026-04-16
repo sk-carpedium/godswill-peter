@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -222,7 +222,7 @@ export default function Integrations() {
   }, []);
 
   const loadWorkspace = async () => {
-    const workspaces = await base44.entities.Workspace.filter({ status: 'active' });
+    const workspaces = await api.entities.Workspace.filter({ status: 'active' });
     if (workspaces.length > 0) {
       setWorkspaceId(workspaces[0].id);
     }
@@ -232,14 +232,14 @@ export default function Integrations() {
     queryKey: ['integrations', workspaceId],
     queryFn: async () => {
       if (!workspaceId) return [];
-      return await base44.entities.Integration.filter({ workspace_id: workspaceId });
+      return await api.entities.Integration.filter({ workspace_id: workspaceId });
     },
     enabled: !!workspaceId
   });
 
   const createIntegrationMutation = useMutation({
     mutationFn: async (data) => {
-      return await base44.entities.Integration.create(data);
+      return await api.entities.Integration.create(data);
     },
     onSuccess: () => {
       queryClient.invalidateQueries(['integrations']);
@@ -254,7 +254,7 @@ export default function Integrations() {
 
   const deleteIntegrationMutation = useMutation({
     mutationFn: async (id) => {
-      return await base44.entities.Integration.delete(id);
+      return await api.entities.Integration.delete(id);
     },
     onSuccess: () => {
       queryClient.invalidateQueries(['integrations']);
@@ -265,7 +265,7 @@ export default function Integrations() {
   const syncIntegrationMutation = useMutation({
     mutationFn: async (integration) => {
       // Call sync function
-      return await base44.functions.invoke('syncIntegration', {
+      return await api.functions.invoke('syncIntegration', {
         integration_id: integration.id,
         integration_type: integration.integration_type
       });

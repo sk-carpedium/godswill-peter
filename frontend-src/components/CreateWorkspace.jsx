@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -22,11 +22,11 @@ export default function CreateWorkspace() {
 
   const createWorkspaceMutation = useMutation({
     mutationFn: async (data) => {
-      const user = await base44.auth.me();
+      const user = await api.auth.me();
       
       // Check workspace limit
-      const existingWorkspaces = await base44.entities.Workspace.filter({ status: 'active' });
-      const subscriptions = await base44.entities.Subscription.filter({ user_email: user.email });
+      const existingWorkspaces = await api.entities.Workspace.filter({ status: 'active' });
+      const subscriptions = await api.entities.Subscription.filter({ user_email: user.email });
       const subscription = subscriptions[0];
       const plan = subscription?.plan_id || 'free';
       const workspaceLimit = subscription?.usage_limits?.workspaces || 1;
@@ -36,7 +36,7 @@ export default function CreateWorkspace() {
       }
       
       const slug = data.name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-      return await base44.entities.Workspace.create({
+      return await api.entities.Workspace.create({
         name: data.name,
         slug: slug,
         industry: data.industry,

@@ -6,7 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import {
   Upload,
@@ -66,7 +66,7 @@ export default function ClientOnboardingWizard({ onComplete, onCancel }) {
   const createClientMutation = useMutation({
     mutationFn: async (data) => {
       // Create workspace
-      const workspace = await base44.entities.Workspace.create({
+      const workspace = await api.entities.Workspace.create({
         name: data.workspaceName,
         slug: data.workspaceName.toLowerCase().replace(/\s+/g, '-'),
         industry: data.industry,
@@ -84,7 +84,7 @@ export default function ClientOnboardingWizard({ onComplete, onCancel }) {
       });
 
       // Create brand profile
-      const brand = await base44.entities.Brand.create({
+      const brand = await api.entities.Brand.create({
         workspace_id: workspace.id,
         name: data.clientName,
         logo_url: data.logoUrl,
@@ -107,9 +107,9 @@ export default function ClientOnboardingWizard({ onComplete, onCancel }) {
 
       // Invite client to workspace
       if (data.clientEmail) {
-        await base44.users.inviteUser(data.clientEmail, 'user');
+        await api.users.inviteUser(data.clientEmail, 'user');
         
-        await base44.entities.WorkspaceMember.create({
+        await api.entities.WorkspaceMember.create({
           workspace_id: workspace.id,
           user_email: data.clientEmail,
           role: 'client_viewer',
@@ -158,7 +158,7 @@ export default function ClientOnboardingWizard({ onComplete, onCancel }) {
     if (!file) return;
 
     try {
-      const { file_url } = await base44.integrations.Core.UploadFile({ file });
+      const { file_url } = await api.integrations.Core.UploadFile({ file });
       setFormData({ ...formData, logoUrl: file_url });
       toast.success('Logo uploaded successfully');
     } catch (error) {

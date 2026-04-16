@@ -21,7 +21,7 @@ import {
 import { LineChart, Line, BarChart, Bar, AreaChart, Area, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import moment from 'moment';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 
 
@@ -32,7 +32,7 @@ export default function CampaignPerformanceDashboard({ campaigns = [], brands = 
   const { data: _apiData = {}, isLoading } = useQuery({
     queryKey: ['campaign-performance', workspaceId],
     queryFn: async () => { 
-      const campaigns = await base44.entities.Campaign.filter({ workspace_id: workspaceId, sort: '-created_at' });
+      const campaigns = await api.entities.Campaign.filter({ workspace_id: workspaceId, sort: '-created_at' });
       return campaigns;
       },
     enabled: !!workspaceId,

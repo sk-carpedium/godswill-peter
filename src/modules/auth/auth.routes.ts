@@ -89,8 +89,35 @@ router.post('/logout', authenticate, async (req: AuthRequest, res: Response): Pr
 router.get('/me', authenticate, async (req: AuthRequest, res: Response): Promise<void> => {
   const user = await db.user.findUnique({
     where: { id: req.user!.userId },
-    select: { id: true, email: true, display_name: true, avatar_url: true, role: true, totp_enabled: true, created_at: true, last_login_at: true, onboarding_completed: true, tour_completed: true, checklist_dismissed: true, checklist_completed: true, sidebar_order: true,
-      workspace_members: { where: { is_active: true }, include: { workspace: { select: { id: true, name: true, slug: true, logo_url: true }, include: { appearance_settings: true } as any } } } },
+    select: {
+      id: true,
+      email: true,
+      display_name: true,
+      avatar_url: true,
+      role: true,
+      totp_enabled: true,
+      created_at: true,
+      last_login_at: true,
+      onboarding_completed: true,
+      tour_completed: true,
+      checklist_dismissed: true,
+      checklist_completed: true,
+      sidebar_order: true,
+      workspace_members: {
+        where: { is_active: true },
+        include: {
+          workspace: {
+            select: {
+              id: true,
+              name: true,
+              slug: true,
+              logo_url: true,
+              appearance_settings: true,
+            },
+          },
+        },
+      },
+    },
   });
   if (!user) { res.status(404).json({ success: false, error: 'User not found' }); return; }
   ok(res, user);

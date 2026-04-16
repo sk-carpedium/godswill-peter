@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { AlertTriangle, TrendingDown, Bell, X, CheckCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useMutation, useQueryClient, useQuery } from '@tanstack/react-query';
 import { toast } from 'sonner';
 import { useWorkspace } from '@/hooks';
@@ -15,7 +15,7 @@ export default function SentimentAlerts({ mentions = [] }) {
   const { data: _apiData = {}, isLoading } = useQuery({
     queryKey: ['sentiment-alerts', workspaceId],
     queryFn: async () => { 
-      const mentions = await base44.entities.Mention.filter({ workspace_id: workspaceId, sentiment: 'negative', status: 'new', sort: '-mentioned_at', limit: 20 });
+      const mentions = await api.entities.Mention.filter({ workspace_id: workspaceId, sentiment: 'negative', status: 'new', sort: '-mentioned_at', limit: 20 });
       return mentions;
       },
     enabled: !!workspaceId,
@@ -74,7 +74,7 @@ export default function SentimentAlerts({ mentions = [] }) {
     mutationFn: async (alert) => {
       // Mark mentions as reviewed
       for (const mention of alert.mentions || []) {
-        await base44.entities.Mention.update(mention.id, { status: 'reviewed' });
+        await api.entities.Mention.update(mention.id, { status: 'reviewed' });
       }
     },
     onSuccess: () => {

@@ -6,7 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { FileText, Loader2 } from 'lucide-react';
 import { useMutation } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 import { toast } from 'sonner';
 
@@ -28,7 +28,7 @@ export default function ReportBuilder({ onReportCreated }) {
   const toggle = (id) => setSections(prev => prev.includes(id) ? prev.filter(s => s !== id) : [...prev, id]);
 
   const create = useMutation({
-    mutationFn: () => base44.entities.ClientReport.create({ workspace_id: workspaceId, report_name: name, client_email: email, metrics_included: sections, auto_send_enabled: !!email }),
+    mutationFn: () => api.entities.ClientReport.create({ workspace_id: workspaceId, report_name: name, client_email: email, metrics_included: sections, auto_send_enabled: !!email }),
     onSuccess: (r) => { toast.success('Report created!'); onReportCreated?.(r); setName(''); setEmail(''); },
     onError: e => toast.error(e.message),
   });

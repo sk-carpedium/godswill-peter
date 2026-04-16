@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -30,13 +30,13 @@ export default function StrategicInsights({ workspaceId, brandId }) {
     setIsLoading(true);
     try {
       const [posts, campaigns, analytics, socialAccounts] = await Promise.all([
-        base44.entities.Post.filter({ workspace_id: workspaceId }),
-        base44.entities.Campaign.filter({ workspace_id: workspaceId }),
-        base44.entities.Analytics.filter({ workspace_id: workspaceId }),
-        base44.entities.SocialAccount.filter({ workspace_id: workspaceId })
+        api.entities.Post.filter({ workspace_id: workspaceId }),
+        api.entities.Campaign.filter({ workspace_id: workspaceId }),
+        api.entities.Analytics.filter({ workspace_id: workspaceId }),
+        api.entities.SocialAccount.filter({ workspace_id: workspaceId })
       ]);
 
-      const response = await base44.integrations.Core.InvokeLLM({
+      const response = await api.integrations.Core.InvokeLLM({
         prompt: `Analyze the following social media data and provide comprehensive strategic insights:
 
 Posts: ${JSON.stringify(posts.slice(-50))}

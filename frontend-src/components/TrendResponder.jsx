@@ -16,7 +16,7 @@ import {
 import { cn } from '@/lib/utils';
 import moment from 'moment';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 
 
@@ -66,7 +66,7 @@ export default function TrendResponder({ autoMode = false }) {
   const { data: _apiData = {}, isLoading } = useQuery({
     queryKey: ['trends', workspaceId],
     queryFn: async () => { 
-      const result = await base44.functions.invoke('socialListening', { action: 'detect_trends', workspace_id: workspaceId }).catch(() => ({}));
+      const result = await api.functions.invoke('socialListening', { action: 'detect_trends', workspace_id: workspaceId }).catch(() => ({}));
       return result.trends || [];
       },
     enabled: !!workspaceId,

@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Progress } from '@/components/ui/progress';
 import { Users, MapPin, Clock, Smartphone } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 
 
@@ -14,7 +14,7 @@ export default function AudienceEngagement({ platformName, platformColor = 'viol
   const { data: _apiData = {}, isLoading } = useQuery({
     queryKey: ['audience-engagement', workspaceId],
     queryFn: async () => { 
-      const hourly = await base44.entities.Analytics.filter({ workspace_id: workspaceId, period: '30d', group_by: 'hour' });
+      const hourly = await api.entities.Analytics.filter({ workspace_id: workspaceId, period: '30d', group_by: 'hour' });
       // Build 7x24 heatmap grid
       const grid = Array.from({length:7}, () => Array.from({length:24}, () => 0));
       if (Array.isArray(hourly)) {

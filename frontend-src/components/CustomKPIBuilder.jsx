@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -87,7 +87,7 @@ export default function CustomKPIBuilder({ clientWorkspaceId, onSave }) {
 
   const saveKPIs = async () => {
     try {
-      await base44.entities.Workspace.update(clientWorkspaceId, {
+      await api.entities.Workspace.update(clientWorkspaceId, {
         settings: {
           custom_kpis: kpis
         }

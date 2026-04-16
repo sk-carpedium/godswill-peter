@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -115,19 +115,19 @@ export default function Campaigns() {
 
   const { data: user } = useQuery({
     queryKey: ['user'],
-    queryFn: () => base44.auth.me()
+    queryFn: () => api.auth.me()
   });
 
   const { data: workspaces = [] } = useQuery({
     queryKey: ['workspaces'],
-    queryFn: () => base44.entities.Workspace.filter({ status: 'active' })
+    queryFn: () => api.entities.Workspace.filter({ status: 'active' })
   });
 
   const currentWorkspace = workspaces[0];
 
   const { data: brands = [] } = useQuery({
     queryKey: ['brands', currentWorkspace?.id],
-    queryFn: () => base44.entities.Brand.filter({ 
+    queryFn: () => api.entities.Brand.filter({ 
       workspace_id: currentWorkspace?.id,
       status: 'active'
     }),
@@ -136,7 +136,7 @@ export default function Campaigns() {
 
   const { data: campaigns = [], isLoading } = useQuery({
     queryKey: ['campaigns'],
-    queryFn: () => base44.entities.Campaign.list('-created_date'),
+    queryFn: () => api.entities.Campaign.list('-created_date'),
   });
 
   const filteredCampaigns = campaigns.filter((campaign) => {

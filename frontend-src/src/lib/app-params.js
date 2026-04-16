@@ -1,10 +1,7 @@
 /**
  * app-params.js  — Nexus Social frontend configuration
  *
- * REPLACES the original @base44/sdk app-params that held:
- *   appId, token, functionsVersion, appBaseUrl  (Base44 platform credentials)
- *
- * Now holds only the Nexus backend URL, read from Vite env vars.
+ * Holds the Nexus backend URL from Vite env vars (no external app-platform IDs).
  *
  * Usage in .env:
  *   VITE_API_URL=http://localhost:4000/v1       (development)
@@ -24,7 +21,7 @@ const apiUrl = (() => {
 })();
 
 export const appParams = {
-  /** Full API base URL — used by AuthContext and base44Client */
+  /** Full API base URL — used by AuthContext and `@/api/client` */
   apiUrl,
 
   /** Alias used by some components */

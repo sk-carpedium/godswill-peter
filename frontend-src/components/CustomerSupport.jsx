@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
@@ -24,7 +24,7 @@ export default function CustomerSupport() {
 
     useEffect(() => {
         if (currentConversation) {
-            const unsubscribe = base44.agents.subscribeToConversation(currentConversation.id, (data) => {
+            const unsubscribe = api.agents.subscribeToConversation(currentConversation.id, (data) => {
                 setMessages(data.messages || []);
                 setIsLoading(false);
             });
@@ -42,12 +42,12 @@ export default function CustomerSupport() {
 
     const loadConversations = async () => {
         try {
-            const convos = await base44.agents.listConversations({
+            const convos = await api.agents.listConversations({
                 agent_name: 'customer_support'
             });
             setConversations(convos || []);
             if (convos?.length > 0) {
-                const latestConvo = await base44.agents.getConversation(convos[0].id);
+                const latestConvo = await api.agents.getConversation(convos[0].id);
                 setCurrentConversation(latestConvo);
                 setMessages(latestConvo.messages || []);
             }
@@ -58,7 +58,7 @@ export default function CustomerSupport() {
 
     const startNewConversation = async () => {
         try {
-            const newConvo = await base44.agents.createConversation({
+            const newConvo = await api.agents.createConversation({
                 agent_name: 'customer_support',
                 metadata: {
                     name: 'Support Chat',
@@ -81,7 +81,7 @@ export default function CustomerSupport() {
         
         if (!conversation) {
             try {
-                conversation = await base44.agents.createConversation({
+                conversation = await api.agents.createConversation({
                     agent_name: 'customer_support',
                     metadata: {
                         name: 'Support Chat',
@@ -102,7 +102,7 @@ export default function CustomerSupport() {
         setIsLoading(true);
 
         try {
-            await base44.agents.addMessage(conversation, {
+            await api.agents.addMessage(conversation, {
                 role: 'user',
                 content: userMessage
             });
@@ -280,7 +280,7 @@ export default function CustomerSupport() {
                                     <h4 className="font-medium text-sm text-slate-900">WhatsApp Support</h4>
                                     <p className="text-xs text-slate-600 mt-1">Connect via WhatsApp</p>
                                     <a 
-                                        href={base44.agents.getWhatsAppConnectURL('customer_support')}
+                                        href={api.agents.getWhatsAppConnectURL('customer_support')}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="text-xs text-[#d4af37] hover:underline mt-1 inline-block"

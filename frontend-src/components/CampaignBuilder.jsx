@@ -11,7 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Zap, Target, Calendar, DollarSign, Users, CheckCircle, ArrowRight, TrendingUp, Package, BarChart3, Plus, X, Edit } from 'lucide-react';
 import { toast } from 'sonner';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 
 const platforms = [
@@ -51,19 +51,19 @@ export default function CampaignBuilder() {
   const queryClient = useQueryClient();
   const { data: user } = useQuery({
     queryKey: ['user'],
-    queryFn: () => base44.auth.me()
+    queryFn: () => api.auth.me()
   });
 
   const { data: workspaces = [] } = useQuery({
     queryKey: ['workspaces'],
-    queryFn: () => base44.entities.Workspace.filter({ status: 'active' })
+    queryFn: () => api.entities.Workspace.filter({ status: 'active' })
   });
 
   const currentWorkspace = workspaces[0];
 
   const { data: brands = [] } = useQuery({
     queryKey: ['brands', currentWorkspace?.id],
-    queryFn: () => base44.entities.Brand.filter({ 
+    queryFn: () => api.entities.Brand.filter({ 
       workspace_id: currentWorkspace?.id,
       status: 'active'
     }),
@@ -72,7 +72,7 @@ export default function CampaignBuilder() {
 
   const { data: campaigns = [], isLoading } = useQuery({
     queryKey: ['campaigns', currentWorkspace?.id],
-    queryFn: () => base44.entities.Campaign.filter({ 
+    queryFn: () => api.entities.Campaign.filter({ 
       workspace_id: currentWorkspace?.id 
     }),
     enabled: !!currentWorkspace?.id
@@ -80,14 +80,14 @@ export default function CampaignBuilder() {
 
   const { data: posts = [] } = useQuery({
     queryKey: ['posts', currentWorkspace?.id],
-    queryFn: () => base44.entities.Post.filter({ 
+    queryFn: () => api.entities.Post.filter({ 
       workspace_id: currentWorkspace?.id 
     }),
     enabled: !!currentWorkspace?.id
   });
 
   const createCampaignMutation = useMutation({
-    mutationFn: (data) => base44.entities.Campaign.create(data),
+    mutationFn: (data) => api.entities.Campaign.create(data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['campaigns'] });
       toast.success('Campaign created successfully!');
@@ -109,7 +109,7 @@ export default function CampaignBuilder() {
   });
 
   const updateCampaignMutation = useMutation({
-    mutationFn: ({ id, data }) => base44.entities.Campaign.update(id, data),
+    mutationFn: ({ id, data }) => api.entities.Campaign.update(id, data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['campaigns'] });
       toast.success('Campaign updated successfully!');

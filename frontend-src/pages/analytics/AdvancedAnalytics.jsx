@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils';
 import AISuggestions from '@/components/AISuggestions';
 import AnomalyDetector from '@/components/ai/AnomalyDetector';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 
 
@@ -44,8 +44,8 @@ export default function AdvancedAnalytics() {
     queryKey: ['advanced-analytics', workspaceId],
     queryFn: async () => { 
       const [analytics, accounts] = await Promise.all([
-        base44.entities.Analytics.filter({ workspace_id: workspaceId, period: '30d', sort: 'date' }),
-        base44.entities.SocialAccount.filter({ workspace_id: workspaceId, status: 'active' }),
+        api.entities.Analytics.filter({ workspace_id: workspaceId, period: '30d', sort: 'date' }),
+        api.entities.SocialAccount.filter({ workspace_id: workspaceId, status: 'active' }),
       ]);
       const sum = (arr, k) => arr.reduce((s,r) => s+(r[k]||0), 0);
       return {

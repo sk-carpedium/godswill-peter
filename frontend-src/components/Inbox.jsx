@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -57,11 +57,11 @@ export default function Inbox() {
 
   const { data: conversations = [], isLoading, refetch } = useQuery({
     queryKey: ['conversations'],
-    queryFn: () => base44.entities.Conversation.list('-last_message_at', 100),
+    queryFn: () => api.entities.Conversation.list('-last_message_at', 100),
   });
 
   const updateConversationMutation = useMutation({
-    mutationFn: ({ id, data }) => base44.entities.Conversation.update(id, data),
+    mutationFn: ({ id, data }) => api.entities.Conversation.update(id, data),
     onSuccess: () => {
       queryClient.invalidateQueries(['conversations']);
     }

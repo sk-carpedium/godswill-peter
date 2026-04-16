@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Lightbulb, TrendingUp, Users, Calendar } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 
 export default function CollaborationInsights() {
@@ -13,9 +13,9 @@ export default function CollaborationInsights() {
     queryKey: ['collab-insights', workspaceId],
     queryFn: async () => {
       const [posts, members, analytics] = await Promise.all([
-        base44.entities.Post.filter({ workspace_id: workspaceId, status: 'published', sort: '-created_at', limit: 20 }),
-        base44.entities.WorkspaceMember.list({ workspace_id: workspaceId }),
-        base44.entities.Analytics.filter({ workspace_id: workspaceId, period: '7d' }),
+        api.entities.Post.filter({ workspace_id: workspaceId, status: 'published', sort: '-created_at', limit: 20 }),
+        api.entities.WorkspaceMember.list({ workspace_id: workspaceId }),
+        api.entities.Analytics.filter({ workspace_id: workspaceId, period: '7d' }),
       ]);
       const totalEng = analytics.reduce((s,r) => s+(r.engagement||0), 0);
       const avgEng = analytics.length > 0 ? (totalEng / analytics.length) : 0;

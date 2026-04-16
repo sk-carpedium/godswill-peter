@@ -28,7 +28,7 @@ import {
 import { cn } from '@/lib/utils';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 
 
@@ -93,8 +93,8 @@ export default function AutonomousOptimization() {
     queryKey: ['autonomous-optimization', workspaceId],
     queryFn: async () => { 
       const [analytics, automations] = await Promise.all([
-        base44.entities.Analytics.filter({ workspace_id: workspaceId, period: '7d', sort: '-date', limit: 7 }),
-        base44.entities.Automation.filter({ workspace_id: workspaceId, status: 'active' }),
+        api.entities.Analytics.filter({ workspace_id: workspaceId, period: '7d', sort: '-date', limit: 7 }),
+        api.entities.Automation.filter({ workspace_id: workspaceId, status: 'active' }),
       ]);
       return { analytics, automations };
       },

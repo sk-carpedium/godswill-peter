@@ -110,6 +110,11 @@ export const AuthProvider = ({ children }) => {
       console.error('[AuthContext] checkUserAuth error:', err);
       setIsAuthenticated(false);
       if (err.status === 401 || err.status === 403) {
+        try {
+          localStorage.removeItem('nexus_access_token');
+          localStorage.removeItem('base44_access_token');
+          localStorage.removeItem('nexus_refresh_token');
+        } catch (_) { /* ignore */ }
         const reason = err.extra_data?.reason || 'auth_required';
         setAuthError({ type: reason, message: err.message || 'Authentication required' });
       }

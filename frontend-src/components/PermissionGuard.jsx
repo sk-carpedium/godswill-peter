@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { hasPermission, hasAnyPermission, canAccessFeature } from '@/components/utils/permissions';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Lock } from 'lucide-react';
@@ -27,7 +27,7 @@ export function PermissionGuard({
 
   const loadUser = async () => {
     try {
-      const userData = await base44.auth.me();
+      const userData = await api.auth.me();
       setUser(userData);
     } catch (error) {
       console.error('Failed to load user:', error);
@@ -79,7 +79,7 @@ export function usePermissions() {
 
   const loadUser = async () => {
     try {
-      const userData = await base44.auth.me();
+      const userData = await api.auth.me();
       setUser(userData);
     } catch (error) {
       console.error('Failed to load user:', error);

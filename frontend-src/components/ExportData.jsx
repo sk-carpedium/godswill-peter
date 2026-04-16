@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
@@ -47,7 +47,7 @@ export default function ExportData() {
 
   const exportSQL = async () => {
     setSqlLoading(true);
-    const response = await base44.functions.invoke('exportToSQL', {});
+    const response = await api.functions.invoke('exportToSQL', {});
     const blob = new Blob([response.data], { type: 'application/sql' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -66,7 +66,7 @@ export default function ExportData() {
     for (const name of ENTITIES) {
       updateStatus(name, 'loading');
       try {
-        const data = await base44.entities[name].list();
+        const data = await api.entities[name].list();
         if (data && data.length > 0) {
           downloadCSV(name, toCSV(data));
           updateStatus(name, 'done');

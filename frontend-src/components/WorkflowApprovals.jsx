@@ -10,7 +10,7 @@ import { CheckCircle2, XCircle, Clock, MessageSquare, Send, FileText, Eye, Thumb
 import { cn } from '@/lib/utils';
 import moment from 'moment';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 
 // approvalPosts replaced by real API data above
@@ -84,8 +84,8 @@ export default function WorkflowApprovals() {
     queryKey: ['approvals', workspaceId],
     queryFn: async () => {
       const [posts, history] = await Promise.all([
-        base44.entities.Post.filter({ workspace_id: workspaceId, status: 'pending_approval' }),
-        base44.entities.Post.filter({ workspace_id: workspaceId, status: 'approved', sort: '-created_at', limit: 10 }),
+        api.entities.Post.filter({ workspace_id: workspaceId, status: 'pending_approval' }),
+        api.entities.Post.filter({ workspace_id: workspaceId, status: 'approved', sort: '-created_at', limit: 10 }),
       ]);
       return { posts, history };
     },

@@ -46,7 +46,7 @@ import ProfitabilityCard from '@/components/monetization/ProfitabilityCard';
 import ComplianceChecker from '@/components/monetization/ComplianceChecker';
 import PlatformFeatures from '@/components/content/PlatformFeatures';
 import MediaLibraryPicker from '@/components/MediaLibraryPicker';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useQuery } from '@tanstack/react-query';
 
 const platforms = [
@@ -111,9 +111,9 @@ export default function PostComposer({
   const { data: workspaceMembers = [] } = useQuery({
     queryKey: ['workspace-members'],
     queryFn: async () => {
-      const workspaces = await base44.entities.Workspace.filter({ status: 'active' });
+      const workspaces = await api.entities.Workspace.filter({ status: 'active' });
       if (workspaces.length === 0) return [];
-      return base44.entities.WorkspaceMember.filter({ 
+      return api.entities.WorkspaceMember.filter({ 
         workspace_id: workspaces[0].id,
         status: 'active'
       });
@@ -124,11 +124,11 @@ export default function PostComposer({
   const { data: subscription } = useQuery({
     queryKey: ['current-subscription'],
     queryFn: async () => {
-      const user = await base44.auth.me();
-      const workspaces = await base44.entities.Workspace.filter({ status: 'active' });
+      const user = await api.auth.me();
+      const workspaces = await api.entities.Workspace.filter({ status: 'active' });
       if (workspaces.length === 0) return null;
       
-      const subs = await base44.entities.Subscription.filter({
+      const subs = await api.entities.Subscription.filter({
         user_email: user.email,
         workspace_id: workspaces[0].id
       });
@@ -159,7 +159,7 @@ export default function PostComposer({
     setShowAIPanel(true);
     if (!content?.text?.trim()) return;
     try {
-      const analysis = await base44.functions.invoke('analyzePost', {
+      const analysis = await api.functions.invoke('analyzePost', {
         content: content.text,
         platforms: selectedPlatforms,
         post_type: postType || 'post',

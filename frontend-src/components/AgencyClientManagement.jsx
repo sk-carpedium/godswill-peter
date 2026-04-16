@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useQuery } from '@tanstack/react-query';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -40,7 +40,7 @@ export default function AgencyClientManagement() {
   const { data: agencyWorkspace } = useQuery({
     queryKey: ['agency-workspace'],
     queryFn: async () => {
-      const workspaces = await base44.entities.Workspace.filter({ plan: 'agency' });
+      const workspaces = await api.entities.Workspace.filter({ plan: 'agency' });
       return workspaces[0];
     }
   });
@@ -49,7 +49,7 @@ export default function AgencyClientManagement() {
     queryKey: ['client-workspaces'],
     queryFn: async () => {
       // Get all workspaces that are managed by this agency
-      const allWorkspaces = await base44.entities.Workspace.list();
+      const allWorkspaces = await api.entities.Workspace.list();
       return allWorkspaces.filter(w => w.plan !== 'agency' && w.status === 'active');
     }
   });
@@ -61,7 +61,7 @@ export default function AgencyClientManagement() {
     }
 
     try {
-      const workspace = await base44.entities.Workspace.create({
+      const workspace = await api.entities.Workspace.create({
         name: newClient.name,
         slug: `client-${Date.now()}`,
         industry: newClient.industry,
@@ -78,7 +78,7 @@ export default function AgencyClientManagement() {
         }
       });
 
-      await base44.users.inviteUser(newClient.email, 'user');
+      await api.users.inviteUser(newClient.email, 'user');
 
       toast.success('Client workspace created!');
       setShowAddClient(false);

@@ -879,3 +879,822 @@
 {"level":"http","message":"\u001b[0mPOST /v1/auth/login \u001b[33m401\u001b[0m 506.709 ms - 47\u001b[0m","timestamp":"2026-04-15T12:57:33.163Z"}
 {"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:58:00.040Z"}
 {"level":"http","message":"\u001b[0mPOST /v1/auth/login \u001b[33m401\u001b[0m 477.088 ms - 47\u001b[0m","timestamp":"2026-04-15T12:58:23.961Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T12:59:00.039Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:00:00.094Z"}
+{"level":"info","message":"Reports: 0 due","timestamp":"2026-04-15T13:00:00.106Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:01:00.042Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/auth/login \u001b[32m200\u001b[0m 682.550 ms - 765\u001b[0m","timestamp":"2026-04-15T13:01:09.304Z"}
+{"level":"error","message":"Unhandled error \nInvalid `db.user.findUnique()` invocation in\nF:\\Development\\Nexus-social-app\\nexus-v8 Backend fixed_new\\nexus-v8 Backend fixed\\src\\modules\\auth\\auth.routes.ts:90:30\n\n  87 // ─── ME ───────────────────────────────────────────────────────────────────────\n  88 \n  89 router.get('/me', authenticate, async (req: AuthRequest, res: Response): Promise<void> => {\n→ 90   const user = await db.user.findUnique({\n         where: {\n           id: \"cmo01cbr60000yyrh4dv8yjog\"\n         },\n         select: {\n           id: true,\n           email: true,\n           display_name: true,\n           avatar_url: true,\n           role: true,\n           totp_enabled: true,\n           created_at: true,\n           last_login_at: true,\n           onboarding_completed: true,\n           tour_completed: true,\n           checklist_dismissed: true,\n           checklist_completed: true,\n           sidebar_order: true,\n           workspace_members: {\n             where: {\n               is_active: true\n             },\n             include: {\n               workspace: {\n                 select: {\n                 ~~~~~~\n                   id: true,\n                   name: true,\n                   slug: true,\n                   logo_url: true\n                 },\n                 include: {\n                 ~~~~~~~\n                   appearance_settings: true\n                 }\n               }\n             }\n           }\n         }\n       })\n\nPlease either use `include` or `select`, but not both at the same time.","method":"GET","path":"/v1/auth/me","timestamp":"2026-04-15T13:01:09.472Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[31m500\u001b[0m 82.547 ms - -\u001b[0m","timestamp":"2026-04-15T13:01:09.513Z"}
+{"level":"error","message":"Unhandled error \nInvalid `db.user.findUnique()` invocation in\nF:\\Development\\Nexus-social-app\\nexus-v8 Backend fixed_new\\nexus-v8 Backend fixed\\src\\modules\\auth\\auth.routes.ts:90:30\n\n  87 // ─── ME ───────────────────────────────────────────────────────────────────────\n  88 \n  89 router.get('/me', authenticate, async (req: AuthRequest, res: Response): Promise<void> => {\n→ 90   const user = await db.user.findUnique({\n         where: {\n           id: \"cmo01cbr60000yyrh4dv8yjog\"\n         },\n         select: {\n           id: true,\n           email: true,\n           display_name: true,\n           avatar_url: true,\n           role: true,\n           totp_enabled: true,\n           created_at: true,\n           last_login_at: true,\n           onboarding_completed: true,\n           tour_completed: true,\n           checklist_dismissed: true,\n           checklist_completed: true,\n           sidebar_order: true,\n           workspace_members: {\n             where: {\n               is_active: true\n             },\n             include: {\n               workspace: {\n                 select: {\n                 ~~~~~~\n                   id: true,\n                   name: true,\n                   slug: true,\n                   logo_url: true\n                 },\n                 include: {\n                 ~~~~~~~\n                   appearance_settings: true\n                 }\n               }\n             }\n           }\n         }\n       })\n\nPlease either use `include` or `select`, but not both at the same time.","method":"GET","path":"/v1/auth/me","timestamp":"2026-04-15T13:01:09.594Z"}
+{"level":"error","message":"Unhandled error \nInvalid `db.user.findUnique()` invocation in\nF:\\Development\\Nexus-social-app\\nexus-v8 Backend fixed_new\\nexus-v8 Backend fixed\\src\\modules\\auth\\auth.routes.ts:90:30\n\n  87 // ─── ME ───────────────────────────────────────────────────────────────────────\n  88 \n  89 router.get('/me', authenticate, async (req: AuthRequest, res: Response): Promise<void> => {\n→ 90   const user = await db.user.findUnique({\n         where: {\n           id: \"cmo01cbr60000yyrh4dv8yjog\"\n         },\n         select: {\n           id: true,\n           email: true,\n           display_name: true,\n           avatar_url: true,\n           role: true,\n           totp_enabled: true,\n           created_at: true,\n           last_login_at: true,\n           onboarding_completed: true,\n           tour_completed: true,\n           checklist_dismissed: true,\n           checklist_completed: true,\n           sidebar_order: true,\n           workspace_members: {\n             where: {\n               is_active: true\n             },\n             include: {\n               workspace: {\n                 select: {\n                 ~~~~~~\n                   id: true,\n                   name: true,\n                   slug: true,\n                   logo_url: true\n                 },\n                 include: {\n                 ~~~~~~~\n                   appearance_settings: true\n                 }\n               }\n             }\n           }\n         }\n       })\n\nPlease either use `include` or `select`, but not both at the same time.","method":"GET","path":"/v1/auth/me","timestamp":"2026-04-15T13:01:09.606Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[31m500\u001b[0m 13.378 ms - -\u001b[0m","timestamp":"2026-04-15T13:01:09.613Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[31m500\u001b[0m 9.727 ms - -\u001b[0m","timestamp":"2026-04-15T13:01:09.617Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 384.637 ms - 458\u001b[0m","timestamp":"2026-04-15T13:01:12.083Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 357.766 ms - 458\u001b[0m","timestamp":"2026-04-15T13:01:12.085Z"}
+{"level":"error","message":"Unhandled error \nInvalid `db.user.findUnique()` invocation in\nF:\\Development\\Nexus-social-app\\nexus-v8 Backend fixed_new\\nexus-v8 Backend fixed\\src\\modules\\auth\\auth.routes.ts:90:30\n\n  87 // ─── ME ───────────────────────────────────────────────────────────────────────\n  88 \n  89 router.get('/me', authenticate, async (req: AuthRequest, res: Response): Promise<void> => {\n→ 90   const user = await db.user.findUnique({\n         where: {\n           id: \"cmo01cbr60000yyrh4dv8yjog\"\n         },\n         select: {\n           id: true,\n           email: true,\n           display_name: true,\n           avatar_url: true,\n           role: true,\n           totp_enabled: true,\n           created_at: true,\n           last_login_at: true,\n           onboarding_completed: true,\n           tour_completed: true,\n           checklist_dismissed: true,\n           checklist_completed: true,\n           sidebar_order: true,\n           workspace_members: {\n             where: {\n               is_active: true\n             },\n             include: {\n               workspace: {\n                 select: {\n                 ~~~~~~\n                   id: true,\n                   name: true,\n                   slug: true,\n                   logo_url: true\n                 },\n                 include: {\n                 ~~~~~~~\n                   appearance_settings: true\n                 }\n               }\n             }\n           }\n         }\n       })\n\nPlease either use `include` or `select`, but not both at the same time.","method":"GET","path":"/v1/auth/me","timestamp":"2026-04-15T13:01:12.109Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[31m500\u001b[0m 10.579 ms - -\u001b[0m","timestamp":"2026-04-15T13:01:12.120Z"}
+{"level":"error","message":"Unhandled error \nInvalid `db.user.findUnique()` invocation in\nF:\\Development\\Nexus-social-app\\nexus-v8 Backend fixed_new\\nexus-v8 Backend fixed\\src\\modules\\auth\\auth.routes.ts:90:30\n\n  87 // ─── ME ───────────────────────────────────────────────────────────────────────\n  88 \n  89 router.get('/me', authenticate, async (req: AuthRequest, res: Response): Promise<void> => {\n→ 90   const user = await db.user.findUnique({\n         where: {\n           id: \"cmo01cbr60000yyrh4dv8yjog\"\n         },\n         select: {\n           id: true,\n           email: true,\n           display_name: true,\n           avatar_url: true,\n           role: true,\n           totp_enabled: true,\n           created_at: true,\n           last_login_at: true,\n           onboarding_completed: true,\n           tour_completed: true,\n           checklist_dismissed: true,\n           checklist_completed: true,\n           sidebar_order: true,\n           workspace_members: {\n             where: {\n               is_active: true\n             },\n             include: {\n               workspace: {\n                 select: {\n                 ~~~~~~\n                   id: true,\n                   name: true,\n                   slug: true,\n                   logo_url: true\n                 },\n                 include: {\n                 ~~~~~~~\n                   appearance_settings: true\n                 }\n               }\n             }\n           }\n         }\n       })\n\nPlease either use `include` or `select`, but not both at the same time.","method":"GET","path":"/v1/auth/me","timestamp":"2026-04-15T13:01:12.133Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[31m500\u001b[0m 12.322 ms - -\u001b[0m","timestamp":"2026-04-15T13:01:12.141Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:02:00.041Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:03:00.033Z"}
+{"level":"info","message":"✅ PostgreSQL connected","timestamp":"2026-04-15T13:04:02.093Z"}
+{"level":"info","message":"Crons active: publisher (1 min), reports (1 hr)","timestamp":"2026-04-15T13:04:02.300Z"}
+{"level":"info","message":"🚀 Nexus Social API v2.0.0","timestamp":"2026-04-15T13:04:02.308Z"}
+{"level":"info","message":"   Listening on  http://localhost:4000","timestamp":"2026-04-15T13:04:02.309Z"}
+{"level":"info","message":"   API base URL  http://localhost:4000/v1","timestamp":"2026-04-15T13:04:02.310Z"}
+{"level":"info","message":"   Health check  http://localhost:4000/health","timestamp":"2026-04-15T13:04:02.311Z"}
+{"level":"info","message":"   Environment   development","timestamp":"2026-04-15T13:04:02.311Z"}
+{"level":"info","message":"   Platforms     16 (Instagram, Facebook, Twitter, LinkedIn, TikTok, YouTube, Pinterest, Twitch, Bluesky, Threads, TruthSocial, Rumble, Kick, Spotify, Google Business, Shopify)","timestamp":"2026-04-15T13:04:02.312Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:05:00.064Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/auth/login \u001b[33m401\u001b[0m 17.523 ms - 47\u001b[0m","timestamp":"2026-04-15T13:05:56.676Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:06:00.042Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 105.303 ms - 458\u001b[0m","timestamp":"2026-04-15T13:06:15.808Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 99.858 ms - 458\u001b[0m","timestamp":"2026-04-15T13:06:15.812Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 41.867 ms - -\u001b[0m","timestamp":"2026-04-15T13:06:15.897Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 75.427 ms - -\u001b[0m","timestamp":"2026-04-15T13:06:15.934Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 4.830 ms - 43\u001b[0m","timestamp":"2026-04-15T13:06:16.093Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 3.179 ms - 43\u001b[0m","timestamp":"2026-04-15T13:06:16.113Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 23.975 ms - -\u001b[0m","timestamp":"2026-04-15T13:06:16.154Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 29.032 ms - -\u001b[0m","timestamp":"2026-04-15T13:06:16.158Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 19.990 ms - -\u001b[0m","timestamp":"2026-04-15T13:06:32.717Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 21.197 ms - -\u001b[0m","timestamp":"2026-04-15T13:06:32.743Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 39.539 ms - -\u001b[0m","timestamp":"2026-04-15T13:06:37.081Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 31.579 ms - -\u001b[0m","timestamp":"2026-04-15T13:06:37.117Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 22.313 ms - -\u001b[0m","timestamp":"2026-04-15T13:06:37.150Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 21.124 ms - -\u001b[0m","timestamp":"2026-04-15T13:06:37.175Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 0.931 ms - 43\u001b[0m","timestamp":"2026-04-15T13:06:37.197Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 20.559 ms - -\u001b[0m","timestamp":"2026-04-15T13:06:37.211Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 21.884 ms - -\u001b[0m","timestamp":"2026-04-15T13:06:37.237Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:07:00.042Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:08:00.051Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:09:00.035Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:10:00.074Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:11:00.031Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:12:00.036Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 67.380 ms - -\u001b[0m","timestamp":"2026-04-15T13:12:48.489Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 33.269 ms - -\u001b[0m","timestamp":"2026-04-15T13:12:48.525Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 40.464 ms - -\u001b[0m","timestamp":"2026-04-15T13:12:48.612Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 23.892 ms - -\u001b[0m","timestamp":"2026-04-15T13:12:48.640Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 0.762 ms - 43\u001b[0m","timestamp":"2026-04-15T13:12:48.809Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 2.014 ms - 43\u001b[0m","timestamp":"2026-04-15T13:12:48.823Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 23.680 ms - -\u001b[0m","timestamp":"2026-04-15T13:12:48.839Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 24.396 ms - -\u001b[0m","timestamp":"2026-04-15T13:12:48.868Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 21.388 ms - -\u001b[0m","timestamp":"2026-04-15T13:12:49.261Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 34.752 ms - -\u001b[0m","timestamp":"2026-04-15T13:12:49.301Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[32m200\u001b[0m 101.633 ms - -\u001b[0m","timestamp":"2026-04-15T13:12:49.360Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 1.340 ms - 43\u001b[0m","timestamp":"2026-04-15T13:12:49.670Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 20.583 ms - -\u001b[0m","timestamp":"2026-04-15T13:12:49.766Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 20.714 ms - -\u001b[0m","timestamp":"2026-04-15T13:12:49.791Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 19.411 ms - -\u001b[0m","timestamp":"2026-04-15T13:12:49.816Z"}
+{"level":"http","message":"\u001b[0mGET /v1/socialaccounts?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[33m404\u001b[0m 0.864 ms - 43\u001b[0m","timestamp":"2026-04-15T13:12:49.900Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts?workspace_id=cmo01cbs30003yyrhfve9jdu9&sort=created_date&order=desc&limit=10 \u001b[32m200\u001b[0m 51.683 ms - -\u001b[0m","timestamp":"2026-04-15T13:12:49.944Z"}
+{"level":"http","message":"\u001b[0mGET /v1/conversations?workspace_id=cmo01cbs30003yyrhfve9jdu9&sort=created_date&order=desc&limit=5 \u001b[32m200\u001b[0m 57.333 ms - 744\u001b[0m","timestamp":"2026-04-15T13:12:49.962Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 0.897 ms - 43\u001b[0m","timestamp":"2026-04-15T13:12:56.668Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 36.024 ms - -\u001b[0m","timestamp":"2026-04-15T13:12:56.710Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 20.611 ms - -\u001b[0m","timestamp":"2026-04-15T13:12:56.737Z"}
+{"level":"http","message":"\u001b[0mGET /v1/mentions?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[33m404\u001b[0m 2.198 ms - 43\u001b[0m","timestamp":"2026-04-15T13:12:56.837Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 28.255 ms - -\u001b[0m","timestamp":"2026-04-15T13:12:56.845Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 36.509 ms - -\u001b[0m","timestamp":"2026-04-15T13:12:56.879Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 19.928 ms - -\u001b[0m","timestamp":"2026-04-15T13:12:56.906Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 0.722 ms - 43\u001b[0m","timestamp":"2026-04-15T13:12:57.010Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 49.029 ms - -\u001b[0m","timestamp":"2026-04-15T13:12:57.744Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 32.162 ms - -\u001b[0m","timestamp":"2026-04-15T13:12:57.782Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:13:00.038Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 33.912 ms - -\u001b[0m","timestamp":"2026-04-15T13:13:10.122Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 32.805 ms - -\u001b[0m","timestamp":"2026-04-15T13:13:10.162Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 31.450 ms - -\u001b[0m","timestamp":"2026-04-15T13:13:10.865Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 37.758 ms - -\u001b[0m","timestamp":"2026-04-15T13:13:10.907Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:14:00.043Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.596 ms - 366\u001b[0m","timestamp":"2026-04-15T13:14:34.797Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.471 ms - -\u001b[0m","timestamp":"2026-04-15T13:14:34.802Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 1.543 ms - -\u001b[0m","timestamp":"2026-04-15T13:14:35.411Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.585 ms - -\u001b[0m","timestamp":"2026-04-15T13:14:35.415Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:15:00.043Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:16:00.038Z"}
+{"level":"info","message":"SIGINT received — graceful shutdown","timestamp":"2026-04-15T13:16:30.651Z"}
+{"level":"info","message":"✅ PostgreSQL connected","timestamp":"2026-04-15T13:16:38.039Z"}
+{"level":"info","message":"Crons active: publisher (1 min), reports (1 hr)","timestamp":"2026-04-15T13:16:38.296Z"}
+{"level":"info","message":"🚀 Nexus Social API v2.0.0","timestamp":"2026-04-15T13:16:38.307Z"}
+{"level":"info","message":"   Listening on  http://localhost:4000","timestamp":"2026-04-15T13:16:38.309Z"}
+{"level":"info","message":"   API base URL  http://localhost:4000/v1","timestamp":"2026-04-15T13:16:38.311Z"}
+{"level":"info","message":"   Health check  http://localhost:4000/health","timestamp":"2026-04-15T13:16:38.313Z"}
+{"level":"info","message":"   Environment   development","timestamp":"2026-04-15T13:16:38.314Z"}
+{"level":"info","message":"   Platforms     16 (Instagram, Facebook, Twitter, LinkedIn, TikTok, YouTube, Pinterest, Twitch, Bluesky, Threads, TruthSocial, Rumble, Kick, Spotify, Google Business, Shopify)","timestamp":"2026-04-15T13:16:38.316Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/auth/login \u001b[32m200\u001b[0m 602.737 ms - 765\u001b[0m","timestamp":"2026-04-15T13:16:40.339Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 43.476 ms - -\u001b[0m","timestamp":"2026-04-15T13:16:40.409Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 3.076 ms - 43\u001b[0m","timestamp":"2026-04-15T13:16:40.455Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 22.559 ms - -\u001b[0m","timestamp":"2026-04-15T13:16:40.489Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 78.382 ms - -\u001b[0m","timestamp":"2026-04-15T13:16:40.549Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 31.212 ms - -\u001b[0m","timestamp":"2026-04-15T13:16:41.039Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 33.069 ms - -\u001b[0m","timestamp":"2026-04-15T13:16:41.047Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[32m200\u001b[0m 55.856 ms - -\u001b[0m","timestamp":"2026-04-15T13:16:41.079Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 3.163 ms - 43\u001b[0m","timestamp":"2026-04-15T13:16:41.477Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[32m200\u001b[0m 21.636 ms - -\u001b[0m","timestamp":"2026-04-15T13:16:41.775Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[32m200\u001b[0m 56.841 ms - -\u001b[0m","timestamp":"2026-04-15T13:16:41.826Z"}
+{"level":"http","message":"\u001b[0mGET /v1/socialaccounts?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[33m404\u001b[0m 1.110 ms - 43\u001b[0m","timestamp":"2026-04-15T13:16:41.847Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts?workspace_id=cmo01cbs30003yyrhfve9jdu9&sort=created_date&order=desc&limit=10 \u001b[32m200\u001b[0m 47.970 ms - -\u001b[0m","timestamp":"2026-04-15T13:16:41.857Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[32m200\u001b[0m 98.297 ms - -\u001b[0m","timestamp":"2026-04-15T13:16:41.869Z"}
+{"level":"http","message":"\u001b[0mGET /v1/conversations?workspace_id=cmo01cbs30003yyrhfve9jdu9&sort=created_date&order=desc&limit=5 \u001b[32m200\u001b[0m 26.772 ms - 744\u001b[0m","timestamp":"2026-04-15T13:16:41.992Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 1.724 ms - 43\u001b[0m","timestamp":"2026-04-15T13:16:52.245Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 27.664 ms - -\u001b[0m","timestamp":"2026-04-15T13:16:52.277Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 26.378 ms - -\u001b[0m","timestamp":"2026-04-15T13:16:52.308Z"}
+{"level":"http","message":"\u001b[0mGET /v1/mentions?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[33m404\u001b[0m 3.493 ms - 43\u001b[0m","timestamp":"2026-04-15T13:16:52.417Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 26.165 ms - -\u001b[0m","timestamp":"2026-04-15T13:16:52.426Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 20.566 ms - -\u001b[0m","timestamp":"2026-04-15T13:16:52.442Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 19.025 ms - -\u001b[0m","timestamp":"2026-04-15T13:16:52.465Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 0.678 ms - 43\u001b[0m","timestamp":"2026-04-15T13:16:52.587Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 21.483 ms - -\u001b[0m","timestamp":"2026-04-15T13:16:52.613Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 19.516 ms - -\u001b[0m","timestamp":"2026-04-15T13:16:52.636Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 16.572 ms - -\u001b[0m","timestamp":"2026-04-15T13:16:52.771Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 16.167 ms - -\u001b[0m","timestamp":"2026-04-15T13:16:52.794Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 0.670 ms - 43\u001b[0m","timestamp":"2026-04-15T13:16:52.967Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 20.995 ms - -\u001b[0m","timestamp":"2026-04-15T13:16:53.069Z"}
+{"level":"http","message":"\u001b[0mGET /v1/socialaccounts?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[33m404\u001b[0m 0.883 ms - 43\u001b[0m","timestamp":"2026-04-15T13:16:53.091Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:17:00.054Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:18:00.049Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 0.588 ms - 43\u001b[0m","timestamp":"2026-04-15T13:18:13.695Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 19.241 ms - -\u001b[0m","timestamp":"2026-04-15T13:18:13.721Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 34.875 ms - -\u001b[0m","timestamp":"2026-04-15T13:18:13.740Z"}
+{"level":"http","message":"\u001b[0mGET /v1/mentions?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[33m404\u001b[0m 2.246 ms - 43\u001b[0m","timestamp":"2026-04-15T13:18:13.850Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[32m200\u001b[0m 25.005 ms - -\u001b[0m","timestamp":"2026-04-15T13:18:13.886Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[32m200\u001b[0m 22.328 ms - -\u001b[0m","timestamp":"2026-04-15T13:18:13.902Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[32m200\u001b[0m 25.296 ms - -\u001b[0m","timestamp":"2026-04-15T13:18:13.908Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 4.809 ms - 43\u001b[0m","timestamp":"2026-04-15T13:18:14.080Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 22.646 ms - -\u001b[0m","timestamp":"2026-04-15T13:18:14.110Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 24.499 ms - -\u001b[0m","timestamp":"2026-04-15T13:18:14.116Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 19.824 ms - -\u001b[0m","timestamp":"2026-04-15T13:18:14.304Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 19.209 ms - -\u001b[0m","timestamp":"2026-04-15T13:18:14.310Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 0.747 ms - 43\u001b[0m","timestamp":"2026-04-15T13:18:14.535Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[32m200\u001b[0m 24.599 ms - -\u001b[0m","timestamp":"2026-04-15T13:18:14.671Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[32m200\u001b[0m 15.761 ms - -\u001b[0m","timestamp":"2026-04-15T13:18:14.679Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[32m200\u001b[0m 20.742 ms - -\u001b[0m","timestamp":"2026-04-15T13:18:14.687Z"}
+{"level":"http","message":"\u001b[0mGET /v1/socialaccounts?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[33m404\u001b[0m 1.461 ms - 43\u001b[0m","timestamp":"2026-04-15T13:18:14.719Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts?workspace_id=cmo01cbs30003yyrhfve9jdu9&sort=created_date&order=desc&limit=10 \u001b[32m200\u001b[0m 23.403 ms - -\u001b[0m","timestamp":"2026-04-15T13:18:14.735Z"}
+{"level":"http","message":"\u001b[0mGET /v1/conversations?workspace_id=cmo01cbs30003yyrhfve9jdu9&sort=created_date&order=desc&limit=5 \u001b[32m200\u001b[0m 30.721 ms - 744\u001b[0m","timestamp":"2026-04-15T13:18:14.754Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 0.577 ms - 43\u001b[0m","timestamp":"2026-04-15T13:18:31.896Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 21.611 ms - -\u001b[0m","timestamp":"2026-04-15T13:18:31.922Z"}
+{"level":"http","message":"\u001b[0mGET /v1/mentions?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[33m404\u001b[0m 1.557 ms - 43\u001b[0m","timestamp":"2026-04-15T13:18:32.050Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[32m200\u001b[0m 23.957 ms - -\u001b[0m","timestamp":"2026-04-15T13:18:32.080Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[32m200\u001b[0m 30.635 ms - -\u001b[0m","timestamp":"2026-04-15T13:18:32.104Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 62.574 ms - 458\u001b[0m","timestamp":"2026-04-15T13:18:33.632Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 58.392 ms - 458\u001b[0m","timestamp":"2026-04-15T13:18:33.633Z"}
+{"level":"info","message":"SIGINT received — graceful shutdown","timestamp":"2026-04-15T13:18:46.259Z"}
+{"level":"info","message":"✅ PostgreSQL connected","timestamp":"2026-04-15T13:18:54.309Z"}
+{"level":"info","message":"Crons active: publisher (1 min), reports (1 hr)","timestamp":"2026-04-15T13:18:54.508Z"}
+{"level":"info","message":"🚀 Nexus Social API v2.0.0","timestamp":"2026-04-15T13:18:54.516Z"}
+{"level":"info","message":"   Listening on  http://localhost:4000","timestamp":"2026-04-15T13:18:54.518Z"}
+{"level":"info","message":"   API base URL  http://localhost:4000/v1","timestamp":"2026-04-15T13:18:54.519Z"}
+{"level":"info","message":"   Health check  http://localhost:4000/health","timestamp":"2026-04-15T13:18:54.520Z"}
+{"level":"info","message":"   Environment   development","timestamp":"2026-04-15T13:18:54.522Z"}
+{"level":"info","message":"   Platforms     16 (Instagram, Facebook, Twitter, LinkedIn, TikTok, YouTube, Pinterest, Twitch, Bluesky, Threads, TruthSocial, Rumble, Kick, Spotify, Google Business, Shopify)","timestamp":"2026-04-15T13:18:54.523Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:19:00.070Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:20:00.041Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:21:00.040Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:22:00.040Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:23:00.033Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:24:00.070Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:25:00.042Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:26:00.036Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:27:00.037Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:28:00.044Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:29:00.039Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:30:00.057Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:31:00.029Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 18.496 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:49.385Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 4.993 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:49.395Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 6.740 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:50.977Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 3.583 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:50.987Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 3.536 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:51.457Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 3.801 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:51.466Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 3.431 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:51.984Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 3.969 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:51.992Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 4.785 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:52.424Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 2.997 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:52.431Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 3.769 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:52.841Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 2.996 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:52.848Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 3.630 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:53.280Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 4.239 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:53.288Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 4.643 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:53.673Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 2.893 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:53.680Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 3.779 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:54.139Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 4.979 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:54.148Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 2.531 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:54.569Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 2.947 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:54.575Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 3.398 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:54.980Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 3.357 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:54.987Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 3.474 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:55.398Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 4.258 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:55.406Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 3.234 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:55.825Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 2.767 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:55.831Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 3.268 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:56.263Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 3.372 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:56.270Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 3.776 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:56.689Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 3.967 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:56.696Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 3.857 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:57.116Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 3.381 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:57.125Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 3.659 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:57.539Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 2.286 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:57.545Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 2.507 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:57.946Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 4.434 ms - 81\u001b[0m","timestamp":"2026-04-15T13:31:57.954Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:32:00.043Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 4.951 ms - 81\u001b[0m","timestamp":"2026-04-15T13:32:00.662Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 5.956 ms - 81\u001b[0m","timestamp":"2026-04-15T13:32:00.672Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 9.012 ms - 81\u001b[0m","timestamp":"2026-04-15T13:32:01.211Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 5.356 ms - 81\u001b[0m","timestamp":"2026-04-15T13:32:01.224Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 3.409 ms - 81\u001b[0m","timestamp":"2026-04-15T13:32:01.694Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 3.021 ms - 81\u001b[0m","timestamp":"2026-04-15T13:32:01.700Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 3.738 ms - 81\u001b[0m","timestamp":"2026-04-15T13:32:13.161Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 6.553 ms - 81\u001b[0m","timestamp":"2026-04-15T13:32:13.166Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 7.113 ms - 81\u001b[0m","timestamp":"2026-04-15T13:32:14.789Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 7.116 ms - 81\u001b[0m","timestamp":"2026-04-15T13:32:14.794Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 8.946 ms - 81\u001b[0m","timestamp":"2026-04-15T13:32:16.444Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 8.767 ms - 81\u001b[0m","timestamp":"2026-04-15T13:32:16.449Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:33:00.040Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 6.663 ms - 81\u001b[0m","timestamp":"2026-04-15T13:33:30.986Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 7.743 ms - 81\u001b[0m","timestamp":"2026-04-15T13:33:30.990Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 5.327 ms - 81\u001b[0m","timestamp":"2026-04-15T13:33:32.526Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 3.931 ms - 81\u001b[0m","timestamp":"2026-04-15T13:33:32.535Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 6.042 ms - 81\u001b[0m","timestamp":"2026-04-15T13:33:52.635Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 12.090 ms - 81\u001b[0m","timestamp":"2026-04-15T13:33:52.645Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 8.927 ms - 81\u001b[0m","timestamp":"2026-04-15T13:33:54.974Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 15.320 ms - 81\u001b[0m","timestamp":"2026-04-15T13:33:54.985Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 5.704 ms - 81\u001b[0m","timestamp":"2026-04-15T13:33:57.157Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 11.608 ms - 81\u001b[0m","timestamp":"2026-04-15T13:33:57.166Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 4.954 ms - 81\u001b[0m","timestamp":"2026-04-15T13:33:59.628Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 8.019 ms - 81\u001b[0m","timestamp":"2026-04-15T13:33:59.634Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:34:00.044Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 3.492 ms - 81\u001b[0m","timestamp":"2026-04-15T13:34:02.512Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 6.767 ms - 81\u001b[0m","timestamp":"2026-04-15T13:34:02.516Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 5.095 ms - 81\u001b[0m","timestamp":"2026-04-15T13:34:05.177Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 6.736 ms - 81\u001b[0m","timestamp":"2026-04-15T13:34:05.181Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 4.169 ms - 81\u001b[0m","timestamp":"2026-04-15T13:34:07.801Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 6.221 ms - 81\u001b[0m","timestamp":"2026-04-15T13:34:07.806Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 4.023 ms - 81\u001b[0m","timestamp":"2026-04-15T13:34:10.442Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 3.487 ms - 81\u001b[0m","timestamp":"2026-04-15T13:34:10.449Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 4.693 ms - 81\u001b[0m","timestamp":"2026-04-15T13:34:13.063Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 6.690 ms - 81\u001b[0m","timestamp":"2026-04-15T13:34:13.067Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 5.938 ms - 81\u001b[0m","timestamp":"2026-04-15T13:34:15.342Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 13.235 ms - 81\u001b[0m","timestamp":"2026-04-15T13:34:15.352Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 10.577 ms - 81\u001b[0m","timestamp":"2026-04-15T13:34:17.456Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[33m403\u001b[0m 12.594 ms - 81\u001b[0m","timestamp":"2026-04-15T13:34:17.462Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:35:00.033Z"}
+{"level":"info","message":"✅ PostgreSQL connected","timestamp":"2026-04-15T13:35:57.170Z"}
+{"level":"info","message":"Crons active: publisher (1 min), reports (1 hr)","timestamp":"2026-04-15T13:35:57.355Z"}
+{"level":"info","message":"🚀 Nexus Social API v2.0.0","timestamp":"2026-04-15T13:35:57.364Z"}
+{"level":"info","message":"   Listening on  http://localhost:4000","timestamp":"2026-04-15T13:35:57.365Z"}
+{"level":"info","message":"   API base URL  http://localhost:4000/v1","timestamp":"2026-04-15T13:35:57.366Z"}
+{"level":"info","message":"   Health check  http://localhost:4000/health","timestamp":"2026-04-15T13:35:57.367Z"}
+{"level":"info","message":"   Environment   development","timestamp":"2026-04-15T13:35:57.369Z"}
+{"level":"info","message":"   Platforms     16 (Instagram, Facebook, Twitter, LinkedIn, TikTok, YouTube, Pinterest, Twitch, Bluesky, Threads, TruthSocial, Rumble, Kick, Spotify, Google Business, Shopify)","timestamp":"2026-04-15T13:35:57.370Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:36:00.068Z"}
+{"level":"debug","message":{"err":"jwt expired"},"timestamp":"2026-04-15T13:36:41.814Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 63.355 ms - 366\u001b[0m","timestamp":"2026-04-15T13:36:41.827Z"}
+{"level":"debug","message":{"err":"jwt expired"},"timestamp":"2026-04-15T13:36:41.859Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 11.940 ms - 366\u001b[0m","timestamp":"2026-04-15T13:36:41.863Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[33m401\u001b[0m 3.573 ms - 81\u001b[0m","timestamp":"2026-04-15T13:36:42.125Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[33m401\u001b[0m 2.339 ms - 81\u001b[0m","timestamp":"2026-04-15T13:36:42.136Z"}
+{"level":"debug","message":{"err":"jwt expired"},"timestamp":"2026-04-15T13:36:42.749Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 8.429 ms - 366\u001b[0m","timestamp":"2026-04-15T13:36:42.754Z"}
+{"level":"debug","message":{"err":"jwt expired"},"timestamp":"2026-04-15T13:36:42.758Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 13.711 ms - 366\u001b[0m","timestamp":"2026-04-15T13:36:42.761Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[33m401\u001b[0m 1.662 ms - 81\u001b[0m","timestamp":"2026-04-15T13:36:42.992Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[33m401\u001b[0m 1.921 ms - 81\u001b[0m","timestamp":"2026-04-15T13:36:43.000Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:37:00.043Z"}
+{"level":"info","message":"✅ PostgreSQL connected","timestamp":"2026-04-15T13:37:06.249Z"}
+{"level":"info","message":"Crons active: publisher (1 min), reports (1 hr)","timestamp":"2026-04-15T13:37:06.432Z"}
+{"level":"info","message":"🚀 Nexus Social API v2.0.0","timestamp":"2026-04-15T13:37:06.440Z"}
+{"level":"info","message":"   Listening on  http://localhost:4000","timestamp":"2026-04-15T13:37:06.441Z"}
+{"level":"info","message":"   API base URL  http://localhost:4000/v1","timestamp":"2026-04-15T13:37:06.443Z"}
+{"level":"info","message":"   Health check  http://localhost:4000/health","timestamp":"2026-04-15T13:37:06.444Z"}
+{"level":"info","message":"   Environment   development","timestamp":"2026-04-15T13:37:06.445Z"}
+{"level":"info","message":"   Platforms     16 (Instagram, Facebook, Twitter, LinkedIn, TikTok, YouTube, Pinterest, Twitch, Bluesky, Threads, TruthSocial, Rumble, Kick, Spotify, Google Business, Shopify)","timestamp":"2026-04-15T13:37:06.446Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:38:00.073Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/auth/login \u001b[32m200\u001b[0m 591.194 ms - 765\u001b[0m","timestamp":"2026-04-15T13:38:12.059Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 42.572 ms - -\u001b[0m","timestamp":"2026-04-15T13:38:12.128Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 2.911 ms - 43\u001b[0m","timestamp":"2026-04-15T13:38:12.184Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 22.143 ms - -\u001b[0m","timestamp":"2026-04-15T13:38:12.214Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 78.078 ms - -\u001b[0m","timestamp":"2026-04-15T13:38:12.274Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 30.467 ms - -\u001b[0m","timestamp":"2026-04-15T13:38:12.605Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 23.422 ms - -\u001b[0m","timestamp":"2026-04-15T13:38:12.623Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[32m200\u001b[0m 50.923 ms - -\u001b[0m","timestamp":"2026-04-15T13:38:12.643Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 2.732 ms - 43\u001b[0m","timestamp":"2026-04-15T13:38:12.931Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[32m200\u001b[0m 22.827 ms - -\u001b[0m","timestamp":"2026-04-15T13:38:13.163Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[32m200\u001b[0m 46.279 ms - -\u001b[0m","timestamp":"2026-04-15T13:38:13.198Z"}
+{"level":"http","message":"\u001b[0mGET /v1/socialaccounts?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[33m404\u001b[0m 0.910 ms - 43\u001b[0m","timestamp":"2026-04-15T13:38:13.220Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts?workspace_id=cmo01cbs30003yyrhfve9jdu9&sort=created_date&order=desc&limit=10 \u001b[32m200\u001b[0m 46.015 ms - -\u001b[0m","timestamp":"2026-04-15T13:38:13.231Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[32m200\u001b[0m 85.518 ms - -\u001b[0m","timestamp":"2026-04-15T13:38:13.238Z"}
+{"level":"http","message":"\u001b[0mGET /v1/conversations?workspace_id=cmo01cbs30003yyrhfve9jdu9&sort=created_date&order=desc&limit=5 \u001b[32m200\u001b[0m 24.936 ms - 744\u001b[0m","timestamp":"2026-04-15T13:38:13.333Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:39:00.054Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 0.686 ms - 43\u001b[0m","timestamp":"2026-04-15T13:39:54.919Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 44.319 ms - -\u001b[0m","timestamp":"2026-04-15T13:39:54.967Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 18.519 ms - -\u001b[0m","timestamp":"2026-04-15T13:39:54.989Z"}
+{"level":"http","message":"\u001b[0mGET /v1/mentions?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[33m404\u001b[0m 2.407 ms - 43\u001b[0m","timestamp":"2026-04-15T13:39:55.094Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 30.429 ms - -\u001b[0m","timestamp":"2026-04-15T13:39:55.101Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 18.335 ms - -\u001b[0m","timestamp":"2026-04-15T13:39:55.117Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 18.073 ms - -\u001b[0m","timestamp":"2026-04-15T13:39:55.139Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 23.223 ms - -\u001b[0m","timestamp":"2026-04-15T13:39:55.166Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 1.450 ms - 43\u001b[0m","timestamp":"2026-04-15T13:39:55.242Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 28.318 ms - -\u001b[0m","timestamp":"2026-04-15T13:39:55.277Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 24.793 ms - -\u001b[0m","timestamp":"2026-04-15T13:39:55.305Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 17.526 ms - -\u001b[0m","timestamp":"2026-04-15T13:39:55.426Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 19.822 ms - -\u001b[0m","timestamp":"2026-04-15T13:39:55.450Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 0.656 ms - 43\u001b[0m","timestamp":"2026-04-15T13:39:55.573Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 17.448 ms - -\u001b[0m","timestamp":"2026-04-15T13:39:55.661Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 25.473 ms - -\u001b[0m","timestamp":"2026-04-15T13:39:55.691Z"}
+{"level":"http","message":"\u001b[0mGET /v1/socialaccounts?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[33m404\u001b[0m 0.686 ms - 43\u001b[0m","timestamp":"2026-04-15T13:39:55.710Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts?workspace_id=cmo01cbs30003yyrhfve9jdu9&sort=created_date&order=desc&limit=10 \u001b[36m304\u001b[0m 27.819 ms - -\u001b[0m","timestamp":"2026-04-15T13:39:55.713Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 21.101 ms - -\u001b[0m","timestamp":"2026-04-15T13:39:55.717Z"}
+{"level":"http","message":"\u001b[0mGET /v1/conversations?workspace_id=cmo01cbs30003yyrhfve9jdu9&sort=created_date&order=desc&limit=5 \u001b[36m304\u001b[0m 16.168 ms - -\u001b[0m","timestamp":"2026-04-15T13:39:55.748Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:40:00.037Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 1.991 ms - 43\u001b[0m","timestamp":"2026-04-15T13:40:10.962Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 24.191 ms - -\u001b[0m","timestamp":"2026-04-15T13:40:10.993Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 26.605 ms - -\u001b[0m","timestamp":"2026-04-15T13:40:11.001Z"}
+{"level":"http","message":"\u001b[0mGET /v1/mentions?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[33m404\u001b[0m 1.908 ms - 43\u001b[0m","timestamp":"2026-04-15T13:40:11.101Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[32m200\u001b[0m 22.542 ms - -\u001b[0m","timestamp":"2026-04-15T13:40:11.134Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[32m200\u001b[0m 18.764 ms - -\u001b[0m","timestamp":"2026-04-15T13:40:11.143Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 1.326 ms - 43\u001b[0m","timestamp":"2026-04-15T13:40:11.324Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 21.923 ms - -\u001b[0m","timestamp":"2026-04-15T13:40:11.352Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 27.365 ms - -\u001b[0m","timestamp":"2026-04-15T13:40:11.361Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 23.192 ms - -\u001b[0m","timestamp":"2026-04-15T13:40:11.557Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 23.907 ms - -\u001b[0m","timestamp":"2026-04-15T13:40:11.569Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 0.970 ms - 43\u001b[0m","timestamp":"2026-04-15T13:40:11.763Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[32m200\u001b[0m 17.959 ms - -\u001b[0m","timestamp":"2026-04-15T13:40:11.871Z"}
+{"level":"http","message":"\u001b[0mGET /v1/socialaccounts?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[33m404\u001b[0m 1.094 ms - 43\u001b[0m","timestamp":"2026-04-15T13:40:11.908Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:41:00.052Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:42:00.049Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:43:00.095Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:44:00.083Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:45:00.046Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:46:00.041Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:47:00.042Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:48:00.039Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:49:00.072Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 0.964 ms - 43\u001b[0m","timestamp":"2026-04-15T13:49:01.273Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs \u001b[33m404\u001b[0m 0.832 ms - 43\u001b[0m","timestamp":"2026-04-15T13:49:01.296Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 90.843 ms - -\u001b[0m","timestamp":"2026-04-15T13:49:01.403Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 108.472 ms - 458\u001b[0m","timestamp":"2026-04-15T13:49:01.423Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 49.047 ms - -\u001b[0m","timestamp":"2026-04-15T13:49:03.847Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 42.215 ms - -\u001b[0m","timestamp":"2026-04-15T13:49:03.908Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.540 ms - 366\u001b[0m","timestamp":"2026-04-15T13:49:05.752Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 0.968 ms - 366\u001b[0m","timestamp":"2026-04-15T13:49:05.770Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 30.692 ms - -\u001b[0m","timestamp":"2026-04-15T13:49:07.194Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 47.090 ms - -\u001b[0m","timestamp":"2026-04-15T13:49:07.248Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:50:00.123Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:51:00.044Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:52:00.034Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:53:00.043Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:54:00.029Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:55:00.082Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/auth/login \u001b[33m401\u001b[0m 12.831 ms - 47\u001b[0m","timestamp":"2026-04-15T13:55:31.797Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:56:00.042Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T13:57:00.047Z"}
+{"level":"info","message":"✅ PostgreSQL connected","timestamp":"2026-04-15T14:05:47.862Z"}
+{"level":"info","message":"Crons active: publisher (1 min), reports (1 hr)","timestamp":"2026-04-15T14:05:48.100Z"}
+{"level":"info","message":"🚀 Nexus Social API v2.0.0","timestamp":"2026-04-15T14:05:48.110Z"}
+{"level":"info","message":"   Listening on  http://localhost:4000","timestamp":"2026-04-15T14:05:48.112Z"}
+{"level":"info","message":"   API base URL  http://localhost:4000/v1","timestamp":"2026-04-15T14:05:48.113Z"}
+{"level":"info","message":"   Health check  http://localhost:4000/health","timestamp":"2026-04-15T14:05:48.114Z"}
+{"level":"info","message":"   Environment   development","timestamp":"2026-04-15T14:05:48.115Z"}
+{"level":"info","message":"   Platforms     16 (Instagram, Facebook, Twitter, LinkedIn, TikTok, YouTube, Pinterest, Twitch, Bluesky, Threads, TruthSocial, Rumble, Kick, Spotify, Google Business, Shopify)","timestamp":"2026-04-15T14:05:48.118Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/auth/login \u001b[32m200\u001b[0m 579.500 ms - 765\u001b[0m","timestamp":"2026-04-15T14:05:48.856Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 47.325 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:48.928Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 24.126 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:48.983Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 24.832 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:49.015Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 59.378 ms - 531\u001b[0m","timestamp":"2026-04-15T14:05:49.024Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 41.789 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:49.162Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 41.441 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:49.174Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 27.386 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:49.196Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 21.400 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:49.214Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 30.820 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:49.350Z"}
+{"level":"http","message":"\u001b[0mGET /v1/subscriptions?user_email=admin%40nexus-seed.local \u001b[36m304\u001b[0m 21.557 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:49.354Z"}
+{"level":"http","message":"\u001b[0mGET /v1/subscriptions?user_email=admin%40nexus-seed.local \u001b[36m304\u001b[0m 8.326 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:49.368Z"}
+{"level":"http","message":"\u001b[0mGET /v1/revenues \u001b[33m404\u001b[0m 1.255 ms - 43\u001b[0m","timestamp":"2026-04-15T14:05:49.433Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts \u001b[33m400\u001b[0m 1.914 ms - 49\u001b[0m","timestamp":"2026-04-15T14:05:49.438Z"}
+{"level":"http","message":"\u001b[0mGET /v1/branddeals \u001b[33m404\u001b[0m 0.952 ms - 43\u001b[0m","timestamp":"2026-04-15T14:05:49.444Z"}
+{"level":"http","message":"\u001b[0mGET /v1/subscriptions \u001b[36m304\u001b[0m 21.255 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:49.449Z"}
+{"level":"http","message":"\u001b[0mGET /v1/revenues \u001b[33m404\u001b[0m 0.918 ms - 43\u001b[0m","timestamp":"2026-04-15T14:05:49.458Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 51.366 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:49.462Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 17.557 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:49.485Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts \u001b[33m400\u001b[0m 0.852 ms - 49\u001b[0m","timestamp":"2026-04-15T14:05:50.467Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 15.377 ms - 507\u001b[0m","timestamp":"2026-04-15T14:05:51.826Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 20.271 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:51.835Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 26.557 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:51.867Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 18.566 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:51.986Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 19.680 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:52.009Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts?workspace_id=cmo01cbs30003yyrhfve9jdu9&sort=created_date&order=desc&limit=100 \u001b[32m200\u001b[0m 31.982 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:52.163Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 22.269 ms - 513\u001b[0m","timestamp":"2026-04-15T14:05:54.466Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 22.783 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:54.469Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 59.811 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:57.639Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 34.320 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:57.677Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 20.994 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:57.688Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 27.472 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:57.721Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 19.062 ms - 513\u001b[0m","timestamp":"2026-04-15T14:05:57.737Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 31.280 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:57.758Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 15.424 ms - 507\u001b[0m","timestamp":"2026-04-15T14:05:59.152Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 20.790 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:59.161Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 26.775 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:59.195Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 19.017 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:59.361Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 18.161 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:59.384Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 21.198 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:59.410Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts?workspace_id=cmo01cbs30003yyrhfve9jdu9&sort=created_date&order=desc&limit=100 \u001b[36m304\u001b[0m 20.089 ms - -\u001b[0m","timestamp":"2026-04-15T14:05:59.531Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:06:00.046Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 21.119 ms - 513\u001b[0m","timestamp":"2026-04-15T14:06:08.610Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 24.485 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:08.617Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 18.591 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:08.639Z"}
+{"level":"http","message":"\u001b[0mGET /v1/brands?workspace_id=cmo01cbs30003yyrhfve9jdu9&status=active \u001b[33m404\u001b[0m 2.035 ms - 43\u001b[0m","timestamp":"2026-04-15T14:06:08.751Z"}
+{"level":"http","message":"\u001b[0mGET /v1/campaigns?sort=created_date&order=desc \u001b[33m400\u001b[0m 1.196 ms - 49\u001b[0m","timestamp":"2026-04-15T14:06:08.756Z"}
+{"level":"http","message":"\u001b[0mGET /v1/campaigns?sort=created_date&order=desc \u001b[33m400\u001b[0m 1.207 ms - 49\u001b[0m","timestamp":"2026-04-15T14:06:09.815Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 19.367 ms - 495\u001b[0m","timestamp":"2026-04-15T14:06:12.398Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 19.314 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:12.401Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 24.025 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:12.431Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 21.340 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:12.594Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 23.089 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:12.621Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 18.230 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:12.808Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 16.227 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:12.829Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 15.498 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:12.850Z"}
+{"level":"http","message":"\u001b[0mGET /v1/social-accounts?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[36m304\u001b[0m 25.480 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:12.869Z"}
+{"level":"http","message":"\u001b[0mGET /v1/conversations?workspace_id=cmo01cbs30003yyrhfve9jdu9&sort=created_date&order=desc&limit=5 \u001b[36m304\u001b[0m 22.759 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:12.886Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts?workspace_id=cmo01cbs30003yyrhfve9jdu9&sort=created_date&order=desc&limit=10 \u001b[36m304\u001b[0m 71.735 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:12.895Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 17.667 ms - 531\u001b[0m","timestamp":"2026-04-15T14:06:14.556Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 21.173 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:14.565Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 18.195 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:14.588Z"}
+{"level":"http","message":"\u001b[0mGET /v1/revenues \u001b[33m404\u001b[0m 0.776 ms - 43\u001b[0m","timestamp":"2026-04-15T14:06:14.752Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts \u001b[33m400\u001b[0m 1.275 ms - 49\u001b[0m","timestamp":"2026-04-15T14:06:14.757Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 26.737 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:14.761Z"}
+{"level":"http","message":"\u001b[0mGET /v1/branddeals \u001b[33m404\u001b[0m 0.634 ms - 43\u001b[0m","timestamp":"2026-04-15T14:06:14.767Z"}
+{"level":"http","message":"\u001b[0mGET /v1/revenues \u001b[33m404\u001b[0m 0.467 ms - 43\u001b[0m","timestamp":"2026-04-15T14:06:14.772Z"}
+{"level":"http","message":"\u001b[0mGET /v1/subscriptions \u001b[36m304\u001b[0m 30.620 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:14.779Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 36.820 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:14.813Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts \u001b[33m400\u001b[0m 0.979 ms - 49\u001b[0m","timestamp":"2026-04-15T14:06:15.787Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 16.920 ms - 507\u001b[0m","timestamp":"2026-04-15T14:06:16.694Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 53.586 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:17.453Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 37.837 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:17.497Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 32.552 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:20.077Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 33.962 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:20.116Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 38.297 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:20.887Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 39.112 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:20.932Z"}
+{"level":"info","message":"✅ PostgreSQL connected","timestamp":"2026-04-15T14:06:43.163Z"}
+{"level":"info","message":"Crons active: publisher (1 min), reports (1 hr)","timestamp":"2026-04-15T14:06:43.439Z"}
+{"level":"info","message":"🚀 Nexus Social API v2.0.0","timestamp":"2026-04-15T14:06:43.447Z"}
+{"level":"info","message":"   Listening on  http://localhost:4000","timestamp":"2026-04-15T14:06:43.449Z"}
+{"level":"info","message":"   API base URL  http://localhost:4000/v1","timestamp":"2026-04-15T14:06:43.451Z"}
+{"level":"info","message":"   Health check  http://localhost:4000/health","timestamp":"2026-04-15T14:06:43.453Z"}
+{"level":"info","message":"   Environment   development","timestamp":"2026-04-15T14:06:43.454Z"}
+{"level":"info","message":"   Platforms     16 (Instagram, Facebook, Twitter, LinkedIn, TikTok, YouTube, Pinterest, Twitch, Bluesky, Threads, TruthSocial, Rumble, Kick, Spotify, Google Business, Shopify)","timestamp":"2026-04-15T14:06:43.455Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/auth/login \u001b[32m200\u001b[0m 667.189 ms - 765\u001b[0m","timestamp":"2026-04-15T14:06:57.143Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 39.787 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:57.224Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 26.965 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:57.278Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 22.909 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:57.309Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 59.666 ms - 507\u001b[0m","timestamp":"2026-04-15T14:06:57.316Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 48.415 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:57.465Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 17.148 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:57.486Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 20.607 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:57.511Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts?workspace_id=cmo01cbs30003yyrhfve9jdu9&sort=created_date&order=desc&limit=100 \u001b[36m304\u001b[0m 47.472 ms - -\u001b[0m","timestamp":"2026-04-15T14:06:57.620Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:07:00.060Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 28.610 ms - 507\u001b[0m","timestamp":"2026-04-15T14:07:18.037Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 18.517 ms - 501\u001b[0m","timestamp":"2026-04-15T14:07:22.633Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 19.133 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:22.650Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 22.449 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:22.678Z"}
+{"level":"http","message":"\u001b[0mGET /v1/conversations?sort=last_message_at&order=desc&limit=100 \u001b[33m400\u001b[0m 2.976 ms - 49\u001b[0m","timestamp":"2026-04-15T14:07:22.781Z"}
+{"level":"http","message":"\u001b[0mGET /v1/conversations?sort=last_message_at&order=desc&limit=100 \u001b[33m400\u001b[0m 1.700 ms - 49\u001b[0m","timestamp":"2026-04-15T14:07:23.899Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 19.885 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:26.918Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 20.295 ms - 495\u001b[0m","timestamp":"2026-04-15T14:07:26.925Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 45.857 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:26.968Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 20.490 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:27.107Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 23.684 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:27.135Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 19.488 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:27.342Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 18.875 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:27.366Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 20.364 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:27.391Z"}
+{"level":"http","message":"\u001b[0mGET /v1/social-accounts?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[36m304\u001b[0m 28.085 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:27.412Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts?workspace_id=cmo01cbs30003yyrhfve9jdu9&sort=created_date&order=desc&limit=10 \u001b[36m304\u001b[0m 67.825 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:27.424Z"}
+{"level":"http","message":"\u001b[0mGET /v1/conversations?workspace_id=cmo01cbs30003yyrhfve9jdu9&sort=created_date&order=desc&limit=5 \u001b[36m304\u001b[0m 19.887 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:27.427Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 18.149 ms - 531\u001b[0m","timestamp":"2026-04-15T14:07:28.977Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 22.167 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:28.996Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 22.617 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:29.023Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 20.950 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:29.087Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 21.267 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:29.113Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 47.061 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:29.116Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 20.545 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:29.144Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 22.801 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:29.184Z"}
+{"level":"http","message":"\u001b[0mGET /v1/subscriptions?user_email=admin%40nexus-seed.local \u001b[36m304\u001b[0m 16.449 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:29.188Z"}
+{"level":"http","message":"\u001b[0mGET /v1/subscriptions?user_email=admin%40nexus-seed.local \u001b[36m304\u001b[0m 10.679 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:29.206Z"}
+{"level":"http","message":"\u001b[0mGET /v1/revenues \u001b[33m404\u001b[0m 1.971 ms - 43\u001b[0m","timestamp":"2026-04-15T14:07:29.246Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts \u001b[33m400\u001b[0m 1.212 ms - 49\u001b[0m","timestamp":"2026-04-15T14:07:29.252Z"}
+{"level":"http","message":"\u001b[0mGET /v1/branddeals \u001b[33m404\u001b[0m 1.549 ms - 43\u001b[0m","timestamp":"2026-04-15T14:07:29.260Z"}
+{"level":"http","message":"\u001b[0mGET /v1/revenues \u001b[33m404\u001b[0m 0.670 ms - 43\u001b[0m","timestamp":"2026-04-15T14:07:29.265Z"}
+{"level":"http","message":"\u001b[0mGET /v1/subscriptions \u001b[36m304\u001b[0m 30.736 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:29.272Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 53.559 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:29.276Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 19.091 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:29.298Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts \u001b[33m400\u001b[0m 1.098 ms - 49\u001b[0m","timestamp":"2026-04-15T14:07:30.272Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 17.623 ms - 507\u001b[0m","timestamp":"2026-04-15T14:07:31.509Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 40.619 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:31.538Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 23.565 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:31.567Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 17.816 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:31.664Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 20.273 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:31.688Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts?workspace_id=cmo01cbs30003yyrhfve9jdu9&sort=created_date&order=desc&limit=100 \u001b[36m304\u001b[0m 18.608 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:31.808Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 19.398 ms - 519\u001b[0m","timestamp":"2026-04-15T14:07:38.841Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 19.861 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:38.845Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 25.880 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:38.875Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 16.965 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:39.031Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 16.500 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:39.052Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 21.140 ms - 540\u001b[0m","timestamp":"2026-04-15T14:07:46.633Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 20.781 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:46.639Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 25.486 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:46.677Z"}
+{"level":"error","message":"Unhandled error \nInvalid `db.analytics.findMany()` invocation in\nF:\\Development\\Nexus-social-app\\nexus-v8 Backend fixed_new\\nexus-v8 Backend fixed\\src\\router.ts:201:18\n\n  198 };\n  199 const [total, rows] = await Promise.all([\n  200   db.analytics.count({ where }),\n→ 201   db.analytics.findMany({\n          where: {\n            workspace_id: \"cmo01cbs30003yyrhfve9jdu9\",\n            date: {\n              gte: new Date(\"2026-04-08T14:07:46.808Z\")\n                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n            }\n          },\n          orderBy: {\n            date: \"asc\"\n          },\n          skip: 0,\n          take: 20\n        })\n\nArgument `gte`: Invalid value provided. Expected String or StringFieldRefInput, provided DateTime.","method":"GET","path":"/v1/analytics","timestamp":"2026-04-15T14:07:46.879Z"}
+{"level":"http","message":"\u001b[0mGET /v1/analytics?workspace_id=cmo01cbs30003yyrhfve9jdu9&period=7d&sort=date \u001b[31m500\u001b[0m 77.381 ms - 784\u001b[0m","timestamp":"2026-04-15T14:07:46.886Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 88.491 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:46.909Z"}
+{"level":"http","message":"\u001b[0mGET /v1/social-accounts?workspace_id=cmo01cbs30003yyrhfve9jdu9&status=active \u001b[32m200\u001b[0m 90.974 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:46.912Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts?workspace_id=cmo01cbs30003yyrhfve9jdu9&status=published&sort=created_at&order=desc&limit=50 \u001b[32m200\u001b[0m 88.842 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:46.916Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 18.732 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:46.939Z"}
+{"level":"http","message":"\u001b[0mGET /v1/analytics?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[32m200\u001b[0m 19.321 ms - 643\u001b[0m","timestamp":"2026-04-15T14:07:47.034Z"}
+{"level":"http","message":"\u001b[0mGET /v1/social-accounts?workspace_id=cmo01cbs30003yyrhfve9jdu9&status=active \u001b[36m304\u001b[0m 32.328 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:47.040Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[32m200\u001b[0m 87.026 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:47.110Z"}
+{"level":"error","message":"Unhandled error \nInvalid `db.analytics.count()` invocation in\nF:\\Development\\Nexus-social-app\\nexus-v8 Backend fixed_new\\nexus-v8 Backend fixed\\src\\router.ts:200:18\n\n  197   ...(Object.keys(dateFilter).length && { date: dateFilter }),\n  198 };\n  199 const [total, rows] = await Promise.all([\n→ 200   db.analytics.count({\n          select: {\n            _count: {\n              select: {\n                _all: true\n              }\n            }\n          },\n          where: {\n            workspace_id: \"cmo01cbs30003yyrhfve9jdu9\",\n            date: {\n              gte: new Date(\"2026-04-08T14:07:47.929Z\")\n                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n            }\n          }\n        })\n\nArgument `gte`: Invalid value provided. Expected String or StringFieldRefInput, provided DateTime.","method":"GET","path":"/v1/analytics","timestamp":"2026-04-15T14:07:47.938Z"}
+{"level":"http","message":"\u001b[0mGET /v1/analytics?workspace_id=cmo01cbs30003yyrhfve9jdu9&period=7d&sort=date \u001b[31m500\u001b[0m 12.881 ms - 847\u001b[0m","timestamp":"2026-04-15T14:07:47.942Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 68.925 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:59.630Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 40.096 ms - -\u001b[0m","timestamp":"2026-04-15T14:07:59.675Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:08:00.064Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 38.226 ms - -\u001b[0m","timestamp":"2026-04-15T14:08:00.650Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 39.164 ms - -\u001b[0m","timestamp":"2026-04-15T14:08:00.697Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:09:00.043Z"}
+{"level":"info","message":"✅ PostgreSQL connected","timestamp":"2026-04-15T14:09:54.760Z"}
+{"level":"info","message":"Crons active: publisher (1 min), reports (1 hr)","timestamp":"2026-04-15T14:09:55.007Z"}
+{"level":"info","message":"🚀 Nexus Social API v2.0.0","timestamp":"2026-04-15T14:09:55.015Z"}
+{"level":"info","message":"   Listening on  http://localhost:4000","timestamp":"2026-04-15T14:09:55.020Z"}
+{"level":"info","message":"   API base URL  http://localhost:4000/v1","timestamp":"2026-04-15T14:09:55.022Z"}
+{"level":"info","message":"   Health check  http://localhost:4000/health","timestamp":"2026-04-15T14:09:55.024Z"}
+{"level":"info","message":"   Environment   development","timestamp":"2026-04-15T14:09:55.025Z"}
+{"level":"info","message":"   Platforms     16 (Instagram, Facebook, Twitter, LinkedIn, TikTok, YouTube, Pinterest, Twitch, Bluesky, Threads, TruthSocial, Rumble, Kick, Spotify, Google Business, Shopify)","timestamp":"2026-04-15T14:09:55.026Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:10:00.053Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/auth/login \u001b[32m200\u001b[0m 570.505 ms - 765\u001b[0m","timestamp":"2026-04-15T14:10:09.355Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 43.761 ms - -\u001b[0m","timestamp":"2026-04-15T14:10:09.424Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 24.209 ms - -\u001b[0m","timestamp":"2026-04-15T14:10:09.478Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 25.198 ms - -\u001b[0m","timestamp":"2026-04-15T14:10:09.509Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 55.213 ms - 540\u001b[0m","timestamp":"2026-04-15T14:10:09.514Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 39.729 ms - -\u001b[0m","timestamp":"2026-04-15T14:10:09.743Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 35.832 ms - -\u001b[0m","timestamp":"2026-04-15T14:10:09.752Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 23.239 ms - -\u001b[0m","timestamp":"2026-04-15T14:10:09.780Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 23.479 ms - -\u001b[0m","timestamp":"2026-04-15T14:10:09.810Z"}
+{"level":"http","message":"\u001b[0mGET /v1/analytics?workspace_id=cmo01cbs30003yyrhfve9jdu9&period=7d&sort=date \u001b[32m200\u001b[0m 75.799 ms - 643\u001b[0m","timestamp":"2026-04-15T14:10:10.004Z"}
+{"level":"http","message":"\u001b[0mGET /v1/social-accounts?workspace_id=cmo01cbs30003yyrhfve9jdu9&status=active \u001b[36m304\u001b[0m 151.754 ms - -\u001b[0m","timestamp":"2026-04-15T14:10:10.089Z"}
+{"level":"http","message":"\u001b[0mGET /v1/analytics?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[36m304\u001b[0m 163.580 ms - -\u001b[0m","timestamp":"2026-04-15T14:10:10.113Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts?workspace_id=cmo01cbs30003yyrhfve9jdu9&status=published&sort=created_at&order=desc&limit=50 \u001b[36m304\u001b[0m 181.022 ms - -\u001b[0m","timestamp":"2026-04-15T14:10:10.125Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[36m304\u001b[0m 178.772 ms - -\u001b[0m","timestamp":"2026-04-15T14:10:10.134Z"}
+{"level":"http","message":"\u001b[0mGET /v1/social-accounts?workspace_id=cmo01cbs30003yyrhfve9jdu9&status=active \u001b[36m304\u001b[0m 36.290 ms - -\u001b[0m","timestamp":"2026-04-15T14:10:10.144Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 20.499 ms - 507\u001b[0m","timestamp":"2026-04-15T14:10:45.837Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 44.023 ms - -\u001b[0m","timestamp":"2026-04-15T14:10:45.865Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 21.261 ms - -\u001b[0m","timestamp":"2026-04-15T14:10:45.892Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 31.309 ms - -\u001b[0m","timestamp":"2026-04-15T14:10:46.006Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 23.085 ms - -\u001b[0m","timestamp":"2026-04-15T14:10:46.034Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 24.474 ms - -\u001b[0m","timestamp":"2026-04-15T14:10:46.063Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts?workspace_id=cmo01cbs30003yyrhfve9jdu9&sort=created_date&order=desc&limit=100 \u001b[36m304\u001b[0m 32.938 ms - -\u001b[0m","timestamp":"2026-04-15T14:10:46.184Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 16.930 ms - -\u001b[0m","timestamp":"2026-04-15T14:10:48.326Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 29.714 ms - -\u001b[0m","timestamp":"2026-04-15T14:10:48.335Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 18.699 ms - -\u001b[0m","timestamp":"2026-04-15T14:10:48.360Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 17.545 ms - -\u001b[0m","timestamp":"2026-04-15T14:10:48.381Z"}
+{"level":"http","message":"\u001b[0mGET /v1/media?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[32m200\u001b[0m 26.555 ms - 511\u001b[0m","timestamp":"2026-04-15T14:10:48.394Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspacemembers?workspace_id=cmo01cbs30003yyrhfve9jdu9&status=active \u001b[33m404\u001b[0m 1.829 ms - 43\u001b[0m","timestamp":"2026-04-15T14:10:48.402Z"}
+{"level":"http","message":"\u001b[0mGET /v1/content/templates?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[32m200\u001b[0m 28.103 ms - 350\u001b[0m","timestamp":"2026-04-15T14:10:48.406Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 40.164 ms - -\u001b[0m","timestamp":"2026-04-15T14:10:48.425Z"}
+{"level":"http","message":"\u001b[0mGET /v1/subscriptions?user_email=admin%40nexus-seed.local&workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[32m200\u001b[0m 9.769 ms - 750\u001b[0m","timestamp":"2026-04-15T14:10:48.444Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:11:00.052Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 23.835 ms - 501\u001b[0m","timestamp":"2026-04-15T14:11:07.356Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 41.421 ms - -\u001b[0m","timestamp":"2026-04-15T14:11:07.377Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 21.001 ms - -\u001b[0m","timestamp":"2026-04-15T14:11:07.402Z"}
+{"level":"http","message":"\u001b[0mGET /v1/conversations?sort=last_message_at&order=desc&limit=100 \u001b[33m400\u001b[0m 1.421 ms - 49\u001b[0m","timestamp":"2026-04-15T14:11:07.479Z"}
+{"level":"http","message":"\u001b[0mGET /v1/conversations?sort=last_message_at&order=desc&limit=100 \u001b[33m400\u001b[0m 1.443 ms - 49\u001b[0m","timestamp":"2026-04-15T14:11:08.556Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 17.938 ms - 519\u001b[0m","timestamp":"2026-04-15T14:11:23.540Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 43.598 ms - -\u001b[0m","timestamp":"2026-04-15T14:11:23.570Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 23.758 ms - -\u001b[0m","timestamp":"2026-04-15T14:11:23.598Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 18.202 ms - -\u001b[0m","timestamp":"2026-04-15T14:11:23.711Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 20.275 ms - -\u001b[0m","timestamp":"2026-04-15T14:11:23.736Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 20.911 ms - -\u001b[0m","timestamp":"2026-04-15T14:11:23.761Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 14.949 ms - 501\u001b[0m","timestamp":"2026-04-15T14:11:36.060Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 22.156 ms - -\u001b[0m","timestamp":"2026-04-15T14:11:36.071Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 27.597 ms - -\u001b[0m","timestamp":"2026-04-15T14:11:36.104Z"}
+{"level":"http","message":"\u001b[0mGET /v1/conversations?sort=last_message_at&order=desc&limit=100 \u001b[33m400\u001b[0m 1.117 ms - 49\u001b[0m","timestamp":"2026-04-15T14:11:36.172Z"}
+{"level":"http","message":"\u001b[0mGET /v1/conversations?sort=last_message_at&order=desc&limit=100 \u001b[33m400\u001b[0m 1.430 ms - 49\u001b[0m","timestamp":"2026-04-15T14:11:37.262Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 20.349 ms - 519\u001b[0m","timestamp":"2026-04-15T14:11:41.222Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 28.899 ms - -\u001b[0m","timestamp":"2026-04-15T14:11:41.235Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 25.129 ms - -\u001b[0m","timestamp":"2026-04-15T14:11:41.265Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 19.644 ms - -\u001b[0m","timestamp":"2026-04-15T14:11:41.362Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 19.652 ms - -\u001b[0m","timestamp":"2026-04-15T14:11:41.387Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 17.842 ms - 501\u001b[0m","timestamp":"2026-04-15T14:11:47.274Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 24.237 ms - -\u001b[0m","timestamp":"2026-04-15T14:11:47.284Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 23.926 ms - -\u001b[0m","timestamp":"2026-04-15T14:11:47.314Z"}
+{"level":"http","message":"\u001b[0mGET /v1/conversations?sort=last_message_at&order=desc&limit=100 \u001b[33m400\u001b[0m 1.262 ms - 49\u001b[0m","timestamp":"2026-04-15T14:11:47.385Z"}
+{"level":"http","message":"\u001b[0mGET /v1/conversations?sort=last_message_at&order=desc&limit=100 \u001b[33m400\u001b[0m 2.016 ms - 49\u001b[0m","timestamp":"2026-04-15T14:11:48.463Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 21.778 ms - 519\u001b[0m","timestamp":"2026-04-15T14:11:50.598Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 23.518 ms - -\u001b[0m","timestamp":"2026-04-15T14:11:50.604Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 19.948 ms - -\u001b[0m","timestamp":"2026-04-15T14:11:50.629Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 14.940 ms - -\u001b[0m","timestamp":"2026-04-15T14:11:50.696Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 16.448 ms - -\u001b[0m","timestamp":"2026-04-15T14:11:50.715Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:12:00.050Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 19.033 ms - 537\u001b[0m","timestamp":"2026-04-15T14:12:07.565Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 56.981 ms - -\u001b[0m","timestamp":"2026-04-15T14:12:11.557Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 35.509 ms - -\u001b[0m","timestamp":"2026-04-15T14:12:11.596Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 32.130 ms - -\u001b[0m","timestamp":"2026-04-15T14:12:12.406Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 33.361 ms - -\u001b[0m","timestamp":"2026-04-15T14:12:12.443Z"}
+{"level":"info","message":"✅ PostgreSQL connected","timestamp":"2026-04-15T14:12:56.732Z"}
+{"level":"info","message":"Crons active: publisher (1 min), reports (1 hr)","timestamp":"2026-04-15T14:12:56.911Z"}
+{"level":"info","message":"🚀 Nexus Social API v2.0.0","timestamp":"2026-04-15T14:12:56.918Z"}
+{"level":"info","message":"   Listening on  http://localhost:4000","timestamp":"2026-04-15T14:12:56.919Z"}
+{"level":"info","message":"   API base URL  http://localhost:4000/v1","timestamp":"2026-04-15T14:12:56.920Z"}
+{"level":"info","message":"   Health check  http://localhost:4000/health","timestamp":"2026-04-15T14:12:56.921Z"}
+{"level":"info","message":"   Environment   development","timestamp":"2026-04-15T14:12:56.922Z"}
+{"level":"info","message":"   Platforms     16 (Instagram, Facebook, Twitter, LinkedIn, TikTok, YouTube, Pinterest, Twitch, Bluesky, Threads, TruthSocial, Rumble, Kick, Spotify, Google Business, Shopify)","timestamp":"2026-04-15T14:12:56.922Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:13:00.059Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:14:00.040Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:15:00.038Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:16:00.041Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:17:00.044Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:18:00.096Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 5.488 ms - -\u001b[0m","timestamp":"2026-04-15T14:18:46.223Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 78.488 ms - -\u001b[0m","timestamp":"2026-04-15T14:18:46.316Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[32m200\u001b[0m 42.761 ms - -\u001b[0m","timestamp":"2026-04-15T14:18:46.388Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 31.587 ms - 501\u001b[0m","timestamp":"2026-04-15T14:18:46.539Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 35.514 ms - -\u001b[0m","timestamp":"2026-04-15T14:18:46.567Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 63.368 ms - 495\u001b[0m","timestamp":"2026-04-15T14:18:46.586Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 25.096 ms - -\u001b[0m","timestamp":"2026-04-15T14:18:46.603Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 23.624 ms - -\u001b[0m","timestamp":"2026-04-15T14:18:47.029Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 37.774 ms - -\u001b[0m","timestamp":"2026-04-15T14:18:47.061Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 41.869 ms - -\u001b[0m","timestamp":"2026-04-15T14:18:47.075Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 38.809 ms - -\u001b[0m","timestamp":"2026-04-15T14:18:47.538Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 20.541 ms - -\u001b[0m","timestamp":"2026-04-15T14:18:47.564Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 19.855 ms - -\u001b[0m","timestamp":"2026-04-15T14:18:47.589Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts?workspace_id=cmo01cbs30003yyrhfve9jdu9&sort=created_date&order=desc&limit=10 \u001b[36m304\u001b[0m 44.977 ms - -\u001b[0m","timestamp":"2026-04-15T14:18:47.764Z"}
+{"level":"http","message":"\u001b[0mGET /v1/social-accounts?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[36m304\u001b[0m 62.994 ms - -\u001b[0m","timestamp":"2026-04-15T14:18:47.790Z"}
+{"level":"http","message":"\u001b[0mGET /v1/conversations?workspace_id=cmo01cbs30003yyrhfve9jdu9&sort=created_date&order=desc&limit=5 \u001b[36m304\u001b[0m 66.022 ms - -\u001b[0m","timestamp":"2026-04-15T14:18:47.798Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 41.478 ms - -\u001b[0m","timestamp":"2026-04-15T14:18:49.247Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:19:00.045Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.805 ms - -\u001b[0m","timestamp":"2026-04-15T14:19:10.195Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 56.567 ms - -\u001b[0m","timestamp":"2026-04-15T14:19:10.225Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 33.980 ms - -\u001b[0m","timestamp":"2026-04-15T14:19:10.263Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 46.569 ms - -\u001b[0m","timestamp":"2026-04-15T14:19:10.303Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 34.692 ms - -\u001b[0m","timestamp":"2026-04-15T14:19:10.343Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 22.165 ms - -\u001b[0m","timestamp":"2026-04-15T14:19:10.392Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 21.424 ms - 495\u001b[0m","timestamp":"2026-04-15T14:19:10.397Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 23.961 ms - -\u001b[0m","timestamp":"2026-04-15T14:19:10.424Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 21.538 ms - -\u001b[0m","timestamp":"2026-04-15T14:19:10.696Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 22.231 ms - -\u001b[0m","timestamp":"2026-04-15T14:19:10.722Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:20:00.060Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:21:00.046Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 26.479 ms - 531\u001b[0m","timestamp":"2026-04-15T14:21:53.511Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 32.530 ms - -\u001b[0m","timestamp":"2026-04-15T14:21:53.523Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 23.022 ms - -\u001b[0m","timestamp":"2026-04-15T14:21:53.552Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 27.258 ms - -\u001b[0m","timestamp":"2026-04-15T14:21:53.643Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 23.864 ms - -\u001b[0m","timestamp":"2026-04-15T14:21:53.672Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 49.561 ms - -\u001b[0m","timestamp":"2026-04-15T14:21:53.678Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 21.081 ms - -\u001b[0m","timestamp":"2026-04-15T14:21:53.712Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 21.142 ms - -\u001b[0m","timestamp":"2026-04-15T14:21:53.739Z"}
+{"level":"http","message":"\u001b[0mGET /v1/subscriptions?user_email=admin%40nexus-seed.local \u001b[36m304\u001b[0m 17.654 ms - -\u001b[0m","timestamp":"2026-04-15T14:21:53.787Z"}
+{"level":"http","message":"\u001b[0mGET /v1/subscriptions?user_email=admin%40nexus-seed.local \u001b[36m304\u001b[0m 11.835 ms - -\u001b[0m","timestamp":"2026-04-15T14:21:53.808Z"}
+{"level":"http","message":"\u001b[0mGET /v1/revenue/entries \u001b[33m400\u001b[0m 2.778 ms - 49\u001b[0m","timestamp":"2026-04-15T14:21:53.872Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts \u001b[33m400\u001b[0m 1.576 ms - 49\u001b[0m","timestamp":"2026-04-15T14:21:53.878Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 34.676 ms - -\u001b[0m","timestamp":"2026-04-15T14:21:53.881Z"}
+{"level":"http","message":"\u001b[0mGET /v1/revenue/deals \u001b[33m400\u001b[0m 2.971 ms - 49\u001b[0m","timestamp":"2026-04-15T14:21:53.891Z"}
+{"level":"http","message":"\u001b[0mGET /v1/revenue/entries \u001b[33m400\u001b[0m 1.530 ms - 49\u001b[0m","timestamp":"2026-04-15T14:21:53.903Z"}
+{"level":"http","message":"\u001b[0mGET /v1/subscriptions \u001b[36m304\u001b[0m 49.304 ms - -\u001b[0m","timestamp":"2026-04-15T14:21:53.913Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 38.353 ms - -\u001b[0m","timestamp":"2026-04-15T14:21:53.961Z"}
+{"level":"http","message":"\u001b[0mGET /v1/revenue/entries \u001b[33m400\u001b[0m 1.305 ms - 49\u001b[0m","timestamp":"2026-04-15T14:21:54.917Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts \u001b[33m400\u001b[0m 6.286 ms - 49\u001b[0m","timestamp":"2026-04-15T14:21:54.931Z"}
+{"level":"http","message":"\u001b[0mGET /v1/revenue/deals \u001b[33m400\u001b[0m 3.221 ms - 49\u001b[0m","timestamp":"2026-04-15T14:21:54.949Z"}
+{"level":"http","message":"\u001b[0mGET /v1/revenue/entries \u001b[33m400\u001b[0m 2.623 ms - 49\u001b[0m","timestamp":"2026-04-15T14:21:54.960Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 23.710 ms - -\u001b[0m","timestamp":"2026-04-15T14:21:56.849Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 22.378 ms - -\u001b[0m","timestamp":"2026-04-15T14:21:56.876Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 20.100 ms - -\u001b[0m","timestamp":"2026-04-15T14:21:56.964Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 21.022 ms - -\u001b[0m","timestamp":"2026-04-15T14:21:56.991Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts?workspace_id=cmo01cbs30003yyrhfve9jdu9&sort=created_date&order=desc&limit=100 \u001b[36m304\u001b[0m 23.835 ms - -\u001b[0m","timestamp":"2026-04-15T14:21:57.113Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 2370.795 ms - 507\u001b[0m","timestamp":"2026-04-15T14:21:59.194Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 17.990 ms - 513\u001b[0m","timestamp":"2026-04-15T14:21:59.858Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 25.198 ms - -\u001b[0m","timestamp":"2026-04-15T14:21:59.869Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:22:00.049Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 17.872 ms - 507\u001b[0m","timestamp":"2026-04-15T14:22:02.110Z"}
+{"level":"http","message":"\u001b[0mGET /v1/auth/me \u001b[36m304\u001b[0m 24.537 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:02.125Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 22.950 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:02.275Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 23.315 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:02.303Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 21.423 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:23.590Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 25.480 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:23.623Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 29.708 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:23.670Z"}
+{"level":"http","message":"\u001b[0mGET /v1/media?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[36m304\u001b[0m 28.684 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:23.680Z"}
+{"level":"http","message":"\u001b[0mGET /v1/content/templates?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[36m304\u001b[0m 19.566 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:23.684Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspacemembers?workspace_id=cmo01cbs30003yyrhfve9jdu9&status=active \u001b[33m404\u001b[0m 1.295 ms - 43\u001b[0m","timestamp":"2026-04-15T14:22:23.704Z"}
+{"level":"http","message":"\u001b[0mPOST /v1/app-logs/page-view \u001b[32m201\u001b[0m 16.234 ms - 531\u001b[0m","timestamp":"2026-04-15T14:22:26.030Z"}
+{"level":"http","message":"\u001b[0mGET /v1/revenue/entries \u001b[33m400\u001b[0m 1.525 ms - 49\u001b[0m","timestamp":"2026-04-15T14:22:26.209Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts \u001b[33m400\u001b[0m 1.196 ms - 49\u001b[0m","timestamp":"2026-04-15T14:22:26.215Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 30.495 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:26.219Z"}
+{"level":"http","message":"\u001b[0mGET /v1/revenue/deals \u001b[33m400\u001b[0m 1.696 ms - 49\u001b[0m","timestamp":"2026-04-15T14:22:26.226Z"}
+{"level":"http","message":"\u001b[0mGET /v1/revenue/entries \u001b[33m400\u001b[0m 1.525 ms - 49\u001b[0m","timestamp":"2026-04-15T14:22:26.231Z"}
+{"level":"http","message":"\u001b[0mGET /v1/subscriptions \u001b[36m304\u001b[0m 33.000 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:26.236Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 17.820 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:26.262Z"}
+{"level":"http","message":"\u001b[0mGET /v1/revenue/entries \u001b[33m400\u001b[0m 2.217 ms - 49\u001b[0m","timestamp":"2026-04-15T14:22:27.270Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts \u001b[33m400\u001b[0m 3.689 ms - 49\u001b[0m","timestamp":"2026-04-15T14:22:27.295Z"}
+{"level":"http","message":"\u001b[0mGET /v1/revenue/deals \u001b[33m400\u001b[0m 3.468 ms - 49\u001b[0m","timestamp":"2026-04-15T14:22:27.310Z"}
+{"level":"http","message":"\u001b[0mGET /v1/revenue/entries \u001b[33m400\u001b[0m 2.300 ms - 49\u001b[0m","timestamp":"2026-04-15T14:22:27.319Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 59.999 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:27.902Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 41.924 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:27.948Z"}
+{"level":"http","message":"\u001b[0mGET /v1/revenue/entries \u001b[33m400\u001b[0m 1.514 ms - 49\u001b[0m","timestamp":"2026-04-15T14:22:28.322Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts \u001b[33m400\u001b[0m 13.535 ms - 49\u001b[0m","timestamp":"2026-04-15T14:22:28.354Z"}
+{"level":"http","message":"\u001b[0mGET /v1/revenue/deals \u001b[33m400\u001b[0m 1.556 ms - 49\u001b[0m","timestamp":"2026-04-15T14:22:28.377Z"}
+{"level":"http","message":"\u001b[0mGET /v1/revenue/entries \u001b[33m400\u001b[0m 3.273 ms - 49\u001b[0m","timestamp":"2026-04-15T14:22:28.397Z"}
+{"level":"http","message":"\u001b[0mGET /v1/revenue/entries \u001b[33m400\u001b[0m 1.514 ms - 49\u001b[0m","timestamp":"2026-04-15T14:22:29.374Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts \u001b[33m400\u001b[0m 1.555 ms - 49\u001b[0m","timestamp":"2026-04-15T14:22:29.382Z"}
+{"level":"http","message":"\u001b[0mGET /v1/revenue/deals \u001b[33m400\u001b[0m 1.703 ms - 49\u001b[0m","timestamp":"2026-04-15T14:22:29.392Z"}
+{"level":"http","message":"\u001b[0mGET /v1/revenue/entries \u001b[33m400\u001b[0m 1.621 ms - 49\u001b[0m","timestamp":"2026-04-15T14:22:29.420Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 1.025 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:30.210Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 27.680 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:32.073Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 18.058 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:32.167Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts?workspace_id=cmo01cbs30003yyrhfve9jdu9&sort=created_date&order=desc&limit=100 \u001b[36m304\u001b[0m 39.477 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:32.278Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 22.371 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:33.806Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 51.519 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:44.695Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 46.133 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:44.750Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 23.672 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:45.237Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 36.406 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:45.283Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts?workspace_id=cmo01cbs30003yyrhfve9jdu9&sort=created_date&order=desc&limit=100 \u001b[36m304\u001b[0m 87.006 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:45.534Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.969 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:46.090Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.696 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:46.095Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 17.614 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:47.995Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 17.925 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:48.016Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 19.427 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:48.040Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspacemembers?workspace_id=cmo01cbs30003yyrhfve9jdu9&status=active \u001b[33m404\u001b[0m 1.710 ms - 43\u001b[0m","timestamp":"2026-04-15T14:22:48.068Z"}
+{"level":"http","message":"\u001b[0mGET /v1/media?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[36m304\u001b[0m 20.223 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:48.076Z"}
+{"level":"http","message":"\u001b[0mGET /v1/content/templates?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[36m304\u001b[0m 20.244 ms - -\u001b[0m","timestamp":"2026-04-15T14:22:48.082Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:23:00.039Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 104.553 ms - -\u001b[0m","timestamp":"2026-04-15T14:23:24.183Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 51.532 ms - -\u001b[0m","timestamp":"2026-04-15T14:23:24.239Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 44.930 ms - -\u001b[0m","timestamp":"2026-04-15T14:23:24.585Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 25.184 ms - -\u001b[0m","timestamp":"2026-04-15T14:23:24.626Z"}
+{"level":"http","message":"\u001b[0mGET /v1/posts?workspace_id=cmo01cbs30003yyrhfve9jdu9&sort=created_date&order=desc&limit=100 \u001b[36m304\u001b[0m 43.565 ms - -\u001b[0m","timestamp":"2026-04-15T14:23:24.782Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.884 ms - -\u001b[0m","timestamp":"2026-04-15T14:23:25.350Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.666 ms - -\u001b[0m","timestamp":"2026-04-15T14:23:25.359Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 18.238 ms - -\u001b[0m","timestamp":"2026-04-15T14:23:26.959Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 17.543 ms - -\u001b[0m","timestamp":"2026-04-15T14:23:26.982Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 16.926 ms - -\u001b[0m","timestamp":"2026-04-15T14:23:27.009Z"}
+{"level":"http","message":"\u001b[0mGET /v1/media?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[36m304\u001b[0m 14.778 ms - -\u001b[0m","timestamp":"2026-04-15T14:23:27.028Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspacemembers?workspace_id=cmo01cbs30003yyrhfve9jdu9&status=active \u001b[33m404\u001b[0m 1.756 ms - 43\u001b[0m","timestamp":"2026-04-15T14:23:27.038Z"}
+{"level":"http","message":"\u001b[0mGET /v1/content/templates?workspace_id=cmo01cbs30003yyrhfve9jdu9 \u001b[36m304\u001b[0m 24.614 ms - -\u001b[0m","timestamp":"2026-04-15T14:23:27.043Z"}
+{"level":"http","message":"\u001b[0mGET /v1/conversations?sort=last_message_at&order=desc&limit=100 \u001b[33m400\u001b[0m 7.654 ms - 49\u001b[0m","timestamp":"2026-04-15T14:23:56.876Z"}
+{"level":"http","message":"\u001b[0mGET /v1/conversations?sort=last_message_at&order=desc&limit=100 \u001b[33m400\u001b[0m 1.670 ms - 49\u001b[0m","timestamp":"2026-04-15T14:23:58.009Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:24:00.176Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 52.292 ms - -\u001b[0m","timestamp":"2026-04-15T14:24:03.850Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[36m304\u001b[0m 22.029 ms - -\u001b[0m","timestamp":"2026-04-15T14:24:03.937Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 63.180 ms - -\u001b[0m","timestamp":"2026-04-15T14:24:32.842Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 39.980 ms - -\u001b[0m","timestamp":"2026-04-15T14:24:32.887Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:25:00.040Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 29.380 ms - -\u001b[0m","timestamp":"2026-04-15T14:25:01.179Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 33.223 ms - -\u001b[0m","timestamp":"2026-04-15T14:25:01.216Z"}
+{"err":"jwt expired","level":"debug","message":"GET /app/public-settings: optional JWT not used; returning generic branding","timestamp":"2026-04-15T14:25:10.906Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[32m200\u001b[0m 11.013 ms - 366\u001b[0m","timestamp":"2026-04-15T14:25:10.911Z"}
+{"err":"jwt expired","level":"debug","message":"GET /app/public-settings: optional JWT not used; returning generic branding","timestamp":"2026-04-15T14:25:10.932Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 18.825 ms - -\u001b[0m","timestamp":"2026-04-15T14:25:10.934Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[33m401\u001b[0m 1.301 ms - 81\u001b[0m","timestamp":"2026-04-15T14:25:11.185Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[33m401\u001b[0m 1.363 ms - 81\u001b[0m","timestamp":"2026-04-15T14:25:11.194Z"}
+{"err":"jwt expired","level":"debug","message":"GET /app/public-settings: optional JWT not used; returning generic branding","timestamp":"2026-04-15T14:25:18.197Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 8.888 ms - -\u001b[0m","timestamp":"2026-04-15T14:25:18.200Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[33m401\u001b[0m 1.767 ms - 81\u001b[0m","timestamp":"2026-04-15T14:25:18.400Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[33m401\u001b[0m 1.522 ms - 81\u001b[0m","timestamp":"2026-04-15T14:25:18.413Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 1.057 ms - -\u001b[0m","timestamp":"2026-04-15T14:25:19.198Z"}
+{"err":"jwt expired","level":"debug","message":"GET /app/public-settings: optional JWT not used; returning generic branding","timestamp":"2026-04-15T14:25:19.975Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 6.201 ms - -\u001b[0m","timestamp":"2026-04-15T14:25:19.979Z"}
+{"err":"jwt expired","level":"debug","message":"GET /app/public-settings: optional JWT not used; returning generic branding","timestamp":"2026-04-15T14:25:19.988Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 10.878 ms - -\u001b[0m","timestamp":"2026-04-15T14:25:19.996Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[33m401\u001b[0m 1.520 ms - 81\u001b[0m","timestamp":"2026-04-15T14:25:20.322Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[33m401\u001b[0m 1.474 ms - 81\u001b[0m","timestamp":"2026-04-15T14:25:20.332Z"}
+{"err":"jwt expired","level":"debug","message":"GET /app/public-settings: optional JWT not used; returning generic branding","timestamp":"2026-04-15T14:25:23.772Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 14.858 ms - -\u001b[0m","timestamp":"2026-04-15T14:25:23.782Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[33m401\u001b[0m 1.944 ms - 81\u001b[0m","timestamp":"2026-04-15T14:25:23.948Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[33m401\u001b[0m 2.235 ms - 81\u001b[0m","timestamp":"2026-04-15T14:25:23.956Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.591 ms - -\u001b[0m","timestamp":"2026-04-15T14:25:24.184Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.727 ms - -\u001b[0m","timestamp":"2026-04-15T14:25:24.188Z"}
+{"err":"jwt expired","level":"debug","message":"GET /app/public-settings: optional JWT not used; returning generic branding","timestamp":"2026-04-15T14:25:26.279Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 6.683 ms - -\u001b[0m","timestamp":"2026-04-15T14:25:26.282Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[33m401\u001b[0m 1.799 ms - 81\u001b[0m","timestamp":"2026-04-15T14:25:26.446Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[33m401\u001b[0m 1.880 ms - 81\u001b[0m","timestamp":"2026-04-15T14:25:26.454Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.373 ms - -\u001b[0m","timestamp":"2026-04-15T14:25:27.179Z"}
+{"err":"jwt expired","level":"debug","message":"GET /app/public-settings: optional JWT not used; returning generic branding","timestamp":"2026-04-15T14:25:36.530Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 9.971 ms - -\u001b[0m","timestamp":"2026-04-15T14:25:36.537Z"}
+{"err":"jwt expired","level":"debug","message":"GET /app/public-settings: optional JWT not used; returning generic branding","timestamp":"2026-04-15T14:25:36.550Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 11.606 ms - -\u001b[0m","timestamp":"2026-04-15T14:25:36.554Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[33m401\u001b[0m 2.609 ms - 81\u001b[0m","timestamp":"2026-04-15T14:25:36.890Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[33m401\u001b[0m 2.094 ms - 81\u001b[0m","timestamp":"2026-04-15T14:25:36.901Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.598 ms - -\u001b[0m","timestamp":"2026-04-15T14:25:37.261Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 1.256 ms - -\u001b[0m","timestamp":"2026-04-15T14:25:37.270Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:26:00.040Z"}
+{"err":"jwt expired","level":"debug","message":"GET /app/public-settings: optional JWT not used; returning generic branding","timestamp":"2026-04-15T14:26:07.138Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 17.714 ms - -\u001b[0m","timestamp":"2026-04-15T14:26:07.148Z"}
+{"err":"jwt expired","level":"debug","message":"GET /app/public-settings: optional JWT not used; returning generic branding","timestamp":"2026-04-15T14:26:07.166Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 16.600 ms - -\u001b[0m","timestamp":"2026-04-15T14:26:07.171Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[33m401\u001b[0m 2.204 ms - 81\u001b[0m","timestamp":"2026-04-15T14:26:07.509Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[33m401\u001b[0m 5.728 ms - 81\u001b[0m","timestamp":"2026-04-15T14:26:07.523Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.742 ms - -\u001b[0m","timestamp":"2026-04-15T14:26:08.768Z"}
+{"level":"http","message":"\u001b[0mGET /v1/app/public-settings \u001b[36m304\u001b[0m 0.835 ms - -\u001b[0m","timestamp":"2026-04-15T14:26:08.777Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:27:00.031Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:28:00.036Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:29:00.043Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:30:00.069Z"}
+{"level":"info","message":"Publisher: 0 posts due","timestamp":"2026-04-15T14:31:00.040Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[33m401\u001b[0m 1.667 ms - 81\u001b[0m","timestamp":"2026-04-15T14:31:13.703Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[33m401\u001b[0m 1.384 ms - 81\u001b[0m","timestamp":"2026-04-15T14:31:13.708Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[33m401\u001b[0m 1.309 ms - 81\u001b[0m","timestamp":"2026-04-15T14:31:17.058Z"}
+{"level":"http","message":"\u001b[0mGET /v1/workspaces?status=active \u001b[33m401\u001b[0m 1.525 ms - 81\u001b[0m","timestamp":"2026-04-15T14:31:17.065Z"}

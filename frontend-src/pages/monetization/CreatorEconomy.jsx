@@ -29,7 +29,7 @@ import { cn } from '@/lib/utils';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import moment from 'moment';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 
 
@@ -117,8 +117,8 @@ export default function CreatorEconomy() {
     queryKey: ['creator-economy', workspaceId],
     queryFn: async () => { 
       const [revenues, deals] = await Promise.all([
-        base44.entities.Revenue.filter({ workspace_id: workspaceId, period: '30d' }),
-        base44.entities.BrandDeal.filter({ workspace_id: workspaceId }),
+        api.entities.Revenue.filter({ workspace_id: workspaceId, period: '30d' }),
+        api.entities.BrandDeal.filter({ workspace_id: workspaceId }),
       ]);
       return { revenues, deals, totalRevenue: revenues.reduce((s,r)=>s+(r.amount||0),0) };
       },

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useQuery } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -36,7 +36,7 @@ export default function Dashboard() {
 
   const loadUser = async () => {
     try {
-      const userData = await base44.auth.me();
+      const userData = await api.auth.me();
       setUser(userData);
     } catch (error) {
       console.error('Error loading user:', error);
@@ -46,9 +46,9 @@ export default function Dashboard() {
   const { data: posts = [] } = useQuery({
     queryKey: ['posts', user?.email],
     queryFn: async () => {
-      const workspaces = await base44.entities.Workspace.filter({ status: 'active' });
+      const workspaces = await api.entities.Workspace.filter({ status: 'active' });
       if (workspaces.length === 0) return [];
-      return base44.entities.Post.filter({ workspace_id: workspaces[0].id }, '-created_date', 10);
+      return api.entities.Post.filter({ workspace_id: workspaces[0].id }, '-created_date', 10);
     },
     enabled: !!user
   });
@@ -56,9 +56,9 @@ export default function Dashboard() {
   const { data: accounts = [] } = useQuery({
     queryKey: ['accounts', user?.email],
     queryFn: async () => {
-      const workspaces = await base44.entities.Workspace.filter({ status: 'active' });
+      const workspaces = await api.entities.Workspace.filter({ status: 'active' });
       if (workspaces.length === 0) return [];
-      return base44.entities.SocialAccount.filter({ workspace_id: workspaces[0].id });
+      return api.entities.SocialAccount.filter({ workspace_id: workspaces[0].id });
     },
     enabled: !!user
   });
@@ -66,9 +66,9 @@ export default function Dashboard() {
   const { data: conversations = [] } = useQuery({
     queryKey: ['conversations', user?.email],
     queryFn: async () => {
-      const workspaces = await base44.entities.Workspace.filter({ status: 'active' });
+      const workspaces = await api.entities.Workspace.filter({ status: 'active' });
       if (workspaces.length === 0) return [];
-      return base44.entities.Conversation.filter({ workspace_id: workspaces[0].id }, '-created_date', 5);
+      return api.entities.Conversation.filter({ workspace_id: workspaces[0].id }, '-created_date', 5);
     },
     enabled: !!user
   });

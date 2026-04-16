@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -65,7 +65,7 @@ export function WelcomeChecklist() {
 
   const loadProgress = async () => {
     try {
-      const userData = await base44.auth.me();
+      const userData = await api.auth.me();
       setUser(userData);
       setCompletedItems(userData.checklist_completed || []);
       
@@ -80,7 +80,7 @@ export function WelcomeChecklist() {
 
   const handleDismiss = async () => {
     try {
-      await base44.auth.updateMe({ checklist_dismissed: true });
+      await api.auth.updateMe({ checklist_dismissed: true });
       setIsVisible(false);
     } catch (error) {
       console.error('Error dismissing checklist:', error);
@@ -91,7 +91,7 @@ export function WelcomeChecklist() {
     const updated = [...completedItems, itemId];
     setCompletedItems(updated);
     try {
-      await base44.auth.updateMe({ checklist_completed: updated });
+      await api.auth.updateMe({ checklist_completed: updated });
     } catch (error) {
       console.error('Error updating checklist:', error);
     }

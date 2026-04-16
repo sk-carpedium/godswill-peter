@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useQuery } from '@tanstack/react-query';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -42,17 +42,17 @@ export default function ClientPortal() {
   }, []);
 
   const loadUser = async () => {
-    const userData = await base44.auth.me();
+    const userData = await api.auth.me();
     setUser(userData);
   };
 
   const checkPlanAccess = async () => {
     try {
-      const user = await base44.auth.me();
-      const workspaces = await base44.entities.Workspace.filter({ status: 'active' });
+      const user = await api.auth.me();
+      const workspaces = await api.entities.Workspace.filter({ status: 'active' });
       if (workspaces.length === 0) return;
       
-      const subscriptions = await base44.entities.Subscription.filter({
+      const subscriptions = await api.entities.Subscription.filter({
         user_email: user.email,
         workspace_id: workspaces[0].id
       });
@@ -74,11 +74,11 @@ export default function ClientPortal() {
       const workspaceId = urlParams.get('workspace');
       
       if (workspaceId) {
-        const workspaces = await base44.entities.Workspace.filter({ id: workspaceId });
+        const workspaces = await api.entities.Workspace.filter({ id: workspaceId });
         return workspaces[0];
       }
       
-      const workspaces = await base44.entities.Workspace.list();
+      const workspaces = await api.entities.Workspace.list();
       return workspaces[0];
     }
   });
@@ -101,7 +101,7 @@ export default function ClientPortal() {
 
   const { data: analytics = [] } = useQuery({
     queryKey: ['client-analytics', workspace?.id],
-    queryFn: () => base44.entities.Analytics.filter({ workspace_id: workspace.id }),
+    queryFn: () => api.entities.Analytics.filter({ workspace_id: workspace.id }),
     enabled: !!workspace
   });
 

@@ -13,7 +13,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Badge } from '@/components/ui/badge';
 import { Sparkles, Copy, RefreshCw, Wand2, Zap } from 'lucide-react';
 import { toast } from 'sonner';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 
 const TONES = ['Professional','Casual','Friendly','Excited','Formal','Humorous'];
 const TYPES = ['Social Post','Caption','Thread','Story','Ad Copy','Bio'];
@@ -31,7 +31,7 @@ export default function ContentGenerator({ onUseContent }) {
     setGenerating(true);
     try {
       // Real API call → POST /ai/generate-content
-      const result = await base44.integrations.Core.GenerateContent({
+      const result = await api.integrations.Core.GenerateContent({
         prompt, tone, contentType, keywords,
       });
       // Backend returns { text, hashtags, variations, call_to_action, best_post_time }

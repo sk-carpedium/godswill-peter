@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -37,12 +37,12 @@ export default function CampaignStrategyBuilder({ workspaceId, brandId }) {
     setIsGenerating(true);
     try {
       const [posts, analytics, competitors] = await Promise.all([
-        base44.entities.Post.filter({ workspace_id: workspaceId }),
-        base44.entities.Analytics.filter({ workspace_id: workspaceId }),
-        base44.entities.CompetitorTrack.filter({ workspace_id: workspaceId })
+        api.entities.Post.filter({ workspace_id: workspaceId }),
+        api.entities.Analytics.filter({ workspace_id: workspaceId }),
+        api.entities.CompetitorTrack.filter({ workspace_id: workspaceId })
       ]);
 
-      const response = await base44.integrations.Core.InvokeLLM({
+      const response = await api.integrations.Core.InvokeLLM({
         prompt: `Create a comprehensive campaign strategy based on:
 
 Objective: ${objective}
@@ -260,7 +260,7 @@ Generate a complete campaign strategy including:
     if (!strategy) return;
 
     try {
-      const campaign = await base44.entities.Campaign.create({
+      const campaign = await api.entities.Campaign.create({
         workspace_id: workspaceId,
         brand_id: brandId,
         name: strategy.campaign_overview.name,

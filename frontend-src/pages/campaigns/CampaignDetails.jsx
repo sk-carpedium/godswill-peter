@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useQuery } from '@tanstack/react-query';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -43,7 +43,7 @@ export default function CampaignDetails() {
     queryKey: ['campaign', campaignId],
     queryFn: async () => {
       if (!campaignId) return null;
-      const campaigns = await base44.entities.Campaign.filter({ id: campaignId });
+      const campaigns = await api.entities.Campaign.filter({ id: campaignId });
       return campaigns[0] || null;
     },
     enabled: !!campaignId
@@ -51,7 +51,7 @@ export default function CampaignDetails() {
 
   const { data: posts = [] } = useQuery({
     queryKey: ['campaign-posts', campaignId],
-    queryFn: () => base44.entities.Post.filter({ campaign_id: campaignId }),
+    queryFn: () => api.entities.Post.filter({ campaign_id: campaignId }),
     enabled: !!campaignId
   });
 

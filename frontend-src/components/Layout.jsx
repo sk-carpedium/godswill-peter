@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useAppearance } from '@/lib/AppearanceContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useQuery } from '@tanstack/react-query';
 import { cn } from '@/lib/utils';
 import {
@@ -382,10 +382,10 @@ export default function Layout({ children, currentPageName }) {
   const { data: workspaces = [] } = useQuery({
     queryKey: ['workspaces'],
     queryFn: async () => {
-      const list = await base44.entities.Workspace.filter({ status: 'active' });
+      const list = await api.entities.Workspace.filter({ status: 'active' });
       if (list.length === 0) {
-        const userData = await base44.auth.me();
-        const newWorkspace = await base44.entities.Workspace.create({
+        const userData = await api.auth.me();
+        const newWorkspace = await api.entities.Workspace.create({
           name: `${userData?.full_name || 'My'}'s Workspace`,
           slug: `workspace-${Date.now()}`,
           plan: 'starter',
@@ -404,9 +404,12 @@ export default function Layout({ children, currentPageName }) {
     if (workspaces.length > 0 && !currentWorkspace) setCurrentWorkspace(workspaces[0]);
   }, [workspaces, currentWorkspace]);
 
+  // Validate session once on shell mount — not on every route change (that re-called /auth/me
+  // and sent users to /login on any transient error or expired access token before refresh existed).
   useEffect(() => {
     checkAuthAndLoadData();
-  }, [currentPageName]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional: avoid re-auth ping on each page
+  }, []);
 
   useEffect(() => {
     if (user && !user.onboarding_completed && currentPageName !== 'Onboarding') {
@@ -432,16 +435,15 @@ export default function Layout({ children, currentPageName }) {
 
   const checkAuthAndLoadData = async () => {
     try {
-      const isAuthenticated = await base44.auth.isAuthenticated();
-      if (!isAuthenticated) {
+      if (!api.auth.isAuthenticated()) {
         if (currentPageName === 'Landing') {
           setIsAuthenticating(false);
           return;
         }
-        base44.auth.redirectToLogin();
+        api.auth.redirectToLogin();
         return;
       }
-      const userData = await base44.auth.me();
+      const userData = await api.auth.me();
       setUser(userData);
       setIsAuthenticating(false);
     } catch (error) {
@@ -450,13 +452,18 @@ export default function Layout({ children, currentPageName }) {
         setIsAuthenticating(false);
         return;
       }
-      base44.auth.redirectToLogin();
+      // Only leave the app for real auth failures — not 5xx/network glitches.
+      if (error?.status === 401 || error?.status === 403) {
+        api.auth.redirectToLogin();
+      } else {
+        setIsAuthenticating(false);
+      }
     }
   };
 
-  const handleLogout = () => base44.auth.logout();
-  const handleTourComplete = async () => { setShowTour(false); await base44.auth.updateMe({ tour_completed: true }); };
-  const handleTourSkip = async () => { setShowTour(false); await base44.auth.updateMe({ tour_completed: true }); };
+  const handleLogout = () => api.auth.logout();
+  const handleTourComplete = async () => { setShowTour(false); await api.auth.updateMe({ tour_completed: true }); };
+  const handleTourSkip = async () => { setShowTour(false); await api.auth.updateMe({ tour_completed: true }); };
   const handleRestartTour = () => setShowTour(true);
 
   if (isAuthenticating) {

@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 
 
@@ -61,7 +61,7 @@ export default function AffiliateDashboard() {
   const { data: _apiData = {}, isLoading } = useQuery({
     queryKey: ['affiliate-links', workspaceId],
     queryFn: async () => { 
-      const revenues = await base44.entities.Revenue.filter({ workspace_id: workspaceId, source: 'affiliate' });
+      const revenues = await api.entities.Revenue.filter({ workspace_id: workspaceId, source: 'affiliate' });
       const byPost = {};
       revenues.forEach(r => {
         const key = r.post_id || r.id;

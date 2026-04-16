@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -163,7 +163,7 @@ export default function Settings() {
 
   const loadUser = async () => {
     try {
-      const userData = await base44.auth.me();
+      const userData = await api.auth.me();
       setUser(userData);
     } catch (error) {
       console.error('Error loading user:', error);
@@ -172,12 +172,12 @@ export default function Settings() {
 
   const { data: accounts = [] } = useQuery({
     queryKey: ['social-accounts'],
-    queryFn: () => base44.entities.SocialAccount.list()
+    queryFn: () => api.entities.SocialAccount.list()
   });
 
   const { data: workspaces = [] } = useQuery({
     queryKey: ['workspaces'],
-    queryFn: () => base44.entities.Workspace.list()
+    queryFn: () => api.entities.Workspace.list()
   });
 
   const currentWorkspace = workspaces[0];

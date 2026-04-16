@@ -5,12 +5,12 @@
  * Returns: { workspace, workspaces, user, workspaceId, isLoading, switchWorkspace }
  */
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 
 export function useUser() {
   return useQuery({
     queryKey: ['user'],
-    queryFn:  () => base44.auth.me(),
+    queryFn:  () => api.auth.me(),
     staleTime: 5 * 60 * 1000,
     retry: false,
   });
@@ -19,7 +19,7 @@ export function useUser() {
 export function useWorkspaces() {
   return useQuery({
     queryKey: ['workspaces'],
-    queryFn:  () => base44.entities.Workspace.filter({ status: 'active' }),
+    queryFn:  () => api.entities.Workspace.filter({ status: 'active' }),
     staleTime: 2 * 60 * 1000,
   });
 }

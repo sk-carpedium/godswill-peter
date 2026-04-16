@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Bell, CheckCheck } from 'lucide-react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 import moment from 'moment';
 
@@ -15,12 +15,12 @@ export default function TeamNotifications() {
 
   const { data: notifs = [], isLoading } = useQuery({
     queryKey: ['notifications', workspaceId],
-    queryFn: () => base44.entities.Mention.filter({ workspace_id: workspaceId, status: 'new', sort: '-mentioned_at', limit: 20 }),
+    queryFn: () => api.entities.Mention.filter({ workspace_id: workspaceId, status: 'new', sort: '-mentioned_at', limit: 20 }),
     enabled: !!workspaceId, refetchInterval: 30000,
   });
 
   const markAll = useMutation({
-    mutationFn: () => Promise.all(notifs.map(n => base44.entities.Mention.update(n.id, { status: 'reviewed' }))),
+    mutationFn: () => Promise.all(notifs.map(n => api.entities.Mention.update(n.id, { status: 'reviewed' }))),
     onSuccess: () => qc.invalidateQueries({ queryKey: ['notifications'] }),
   });
 

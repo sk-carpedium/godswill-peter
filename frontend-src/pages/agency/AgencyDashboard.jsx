@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useQuery } from '@tanstack/react-query';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -36,15 +36,15 @@ export default function AgencyDashboard() {
 
   const checkAgencyAccess = async () => {
     try {
-      const user = await base44.auth.me();
-      const workspaces = await base44.entities.Workspace.filter({ status: 'active' });
+      const user = await api.auth.me();
+      const workspaces = await api.entities.Workspace.filter({ status: 'active' });
       
       if (workspaces.length === 0) {
         setPlanAccess(true); // Allow access to create first workspace
         return;
       }
       
-      const subscriptions = await base44.entities.Subscription.filter({
+      const subscriptions = await api.entities.Subscription.filter({
         user_email: user.email
       });
       
@@ -61,19 +61,19 @@ export default function AgencyDashboard() {
 
   const { data: allRevenue = [] } = useQuery({
     queryKey: ['all-revenue-agency'],
-    queryFn: () => base44.entities.Revenue.list(),
+    queryFn: () => api.entities.Revenue.list(),
     enabled: planAccess
   });
 
   const { data: allWorkspaces = [] } = useQuery({
     queryKey: ['all-workspaces-agency'],
-    queryFn: () => base44.entities.Workspace.filter({ status: 'active' }),
+    queryFn: () => api.entities.Workspace.filter({ status: 'active' }),
     enabled: planAccess
   });
 
   const { data: allDeals = [] } = useQuery({
     queryKey: ['all-deals-agency'],
-    queryFn: () => base44.entities.BrandDeal.list(),
+    queryFn: () => api.entities.BrandDeal.list(),
     enabled: planAccess
   });
 

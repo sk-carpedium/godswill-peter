@@ -12,7 +12,7 @@ import { cn } from '@/lib/utils';
 import moment from 'moment';
 import { toast } from 'sonner';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 
 
@@ -28,7 +28,7 @@ export default function CommentManager({ platform, platformName, platformColor }
   const { data: _apiData = {}, isLoading } = useQuery({
     queryKey: ['comments', workspaceId],
     queryFn: async () => { 
-      const mentions = await base44.entities.Mention.filter({ workspace_id: workspaceId, type: 'comment', status: 'new', sort: '-mentioned_at', limit: 50 });
+      const mentions = await api.entities.Mention.filter({ workspace_id: workspaceId, type: 'comment', status: 'new', sort: '-mentioned_at', limit: 50 });
       return mentions;
       },
     enabled: !!workspaceId,

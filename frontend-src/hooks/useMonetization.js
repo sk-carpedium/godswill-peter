@@ -3,7 +3,7 @@
  * Replaces: hardcoded salesData/linkedPosts in SalesTracker, hardcoded deals in ActiveDeals
  */
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from './useWorkspace';
 import { toast } from 'sonner';
 
@@ -12,7 +12,7 @@ export function useRevenue(filters = {}) {
   const { workspaceId } = useWorkspace();
   return useQuery({
     queryKey: ['revenue', workspaceId, filters],
-    queryFn: () => base44.entities.Revenue.filter({
+    queryFn: () => api.entities.Revenue.filter({
       workspace_id: workspaceId, ...filters,
     }),
     enabled: !!workspaceId,
@@ -25,7 +25,7 @@ export function useBrandDeals(status = 'active') {
   const { workspaceId } = useWorkspace();
   return useQuery({
     queryKey: ['brand-deals', workspaceId, status],
-    queryFn: () => base44.entities.BrandDeal.filter({
+    queryFn: () => api.entities.BrandDeal.filter({
       workspace_id: workspaceId, ...(status && { status }),
     }),
     enabled: !!workspaceId,
@@ -40,8 +40,8 @@ export function useSalesData(period = '7d') {
     queryKey: ['sales-data', workspaceId, period],
     queryFn: async () => {
       const [revenues, posts] = await Promise.all([
-        base44.entities.Revenue.filter({ workspace_id: workspaceId, period }),
-        base44.entities.Post.filter({ workspace_id: workspaceId, status: 'published', sort: '-created_at', limit: 20 }),
+        api.entities.Revenue.filter({ workspace_id: workspaceId, period }),
+        api.entities.Post.filter({ workspace_id: workspaceId, status: 'published', sort: '-created_at', limit: 20 }),
       ]);
 
       // Build daily chart data grouped by date
@@ -90,7 +90,7 @@ export function useEarningsBreakdown(period = '7d') {
   return useQuery({
     queryKey: ['earnings-breakdown', workspaceId, period],
     queryFn: async () => {
-      const revenues = await base44.entities.Revenue.filter({
+      const revenues = await api.entities.Revenue.filter({
         workspace_id: workspaceId, period,
       });
       // Group by date + source for stacked chart
@@ -115,7 +115,7 @@ export function useBrandDealMutations() {
 
   return {
     update: useMutation({
-      mutationFn: ({ id, data }) => base44.entities.BrandDeal.update(id, data),
+      mutationFn: ({ id, data }) => api.entities.BrandDeal.update(id, data),
       onSuccess: () => { toast.success('Deal updated'); invalidate(); },
       onError: (e) => toast.error(e.message),
     }),

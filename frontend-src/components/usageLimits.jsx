@@ -1,15 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 
 export function useUsageLimits() {
   const { data: subscription } = useQuery({
     queryKey: ['subscription'],
     queryFn: async () => {
-      const user = await base44.auth.me();
-      const workspaces = await base44.entities.Workspace.filter({ status: 'active' });
+      const user = await api.auth.me();
+      const workspaces = await api.entities.Workspace.filter({ status: 'active' });
       if (workspaces.length === 0) return null;
       
-      const subs = await base44.entities.Subscription.filter({
+      const subs = await api.entities.Subscription.filter({
         user_email: user.email,
         workspace_id: workspaces[0].id
       });

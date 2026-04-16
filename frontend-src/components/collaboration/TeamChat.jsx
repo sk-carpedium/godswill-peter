@@ -10,7 +10,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Send, MessageSquare } from 'lucide-react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 import moment from 'moment';
 
@@ -22,7 +22,7 @@ export default function TeamChat() {
 
   const { data: conversations = [], isLoading } = useQuery({
     queryKey: ['team-chat', workspaceId],
-    queryFn: () => base44.entities.Conversation.filter({ workspace_id: workspaceId, type: 'team_chat', sort: '-updated_at', limit: 1 }),
+    queryFn: () => api.entities.Conversation.filter({ workspace_id: workspaceId, type: 'team_chat', sort: '-updated_at', limit: 1 }),
     enabled: !!workspaceId,
     refetchInterval: 10000,
   });
@@ -31,7 +31,7 @@ export default function TeamChat() {
 
   const { data: messages = [] } = useQuery({
     queryKey: ['team-chat-messages', conversation?.id],
-    queryFn: () => base44.agents.getConversation(conversation.id),
+    queryFn: () => api.agents.getConversation(conversation.id),
     enabled: !!conversation?.id,
     refetchInterval: 5000,
     select: (d) => d?.messages || [],
@@ -42,10 +42,10 @@ export default function TeamChat() {
   const sendMsg = useMutation({
     mutationFn: async (text) => {
       if (!conversation?.id) {
-        const conv = await base44.entities.Conversation.create({ workspace_id: workspaceId, type: 'team_chat', title: 'Team Chat' });
-        return base44.agents.addMessage(conv.id, text, user?.display_name || 'Team');
+        const conv = await api.entities.Conversation.create({ workspace_id: workspaceId, type: 'team_chat', title: 'Team Chat' });
+        return api.agents.addMessage(conv.id, text, user?.display_name || 'Team');
       }
-      return base44.agents.addMessage(conversation.id, text, user?.display_name || 'Team');
+      return api.agents.addMessage(conversation.id, text, user?.display_name || 'Team');
     },
     onSuccess: () => { qc.invalidateQueries({ queryKey: ['team-chat'] }); qc.invalidateQueries({ queryKey: ['team-chat-messages'] }); },
   });

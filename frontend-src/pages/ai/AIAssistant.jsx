@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -84,7 +84,7 @@ export default function AIAssistant() {
 
   const loadWorkspace = async () => {
     try {
-      const workspaces = await base44.entities.Workspace.filter({ status: 'active' });
+      const workspaces = await api.entities.Workspace.filter({ status: 'active' });
       if (workspaces.length > 0) {
         setWorkspaceId(workspaces[0].id);
       }
@@ -95,12 +95,12 @@ export default function AIAssistant() {
 
   const initializeConversation = async () => {
     try {
-      const conversations = await base44.agents.listConversations({
+      const conversations = await api.agents.listConversations({
         agent_name: 'customer_support'
       });
       
       if (conversations?.length > 0) {
-        const latestConvo = await base44.agents.getConversation(conversations[0].id);
+        const latestConvo = await api.agents.getConversation(conversations[0].id);
         setCurrentConversation(latestConvo);
         setMessages(latestConvo.messages || []);
       }
@@ -111,7 +111,7 @@ export default function AIAssistant() {
 
   useEffect(() => {
     if (currentConversation) {
-      const unsubscribe = base44.agents.subscribeToConversation(currentConversation.id, (data) => {
+      const unsubscribe = api.agents.subscribeToConversation(currentConversation.id, (data) => {
         setMessages(data.messages || []);
         setIsLoading(false);
       });
@@ -136,7 +136,7 @@ export default function AIAssistant() {
       let conversation = currentConversation;
       
       if (!conversation) {
-        conversation = await base44.agents.createConversation({
+        conversation = await api.agents.createConversation({
           agent_name: 'customer_support',
           metadata: {
             name: 'AI Assistant Chat',
@@ -146,7 +146,7 @@ export default function AIAssistant() {
         setCurrentConversation(conversation);
       }
 
-      await base44.agents.addMessage(conversation, {
+      await api.agents.addMessage(conversation, {
         role: 'user',
         content: prompt
       });
@@ -169,7 +169,7 @@ export default function AIAssistant() {
     setIsGeneratingAB(true);
     try {
       // AI-powered A/B variations - works for all Growth+ plans
-      const response = await base44.integrations.Core.InvokeLLM({
+      const response = await api.integrations.Core.InvokeLLM({
         prompt: `Generate 3 A/B test variations for this social media post. Each variation should test a different element (headline, CTA, tone, emoji usage, etc.).
 
 Original post:
@@ -228,10 +228,10 @@ Return a JSON array with variations, each having: variation_name, content, test_
   const getOptimalPostingTimes = async () => {
     setIsLoadingTimes(true);
     try {
-      const posts = await base44.entities.Post.filter({ workspace_id: workspaceId });
-      const analytics = await base44.entities.Analytics.filter({ workspace_id: workspaceId });
+      const posts = await api.entities.Post.filter({ workspace_id: workspaceId });
+      const analytics = await api.entities.Analytics.filter({ workspace_id: workspaceId });
       
-      const response = await base44.integrations.Core.InvokeLLM({
+      const response = await api.integrations.Core.InvokeLLM({
         prompt: `Based on historical performance data, suggest optimal posting times for ${selectedPlatform}.
 
 Historical data: ${JSON.stringify({ posts: posts.slice(0, 20), analytics: analytics.slice(0, 20) })}
@@ -270,7 +270,7 @@ Analyze engagement patterns by day of week and time of day. Return optimal posti
     setIsGeneratingCalendar(true);
     try {
       const daysCount = calendarDuration === 'week' ? 7 : 30;
-      const response = await base44.integrations.Core.InvokeLLM({
+      const response = await api.integrations.Core.InvokeLLM({
         prompt: `Create a detailed ${daysCount}-day AI-powered content calendar with comprehensive content ideas.
 
 Goal: ${calendarGoal}
@@ -434,8 +434,8 @@ Ensure content diversity across the calendar period and align with current trend
     
     setIsUploadingGuide(true);
     try {
-      const { file_url } = await base44.integrations.Core.UploadFile({ file });
-      const extracted = await base44.integrations.Core.ExtractDataFromUploadedFile({
+      const { file_url } = await api.integrations.Core.UploadFile({ file });
+      const extracted = await api.integrations.Core.ExtractDataFromUploadedFile({
         file_url,
         json_schema: {
           type: "object",

@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { Sparkles, Upload, Loader2, CheckCircle2, Palette, BookOpen, MessageSquare, FileText } from 'lucide-react';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
@@ -44,7 +44,7 @@ export default function BrandVoiceTrainer({ brandId, onSave }) {
 
     setIsTraining(true);
     try {
-      const response = await base44.integrations.Core.InvokeLLM({
+      const response = await api.integrations.Core.InvokeLLM({
         prompt: `Analyze these sample social media posts and create a comprehensive brand voice profile:
 
 Sample Posts:

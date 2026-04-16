@@ -5,7 +5,7 @@ import { Switch } from '@/components/ui/switch';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Shield } from 'lucide-react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 import { toast } from 'sonner';
 
@@ -22,12 +22,12 @@ export default function PermissionsManager() {
 
   const { data: members = [], isLoading } = useQuery({
     queryKey: ['workspace-members', workspaceId],
-    queryFn: () => base44.entities.WorkspaceMember.list({ workspace_id: workspaceId }),
+    queryFn: () => api.entities.WorkspaceMember.list({ workspace_id: workspaceId }),
     enabled: !!workspaceId,
   });
 
   const update = useMutation({
-    mutationFn: ({ id, permissions }) => base44.entities.WorkspaceMember.update(id, { permissions }),
+    mutationFn: ({ id, permissions }) => api.entities.WorkspaceMember.update(id, { permissions }),
     onSuccess: () => { toast.success('Permissions updated'); qc.invalidateQueries({ queryKey: ['workspace-members'] }); },
     onError: e => toast.error(e.message),
   });

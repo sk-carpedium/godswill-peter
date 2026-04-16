@@ -16,7 +16,7 @@ import {
 import { cn } from '@/lib/utils';
 import moment from 'moment';
 import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { api } from '@/api/client';
 import { useWorkspace } from '@/hooks';
 
 
@@ -35,8 +35,8 @@ export default function RevenueByPost({ posts = [] }) {
     queryKey: ['revenue-by-post', workspaceId],
     queryFn: async () => { 
       const [revenues, posts] = await Promise.all([
-        base44.entities.Revenue.filter({ workspace_id: workspaceId, period: '30d' }),
-        base44.entities.Post.filter({ workspace_id: workspaceId, status: 'published', sort: '-created_at', limit: 50 }),
+        api.entities.Revenue.filter({ workspace_id: workspaceId, period: '30d' }),
+        api.entities.Post.filter({ workspace_id: workspaceId, status: 'published', sort: '-created_at', limit: 50 }),
       ]);
       return posts.map(p => ({
         ...p,
